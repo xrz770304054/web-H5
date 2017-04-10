@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="description" content="" />
+<meta name="author" content="ChongMing" />
+<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-touch-fullscreen" content="yes">
+<meta name="full-screen" content="yes">
+<meta name="screen-orientation" content="portrait">
+<meta name="x5-fullscreen" content="true">
+<meta name="360-fullscreen" content="true">
+<title>人物</title>
+</head>
+<!--<link rel="stylesheet" href="css/framework7.ios.min.css">-->
+<!--<link rel="stylesheet" href="css/framework7.ios.colors.min.css">-->
+<!--<link rel="stylesheet" href="css/my-app.css">-->
+<link rel="stylesheet" href="css/reset.css">
+<link rel="stylesheet" href="css/style.css">
+<script src="js/jquery-1.7.1.min.js"></script>
+<script src="js/jquery.mobile-1.4.3.js"></script>
+<!--<script type="text/javascript" src="js/framework7.min.js"></script>-->
+<!--<script type="text/javascript" src="js/my-app.js"></script>-->
+<script src="js/main.js"></script>
+<script src="https://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script>
+    $(function(){
+        //        设置borwidth
+        var a_w = $('.header .nav a').width();
+        $('.header .bor').width(a_w);
+        $('.header .bor').css('marginLeft','5%');
+//        判断是否登录
+//        commonobject.login();
+//        点击收听
+        $('.find_character .charactertype .publictype .type1con .listenin').live('tap',function(){
+            var is_follow = $(this).attr('data-is_follow');
+            var to_uid = $(this).attr('data-id');
+            if(is_follow=='true'){
+                $(this).find('img').show();
+                $(this).find('p').width('auto').html('收听').css({'padding':'11% 2% 9% 10%'});
+                $(this).attr('data-is_follow','false');
+            }else{
+                $(this).find('img').hide();
+                $(this).find('p').width('100%').html('已收听').css({'text-align':'center','padding':'11% 0 9% 0'});
+                $(this).attr('data-is_follow','true');
+            }
+            commonobject.listen(to_uid);
+        });
+//        跳转任务列表
+        $('.find_character .charactertype .publictype .top .p2').click(function(){
+            var type = $(this).data('type');
+            location.href='topanswer.html?type='+type;
+        });
+//        点击进入个人主页
+        $('.find_character .characterlist .characterwin,.find_character .charactertype .publictype .type1con .headpic').live('tap',function(){
+            var to_uid = $(this).data('to_uid');
+            location.href='http://www.ekangjiuyi.net/EKang2.0/hospital_nurse/userhomepage.html?to_uid='+to_uid
+        });
+//        人物上面接口
+        Main.get(url+'ask/user/recest',{uid:8},function(res){
+            if(res.ret==0){
+                //执行成功
+                console.log(res.data)
+                var data = res.data
+                $.each(data,function(i,t){
+                    $('.find_character .characterlist').append('<div class="characterwin" data-to_uid="'+ t.id+'"><div class="headpic" style=" background: url('+ t.headimgurl+') no-repeat; background-size: cover;"></div><p class="name">'+ t.nickname+'</p></div>');
+                });
+                //        设置顶部宽
+                var characterwin_w = $('.find_character .characterlist .characterwin').width();
+                var characterwin_l = $('.find_character .characterlist .characterwin').length;
+                $('.find_character .characterlist').width(characterwin_w*characterwin_l+10+'px');
+            }else{
+                alert(res.msg);
+                //执行失败
+            }
+        });
+        var page_index=1;
+        var page_size = 3;
+//        人物栏目1
+        commonobject.recest('ask/user/recest',$('.find_character .charactertype .type1'),page_index,page_size);
+        commonobject.recest('ask/user/hotAnswerRec',$('.find_character .charactertype .type2'),page_index,page_size);
+        commonobject.recest('ask/user/doctorEst',$('.find_character .charactertype .type3'),page_index,page_size);
+    });
+</script>
+<style>
+    .header .nav a{
+        width: 50%;
+    }
+</style>
+<body style=" background: #ebebeb; -webkit-overflow-scrolling: touch;">
+<div class="header" style=" margin-top: 0">
+    <div class="nav">
+        <a class="hover item-link">人物</a>
+        <a data-ajax="false" data-transition="slide" href="find_problem.html" class="external">问题</a>
+    </div>
+    <div class="bor"></div>
+    <a class="search external" data-ajax="false" href="search.html"><img src="images/icon1.png"></a>
+</div>
+<div class="find_character">
+    <div class="character_bg" style=" width: 100%; overflow: hidden; background: #fff;">
+        <div class="charactercon">
+            <div class="characterlist">
+
+            </div>
+        </div>
+    </div>
+    <div class="charactertype">
+        <div class="type1 publictype">
+            <div class="top">
+                <p class="p1">新人推荐</p>
+                <p class="p2" data-type="1">更多</p>
+            </div>
+
+        </div>
+        <div class="type2 publictype">
+            <div class="top">
+                <p class="p1">热门答主</p>
+                <p class="p2" data-type="2">更多</p>
+            </div>
+        </div>
+        <div class="type3 publictype">
+            <div class="top">
+                <p class="p1">知名医师</p>
+                <p class="p2" data-type="3">更多</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="botnav">
+    <dl onclick="link('index.html')" class="buttonproblemlist">
+        <dt><img src="images/icon2.png"></dt>
+        <dd>榜单</dd>
+    </dl>
+    <dl onclick="link('listening_newproblems.html')" class="buttonproblemlist">
+        <dt><img src="images/icon3.png"></dt>
+        <dd>收听</dd>
+    </dl>
+    <dl class="buttonproblemlist">
+        <dt><img src="images/icon4hover.png"></dt>
+        <dd class="hover">发现</dd>
+    </dl>
+    <dl onclick="link('personalhomepage.html')" class="buttonproblemlist">
+        <dt><img src="images/icon5.png"></dt>
+        <dd>我的</dd>
+    </dl>
+</div>
+</body>
+</html>

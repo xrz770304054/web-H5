@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="description" content="" />
+<meta name="author" content="ChongMing" />
+<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-touch-fullscreen" content="yes">
+<meta name="full-screen" content="yes">
+<meta name="screen-orientation" content="portrait">
+<meta name="x5-fullscreen" content="true">
+<meta name="360-fullscreen" content="true">
+<title></title>
+</head>
+<link rel="stylesheet" href="css/framework7.ios.min.css">
+<link rel="stylesheet" href="css/framework7.ios.colors.min.css">
+<link rel="stylesheet" href="css/my-app.css">
+<link rel="stylesheet" href="css/reset.css">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/animate.min.css">
+<script src="js/jquery-1.7.1.min.js"></script>
+<script type="text/javascript" src="js/framework7.min.js"></script>
+<script type="text/javascript" src="js/my-app.js"></script>
+<script src="js/main2.js"></script>
+<!--<script src="js/jquery.mobile-1.4.3.js"></script>-->
+<script src="https://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script src="js/jquery.cookie.js"></script>
+<script src="js/ap.js"></script>
+<script src="js/pingpp.js"></script>
+<script>
+    window.onload = function(){
+        page_url = encodeURI(location.href);
+//        commonobject.onMenuShareAppMessage('123','向他问问题吧'.html(),'http://ekang.ren/ask/index/index?url='+page_url,'http://www.ekangjiuyi.net/fenda/images/img_4.png');
+//        commonobject.onMenuShareTimeline($('title').html(),'http://ekang.ren/ask/index/index?url='+page_url,'http://www.ekangjiuyi.net/fenda/images/img_4.png');
+        var title = $('title').html();
+        wx.onMenuShareAppMessage({
+            title: title, // 分享标题
+            desc: '我在易答收获到了很多知识一起来玩呦！', // 分享描述
+            link: 'http://ekang.ren/ask/index/index?url='+page_url, // 分享链接
+            imgUrl: $.cookie('fx_img2'), // 分享图标
+            type: '', // 分享类型,music、video或link，不填默认为link
+            dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+            success: function () {
+                // 用户确认分享后执行的回调函数
+            },
+            cancel: function () {
+                // 用户取消分享后执行的回调函数
+            }
+        });
+        wx.onMenuShareTimeline({
+            title: title+'在易答收获到了很多知识一起来玩呦', // 分享标题
+            link: 'http://ekang.ren/ask/index/index?url='+page_url, // 分享链接
+            imgUrl: $.cookie('fx_img2'), // 分享图标
+            success: function () {
+                // 用户确认分享后执行的回调函数
+            },
+            cancel: function () {
+                // 用户取消分享后执行的回调函数
+            }
+        });
+    }
+    $(function(){
+        //        设置borwidth
+        var a_w = $('.index .header .nav a').width();
+        $('.index .header .bor').width(a_w);
+        $('.index .header .bor').css('marginLeft','5%');
+ //       实时监测字符长度
+        $('.userhomepage .askquestions textarea').keyup(function(e){
+            //这就是输入值的个数
+            var key =  e.which;
+            var length=this.value.length;
+            if(length>60&&key!=8){
+                layer('字数已超出')
+                $('.userhomepage .askquestions textarea').blur()
+            }
+            $('.userhomepage .askquestions .text .textnum').html(length+'/'+60)
+        });
+        //	他人主页 radio
+        var radio2 = 0
+        $('.userhomepage .askquestions .open .radio').click(function(){
+            if(radio2==0){
+                $(this).children('img').attr('src','images/radioclick.png')
+                radio2 = 1
+            }else{
+                $(this).children('img').attr('src','images/radio.png')
+                radio2 = 0
+            }
+        });
+//        获取信息
+//        var uid = getQueryString('uid');
+        var to_uid = getQueryString('to_uid');
+        var code = getQueryString('code')
+        var page_index = 1;
+        var page_size = 12;
+        Main.get(url+'ask/user/getOtherUserInfo',{to_uid:to_uid,page_index:page_index,page_size:page_size},function(res){
+            if(res.ret==0){
+                //执行成功
+                console.log(res.data)
+                var data = res.data
+                if(data.is_myself==0){
+                    $('.userhomepage .askquestions').show();
+                    $('.userhomepage .headerinformation .content .listenButton').show();
+                }else{
+                    $('.userhomepage .headerinformation .content .p1,.p3').show();
+                }
+                $('.userhomepage .headerinformation .content .headportrait').css({'background':'url('+data.headimgurl+')','backgroundSize':'cover'});
+                var fx_img2 = data.headimgurl
+                $.cookie('fx_img2',fx_img2,{ expires: 7,path: '/' });
+                $('.userhomepage .headerinformation .content .name').html(data.nickname);
+                $('title').html(data.nickname)
+                $('.userhomepage .headerinformation .content .career_listening .occupation').html(data.title);
+                $('.userhomepage .headerinformation .content .autograph').html(data.intro);
+                $('.userhomepage .headerinformation .content .career_listening .listening').html(data.listen_count+'人收听');
+                $('.userhomepage .askquestions .tit .p2').html('￥'+data.money);
+                $('.userhomepage .listtoptit .p_left').html('回答了'+ data.answer_count+'个问题，总收入'+ data.total_amount+'元');
+                if(data.is_free==1){
+                    $('.userhomepage .headerinformation .content .p1').html('向我提问需支付<b>￥'+data.money+'</b>,可免费追问')
+                }else{
+                    $('.userhomepage .headerinformation .content .p1').html('向我提问需支付<b>￥'+data.money+'</b>,不接受免费追问')
+                }
+                //        设置信息第二栏宽度
+                var l_w =  $('.userhomepage .headerinformation .content .career_listening .occupation').outerWidth();
+                var pic_w = $('.userhomepage .headerinformation .content .career_listening img').outerWidth();
+                var r_w = $('.userhomepage .headerinformation .content .career_listening .listening').outerWidth();
+                $('.userhomepage .headerinformation .content .career_listening').width((l_w+pic_w+r_w)+'px');
+//                $('.userhomepage .headerinformation .content .listenButton').attr('data-status',data.follos_status);
+//                //        点击收听按钮
+//                var listen = $('.userhomepage .headerinformation .content .listenButton').data('status');
+                var follos_status = data.follos_status
+                if(follos_status==true){
+                    $('.userhomepage .headerinformation .content .listenButton').css({'background':'#ccc'});
+                    $('.userhomepage .headerinformation .content .listenButton').children('p').html('已收听').css({'color':'#fff','width':'100%','text-align':'center','paddingLeft':'0'});
+                    $('.userhomepage .headerinformation .content .listenButton').children('img').hide();
+                }else{
+                    $('.userhomepage .headerinformation .content .listenButton').css({'background':'#fff'});
+                    $('.userhomepage .headerinformation .content .listenButton').children('p').html('收听').css({'color':'#44b181','width':'auto','text-align':'center','paddingLeft':'10%'});
+                    $('.userhomepage .headerinformation .content .listenButton').children('img').show();
+                }
+                $('.userhomepage .headerinformation .content .listenButton').click(function(){
+                    if(follos_status==true){
+                        $(this).css({'background':'#fff'});
+                        $(this).children('p').html('收听').css({'color':'#44b181','width':'auto','text-align':'center','paddingLeft':'10%'});
+                        $(this).children('img').show();
+                        follos_status = false
+                    }else{
+                        $(this).css({'background':'#ccc'});
+                        $(this).children('p').html('已收听').css({'color':'#fff','width':'100%','text-align':'center','paddingLeft':'0'});
+                        $(this).children('img').hide();
+                        follos_status = true
+                    }
+                    Main.get(url+'ask/user/followUser',{to_uid:to_uid,page_index:page_index,page_size:page_size},function(res){
+                        if(res.ret==0){
+                            //执行成功
+                            console.log(res.data)
+                            var data = res.data
+                        }else{
+                            alert(res.msg)
+                            //执行失败
+                        }
+                    });
+                });
+            }else{
+                alert(res.msg)
+                //执行失败
+            }
+        });
+        //        提交问题
+        $('.userhomepage .askquestions button').click(function(){
+            var val = $('.userhomepage .askquestions textarea').val();
+            if(val==''){
+                layer('请填写要提问的问题')
+                return;
+            }
+            if(val.length>60){
+                layer('提问的问题字数不得超过60字')
+                return;
+            }
+            $.ajax({
+                type: 'get',
+                url: url+'ask/index/ask',
+                data: {
+                    question_content:val,
+                    to_uid:to_uid,
+                    is_public_question:radio2,
+                    pump_id:getQueryString('pump_id')
+                },
+                dataType: 'jsonp',
+                success: function (res) {
+                    if (res.ret == 0) {
+                        console.log(res);
+                        var order_no = res.data.order_no
+                        $.cookie('order_no', order_no, { expires: 7,path: '/' });
+                        if(res.data.total_amount==0){
+                            location.reload();
+                        }else{
+                            $.ajax({
+                                type: 'GET',
+                                url:  url+'ask/question/getcharge',
+                                data: {         // 需要于客户端同步
+                                    to_uid:to_uid,order_no:$.cookie('order_no'),pay_method:"wx_pub",code : code
+                                },
+                                dataType: 'jsonp',
+                                jsonp: 'callback',
+                                success: function (result) {
+                                    if(result.ret==0){
+                                        //成功
+                                    }else{
+                                        alert(result.msg)
+                                    }
+                                    pingpp.createPayment(result.data.charge, function(result, err) {
+                                        if (result=="success") {
+                                            location.href = 'http://www.ekangjiuyi.net/fenda/myanswer_page.html'
+                                        } else {
+                                            alert(result.data.msg)
+                                        }
+                                    });
+                                }
+                            });
+                        }
+                    }else {
+                        alert(res.msg)
+                    }
+                }
+            });
+        });
+        //      获取回答列表数据
+        usepageproblemlist(to_uid,page_index,page_size,1);
+        //	他人主页最新默认切换
+        $('.userhomepage .listtoptit .right span').eq(0).click(function(){
+            $(this).addClass('hover').siblings().removeClass('hover');
+            $('.userhomepage .goodquestionlist').html('');
+            page_index = 1
+            $('.infinite-scroll-preloader').html('<div class="preloader"></div><div class="word">正在加载...</div>');
+            setTimeout(function(){
+                usepageproblemlist(to_uid,1,page_size,1)
+            },300);
+//            usepageproblemlist(to_uid,1,page_size,1);
+        });
+        $('.userhomepage .listtoptit .right span').eq(1).click(function(){
+            $(this).addClass('hover').siblings().removeClass('hover');
+            $('.userhomepage .goodquestionlist').html('');
+            page_index = 1
+            setTimeout(function(){
+                usepageproblemlist(to_uid,1,page_size,0)
+            },300);
+            $('.infinite-scroll-preloader').html('<div class="preloader"></div><div class="word">正在加载...</div>');
+
+//            usepageproblemlist(to_uid,1,page_size,0);
+        });
+//        点击跳转问题详情
+        $(document).on('click','.userhomepage .goodquestionlist .goodquestionlistcon',function(){
+            var question_id = $(this).data('question_id')
+            location.href='questionanswering.html?question_id='+question_id
+        });
+//        点击进入个人主页
+        $(document).on('click','.userhomepage .goodquestionlist .goodquestionlistcon .userquestions .headpic',function(e){
+            e.stopPropagation()
+            var to_uid = $(this).data('to_uid')
+            location.href='http://www.ekangjiuyi.net/EKang2.0/hospital_nurse/userhomepage.html?to_uid='+to_uid
+        });
+//        下拉f7
+        var myApp = new Framework7();
+        var $$ = Dom7;
+        var loading = false;
+        // 加载flag
+        $$('.infinite-scroll').on('infinite', function () {
+            if (loading) return;
+            loading = true;
+            setTimeout(function () {
+                // 重置加载flag
+                loading = false;
+                page_index++
+                setTimeout(function () {
+                    usepageproblemlist(to_uid,page_index,page_size,1)
+                }, 500);
+            }, 500);
+        });
+    });
+//      获取回答列表数据
+    function usepageproblemlist(to_uid,page_index,page_size,order){
+        Main.get(url+'ask/user/getAnswerList',{to_uid:to_uid,page_index:page_index,page_size:page_size,order:order},function(res){
+            if(res.ret==0){
+                //执行成功
+                console.log(res.data);
+                var data = res.data;
+                if(data==''||data.length<page_size){
+                    $('.infinite-scroll-preloader').html('<p style=" font-size: 3.5vw; text-align: center;  color: #666; ">暂时无加载数据</p>');
+                }
+                $.each(data,function(i,t){
+                    var listen_status = t.listen_status
+                    if(listen_status==0){
+                        text = '限时免费听';
+                    }else if(listen_status==1){
+                        text = '立即播放';
+                    }else if(listen_status==2){
+                        text = '一元偷偷听';
+                    }
+                   $('.userhomepage .goodquestionlist').append('<div data-question_id="'+ t.question_id+'" class="goodquestionlistcon"><div class="userquestions"><div class="headpic" data-to_uid="'+ t.from_tuid+'" style=" background: url('+ t.question_headimgurl+') center; background-size: cover;"></div><p>'+ t.question_content+'</p></div><div class="answeruser"><div class="answeruserheadpic" style=" background: url('+ t.headimgurl+') center; background-size: cover;"></div><div class="voicebar"><img class="lsj" src="images/icon24.png"><div class="rightcon"><img src="images/img2.png"><p>'+text+'</p></div></div><p class="timelength">'+ t.play_time+'"</p></div><div class="listbot"><div class="time"><img src="images/icon19.png"><p>'+ t.c_on+'</p></div><div class="listbotright"><div class="listen"><img src="images/icon7.png"><p>'+ t.listen_count+'</p></div><div class="zambia"><img src="images/icon20.png"><p>'+ t.like_count+'</p></div></div></div></div>');
+                });
+            }else{
+                alert(res.msg)
+                //执行失败
+            }
+        });
+    }
+</script>
+<style>
+    .list-block ul{
+        position: static;
+    }
+    .list-block ul:after{
+        display: none;
+    }
+    .infinite-scroll-preloader {
+        /*margin-top:-100px;*/
+        margin: 10px 0 23% 0;
+        position: relative;
+    }
+    .infinite-scroll-preloader .preloader {
+        width:5vw;
+        height:5vw;
+        margin-left: 37%;
+    }
+    .infinite-scroll-preloader .word{
+        position: absolute;
+        top:17%;
+        left:45%;
+        font-size: 3.5vw;
+        color: #666;
+    }
+    .page{
+        background: rgb(245, 245, 249);
+        height: 109%;
+    }
+    .list-block ul{
+        background: rgb(245, 245, 249);
+    }
+    .pull-to-refresh-layer{
+    }
+    .page-content{
+        margin-top: -50px;
+        height: 100%;
+    }
+    .list-block ul:before{
+        background: none;
+    }
+    .view, .views{
+        position: fixed;
+    }
+</style>
+<body style=" background: #ebebeb; overflow: scroll;">
+<script>
+//        判断是否登录
+//    commonobject.login();
+</script>
+<div class="views">
+    <div class="view view-main" data-page="home">
+        <div class="pages navbar-through">
+            <div data-page="home" class="page">
+                <div class="page-content infinite-scroll">
+                    <div class="list-block" style=" margin: 0">
+                        <ul>
+                            <li>
+                                <!--加载刷新的列表-->
+                                <div class="userhomepage">
+                                    <div class="headerinformation">
+                                        <div class="content">
+                                            <div class="headportrait"></div>
+                                            <div class="name">Michelle</div>
+                                            <div class="career_listening">
+                                                <span class="occupation"></span>
+                                                <img src="images/icon11.png">
+                                                <span class="listening">1201人收听</span>
+                                            </div>
+                                            <div class="autograph">解决兰伟岩，杜子腾，林巴艾，智闯，常维彦</div>
+                                            <div class="listenButton"><img src="images/icon6.png"><p>收听</p></div>
+                                            <p class="p1"></p>
+                                            <p class="p3">收入99%归你，每夜自动领取，存入微信钱包</p>
+                                        </div>
+                                    </div>
+                                    <div class="askquestions">
+                                        <div class="tit">
+                                            <p class="p1">超过48小时未回答，将按支付路径全额退款</p>
+                                            <p class="p2">￥20</p>
+                                        </div>
+                                        <div class="text">
+                                            <textarea style=" padding-top: 0;" placeholder="向TA提问"></textarea>
+                                            <p class="textnum">0/60</p>
+                                        </div>
+                                        <div class="open">
+                                            <div class="radio"><img src="images/radio.png"> </div>
+                                            <span>答案被公开，答案每被偷偷听一次，你从中分成0.5</span>
+                                        </div>
+                                        <button>提问</button>
+                                    </div>
+                                    <div class="listtoptit">
+                                        <p class="p_left">回答了一个问题，总收入0元</p>
+                                        <div class="right">
+                                            <span class="newest hover">最新</span>
+                                            <div>|</div>
+                                            <span class="default">默认</span>
+                                        </div>
+                                    </div>
+                                    <div class="goodquestionlist">
+
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="infinite-scroll-preloader">
+                        <div class="preloader"></div>
+                        <div class="word">正在加载...</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="botnav">
+    <dl onclick="link('http://www.ekangjiuyi.net/fenda/index.html')" class="buttonproblemlist">
+        <dt><img src="images/icon2.png"></dt>
+        <dd>榜单</dd>
+    </dl>
+    <dl onclick="link('http://www.ekangjiuyi.net/fenda/listening_newproblems.html')" class="buttonproblemlist">
+        <dt><img src="images/icon3.png"></dt>
+        <dd>收听</dd>
+    </dl>
+    <dl onclick="link('http://www.ekangjiuyi.net/fenda/find_character.html')" class="buttonproblemlist">
+        <dt><img src="images/icon4.png"></dt>
+        <dd>发现</dd>
+    </dl>
+    <dl onclick="link('http://www.ekangjiuyi.net/fenda/personalhomepage.html')" class="buttonproblemlist">
+        <dt><img src="images/icon5.png"></dt>
+        <dd>我的</dd>
+    </dl>
+</div>
+<!--<div class="qrcodepage" style=" height: 100%; position: fixed; top:0; z-index:9999999999999999; background: rgb(245, 245, 245); width: 100%;right:-100%;">-->
+    <!--<div class="content">-->
+        <!--<img class="userqrcode" src="images/ewm.png">-->
+        <!--<div class="user">-->
+            <!--<div class="headerpic"-->
+                 <!--style=" background: url(images/tx.jpg) no-repeat center; background-size: cover"></div>-->
+            <!--<div class="userinfor">-->
+                <!--<p class="p_name">Michelle</p>-->
+                <!--<p class="p_wx">微信扫码，来向我提问吧~</p>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
+<!--</div>-->
+</body>
+</html>

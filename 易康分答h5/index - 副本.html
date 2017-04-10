@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="description" content="" />
+<meta name="author" content="ChongMing" />
+<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-touch-fullscreen" content="yes">
+<meta name="full-screen" content="yes">
+<meta name="screen-orientation" content="portrait">
+<meta name="x5-fullscreen" content="true">
+<meta name="360-fullscreen" content="true">
+<title>优问优学TV语音问答</title>
+</head>
+<link rel="stylesheet" href="css/framework7.ios.min.css">
+<link rel="stylesheet" href="css/framework7.ios.colors.min.css">
+<link rel="stylesheet" href="css/my-app.css">
+<link rel="stylesheet" href="css/reset.css">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/swipeslider.css">
+<script src="js/jquery-1.7.1.min.js"></script>
+<script src="js/jquery.mobile-1.4.3.js"></script>
+<script src="js/swipeslider.min.js"></script>
+<script type="text/javascript" src="js/framework7.min.js"></script>
+<script type="text/javascript" src="js/my-app.js"></script>
+<script type="text/javascript" src="js/jquery.cookie.js"></script>
+<script src="js/main.js"></script>
+<style>
+    .list-block ul ul{
+        display: none;
+    }
+</style>
+<script type="text/javascript">
+    $(window).load(function() {
+        $('#full_feature').swipeslider();
+        $('#content_slider').swipeslider({
+            transitionDuration: 600,
+            autoPlayTimeout: 10000
+        });
+        $('.swipslider').css('padding-top','0')
+    });
+</script>
+<script>
+    $(function(){
+        //        设置borwidth
+        var a_w = $('.header .nav a').width()
+        $('.header .bor').width(a_w)
+        $('.header .bor').css('marginLeft','5%')
+//        banner
+        w_w = $(window).width()
+        $('.index .header .search').click(function(){
+            location.href='search.html'
+        });
+        var page_index = 1
+        var page_size  = 12
+//        var uid = 8
+        prolist(page_index,page_size)
+////点击播放语音
+//        $('.index .problemlist .con .bot .news .rightcon').live('click',function(event){
+//            event.stopPropagation();
+//            rightconindex = $(this).index()
+//            $(this).parents().parents().parents().siblings().find('.rightcon').removeClass('hover')
+//            $(this).parents().parents().parents().siblings().find('.rightcon').children().attr('src','images/img2.png')
+//            if($(this).hasClass('hover')){
+//                $(this).removeClass('hover')
+//                $(this).find('img').attr('src','images/img2.png')
+//            }else{
+//                $(this).addClass('hover')
+//                $(this).find('img').attr('src','images/img2.gif');
+//            }
+//        });
+//        点击进入问题详情
+        $('.index .problemlist .con').live('click',function(){
+            var question_id = $(this).data('question_id');
+            location.href='http://www.ekangjiuyi.net/EKang2.0/hospital_nurse/questionanswering.html?question_id='+question_id;
+        });
+//点击进入他人主页
+        $('.index .problemlist .con .bot .headportrait').live('click',function(event){
+            var to_uid = $(this).data('to_uid');
+            location.href='http://www.ekangjiuyi.net/EKang2.0/hospital_nurse/userhomepage.html?to_uid='+to_uid;
+            event.stopPropagation();
+        });
+//        判断是否登录
+//        commonobject.login();
+//        下拉f7
+        var myApp = new Framework7();
+        var $$ = Dom7;
+        // 加载flag
+        flag(page_index,page_size)
+    });
+    page_index = 1
+    function flag(page_index,page_size){
+        var loading = false;
+        $$('.infinite-scroll').on('infinite', function () {
+            if (loading) return;
+            loading = true;
+            setTimeout(function () {
+                // 重置加载flag
+                loading = false;
+                page_index++
+                setTimeout(function () {
+                    Main.get(url+'index.php/ask/index/show',{page_index:page_index,page_size:page_size},function(res){
+                        if(res.ret==0){
+                            //执行成功
+                            console.log(res.data)
+//                问题列表
+                            var hot_list = res.data.hot_list
+                            if(hot_list==''){
+                                $('.infinite-scroll-preloader').html('<p style="  text-align: center;font-size: 3.5vw; margin-bottom: 5px;  color: #666;">已加载全部</p>');
+                                $('.infinite-scroll-preloader').css({"z-index":"999","position":"relative"});
+                            }
+                            $.each(hot_list,function(i,t){
+                                $('.index .problemlist').append('<div class="con" data-question_id="'+ t.question_id+'"><div class="top"><div style=" margin-left:5%; width:92%;" class="problem"><P class="P1">'+t.question_content+ '</P><P class="P2">'+ t.title+' &nbsp;&nbsp;|&nbsp;&nbsp;'+ t.intro+'</P></div></div><div class="bot"><div class="headportrait" style=" background: url('+ t.headimgurl+') center; background-size:13vw 13vw;"></div><div class="news"><img class="lsj" src="images/icon24.png"><div data-is_free="'+ t.is_free+'" class="rightcon"><img src="images/img2.png"><p>限时免费听</p></div></div><div class="listennumber"><img src="images/erji.png"><span>'+ t.listen_count+'人听过</span></div></div></div>');
+                            });
+                        }else{
+                            alert(res.msg)
+                            //执行失败
+                        }
+                    });
+                }, 500);
+            }, 500);
+        });
+    }
+//    banner轮播方法
+    function bannerCarousel(){
+        $('.index .banner .win').animate({'left':-w_w},500,function(){
+            $('.index .banner .win').children().first().appendTo($('.index .banner .win'));
+            $('.index .banner .win').css('left',0);
+        });
+    }
+//    页面数据请求
+    function prolist(page_index,page_size){
+        Main.get(url+'index.php/ask/index/show',{page_index:page_index,page_size:page_size},function(res){
+            if(res.ret==0){
+                //执行成功
+                console.log(res);
+                var bannerimgurl = res.data.focus_img_list;
+                var bannerimg = [];
+                for(var i=0;i<bannerimgurl.length;i++){
+                    bannerimg.push(bannerimgurl[i].pic);
+                }
+                var bannerimgl =bannerimg.length
+                var ban_win_w = bannerimgl*w_w
+                $.each(bannerimg,function(i,t){
+                    $('.index .banner .win').append('<img src="'+t+'">');
+                    $('.index .banner .win').css('width',ban_win_w);
+                    $('.index .banner .win img').css('width',w_w);
+                    $('#full_feature .sw-slides').append('<li class="sw-slide"><img src="'+t+'" alt="Redhead girl"></li>')
+                });
+                //        banner轮播
+                if(bannerimgl>1){
+                    setInterval(function(){
+                        bannerCarousel();
+                    },5000);
+                }
+//                问题列表
+                var hot_list = res.data.hot_list;
+                if(hot_list.length<page_size){
+                    $('.infinite-scroll-preloader').html('<p style=" font-size: 3.5vw; text-align: center;  color: #666; ">已加载全部</p>');
+                    $('.infinite-scroll-preloader').css({"z-index":"999","position":"relative"});
+                }
+                $.each(hot_list,function(i,t){
+                    if(t.is_free==1){
+                        $('.index .problemlist').append('<div class="con" data-question_id="'+ t.question_id+'"><div class="top"><div style=" margin-left:5%; width:92%;" class="problem"><P class="P1">'+t.question_content+ '</P><P class="P2">'+ t.title+' &nbsp;&nbsp;|&nbsp;&nbsp;'+ t.intro+'</P></div></div><div class="bot"><div data-to_uid="'+ t.wechat_uid+'" class="headportrait" style=" background: url('+ t.headimgurl+') center; background-size:13vw 13vw;"></div><div class="news"><img class="lsj" src="images/icon24.png"><div  data-is_free="'+ t.is_free+'" class="rightcon"><img src="images/img2.png"><p>一元偷偷听</p></div></div><div class="listennumber"><img src="images/erji.png"><span>'+ t.listen_count+'人听过</span></div></div></div>');
+                    }else{
+                        $('.index .problemlist').append('<div class="con" data-question_id="'+ t.question_id+'"><div class="top"><div style=" margin-left:5%; width:92%;" class="problem"><P class="P1">'+t.question_content+ '</P><P class="P2">'+ t.title+' &nbsp;&nbsp;|&nbsp;&nbsp;'+ t.intro+'</P></div></div><div class="bot"><div data-to_uid="'+ t.wechat_uid+'" class="headportrait" style=" background: url('+ t.headimgurl+') center; background-size:13vw 13vw;"></div><div class="news"><img class="lsj" src="images/icon24.png"><div  data-is_free="'+ t.is_free+'" class="rightcon"><img src="images/img2.png"><p>限时免费听</p></div></div><div class="listennumber"><img src="images/erji.png"><span>'+ t.listen_count+'人听过</span></div></div></div>');
+                    }
+                });
+            }else{
+                alert(res.msg);
+                //执行失败
+            }
+        });
+    }
+</script>
+<style>
+    .list-block ul{
+        position: static;
+    }
+    .list-block ul:after{
+        display: none;
+    }
+    .infinite-scroll-preloader {
+        /*margin-top:-100px;*/
+        margin: 10px 0 23% 0;
+        position: relative;
+    }
+    .infinite-scroll-preloader .preloader {
+        width:5vw;
+        height:5vw;
+        margin-left: 37%;
+    }
+    .infinite-scroll-preloader .word{
+        position: absolute;
+        top:17%;
+        left:45%;
+        font-size: 3.5vw;
+        color: #666;
+    }
+    .page{
+        background: rgb(245, 245, 249);
+        height: 109%;
+    }
+    .list-block ul{
+        background: rgb(245, 245, 249);
+    }
+    .pull-to-refresh-layer{
+    }
+    .page-content{
+        margin-top: -50px;
+        height: 100%;
+    }
+    .list-block ul:before{
+        background: none;
+    }
+    .view, .views{
+        position: fixed;
+    }
+</style>
+<body style=" background: #f5f5f9; overflow: scroll;">
+<div class="views">
+    <div class="view view-main" data-page="home">
+        <!--<div class="navbar" style=" position: relative">-->
+            <!--<div class="navbar-inner" style="background-color: #38a16d; padding: 0">-->
+                <!--<div class="header">-->
+                    <!--<div class="nav">-->
+                        <!--<a href="index.html" class="hover item-link">问题榜</a>-->
+                        <!--<a data-ajax="false" data-transition="slide" href="newJin.html" class="external" >新晋榜</a>-->
+                        <!--<a data-ajax="false" class="external" href="artistictalent.html">才华榜</a>-->
+                    <!--</div>-->
+                    <!--<div class="bor"></div>-->
+                    <!--<a data-ajax="false" class="search external"-->
+                       <!--href="search.html"><img src="images/icon1.png"></a>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+        <div class="pages navbar-through">
+            <div data-page="home" class="page">
+                <div class="page-content infinite-scroll">
+                    <div class="list-block" style=" margin: 0">
+                        <ul>
+                            <li>
+                                <!--加载刷新的列表-->
+                                <div class="index">
+                                    <div class="header">
+                                        <div class="nav">
+                                            <a href="index.html" class="hover item-link">问题榜</a>
+                                            <a data-ajax="false" data-transition="slide" href="newJin.html" class="external" >新晋榜</a>
+                                            <a data-ajax="false" class="external" href="artistictalent.html">才华榜</a>
+                                        </div>
+                                        <div class="bor"></div>
+                                        <a data-ajax="false" class="search external"
+                                           href="search.html"><img src="images/icon1.png"></a>
+                                    </div>
+                                    <!--<div class="banner">-->
+                                        <!--<div class="win">-->
+                                        <!--</div>-->
+                                    <!--</div>-->
+                                    <div class="htmleaf-container">
+                                        <article class="container">
+                                            <section>
+                                                <figure id="full_feature" class="swipslider">
+                                                    <ul class="sw-slides">
+
+                                                    </ul>
+                                                </figure>
+                                            </section>
+                                        </article>
+                                    </div>
+                                    <div class="problemlist">
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="infinite-scroll-preloader">
+                        <div class="preloader"></div>
+                        <div class="word">正在加载...</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="botnav">
+    <dl class="buttonproblemlist">
+        <dt><img src="images/icon2hover.png"></dt>
+        <dd class="hover">榜单</dd>
+    </dl>
+    <dl onclick="link('listening_newproblems.html')" class="buttonproblemlist">
+        <dt><img src="images/icon3.png"></dt>
+        <dd>收听</dd>
+    </dl>
+    <dl onclick="link('find_character.html')" class="buttonproblemlist">
+        <dt><img src="images/icon4.png"></dt>
+        <dd>发现</dd>
+    </dl>
+    <dl onclick="link('personalhomepage.html')" class="buttonproblemlist">
+        <dt><img src="images/icon5.png"></dt>
+        <dd>我的</dd>
+    </dl>
+</div>
+</body>
+</html>

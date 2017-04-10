@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="description" content="" />
+<meta name="author" content="ChongMing" />
+<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-touch-fullscreen" content="yes">
+<meta name="full-screen" content="yes">
+<meta name="screen-orientation" content="portrait">
+<meta name="x5-fullscreen" content="true">
+<meta name="360-fullscreen" content="true">
+<title>问题详情</title>
+</head>
+<link rel="stylesheet" href="css/framework7.ios.min.css">
+<link rel="stylesheet" href="css/framework7.ios.colors.min.css">
+<link rel="stylesheet" href="css/my-app.css">
+<link rel="stylesheet" href="css/reset.css">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/animate.min.css">
+<script src="js/jquery-1.7.1.min.js"></script>
+<script type="text/javascript" src="js/framework7.min.js"></script>
+<script type="text/javascript" src="js/my-app.js"></script>
+<script src="js/main2.js"></script>
+<!--<script src="js/jquery.mobile-1.4.3.js"></script>-->
+<script src="https://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script src="js/jquery.cookie.js"></script>
+<script src="js/ap.js"></script>
+<script src="js/pingpp.js"></script>
+<script src="https://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script>
+    window.onload = function(){
+        page_url = encodeURI(location.href);
+        commonobject.onMenuShareAppMessage('我回答了一个问题，快去偷偷听一下吧！',$('.questionanswering .problemcon span').html(),'http://ekang.ren/ask/index/index?url='+page_url,$.cookie('fx_img'));
+        commonobject.onMenuShareTimeline('我回答了一个问题，快去偷偷听一下吧！','http://ekang.ren/ask/index/index?url='+page_url,$.cookie('fx_img'));
+    }
+    $(function(){
+        //        设置borwidth
+        var a_w = $('.index .header .nav a').width();
+        var question_id = getQueryString('question_id')
+        $('.index .header .bor').width(a_w)
+        $('.index .header .bor').css('marginLeft','5%')
+//        设置信息第二栏宽度
+        var l_w =  $('.personalhomepage .headerinformation .content .career_listening .occupation').outerWidth();
+        var pic_w = $('.personalhomepage .headerinformation .content .career_listening img').outerWidth();
+        var r_w = $('.personalhomepage .headerinformation .content .career_listening .listening').outerWidth();
+        $('.personalhomepage .headerinformation .content .career_listening').width((l_w+pic_w+r_w)+'px');
+//        播放语音
+        $('.questionanswering .problemcon .answeruser .voicebar .rightcon').click(function(){
+            //        听录音
+            getSoundrecording (first_answer_id,$(this));
+            document.getElementById('audio').onended=function(){
+                var obj = $('.questionanswering .problemcon .answeruser .voicebar .rightcon');
+                commonobject.endedcallback(obj);
+            }
+        });
+//        判断是否登录
+//        commonobject.login();
+        $('.questionanswering .freeinquiry .con .answeruser .voicebar .rightcon').click(function(){
+            getSoundrecording (pump_answer_id,$(this));
+            document.getElementById('audio').onended=function(){
+                var obj = $('.questionanswering .freeinquiry .con .answeruser .voicebar .rightcon')
+                commonobject.endedcallback(obj);
+            }
+        });
+//        获取问题详情
+        Main.get(url+'ask/question/detail',{question_id:question_id},function(res){
+            if(res.ret==0){
+                //执行成功
+                console.log(res.data);
+                var data = res.data;
+                question_id = data.first_answer.question_id;
+                $('.elasticlayer2 .elasticlayercon .bot_button .determine_button').attr('data-question_id',question_id);
+                if(data.first_answer.total_amount==0.00){
+                    $('.questionanswering .problemcon .top .price').hide();
+                }
+                $('.questionanswering .problemcon .top .price').html('￥'+ data.first_answer.total_amount);
+                var status = data.first_answer.status;
+                var status2 = data.pump_answer.status;
+                var can_answer1 = data.first_answer.can_answer;
+                var can_answer2 = data.pump_answer.can_answer;
+                $('.questionanswering .problemcon .listbot .listbotright .zambia').attr('data-answer_id',data.first_answer.answer_id);
+                $('.questionanswering .freeinquiry .con .p2').html(data.pump_answer.question_content);
+                $('.questionanswering .freeinquiry .con .answeruser .answeruserheadpic').css({background:'url('+data.pump_answer.headimgurl+')',backgroundSize:'cover'});
+
+                $('.questionanswering .problemcon .answeruser .timelength').html(data.first_answer.play_time+'"');
+                $('.questionanswering .freeinquiry .con .answeruser .timelength').html(data.pump_answer.play_time+'"');
+                first_answer_id = data.first_answer.answer_id;
+                getSoundrecording2 (first_answer_id)
+                pump_answer_id = data.pump_answer.answer_id;
+                if(status==0){
+                    $('.questionanswering .problemcon .listbot').hide();
+                    $('.questionanswering .problemcon .answeruser').hide();
+                    $('.questionanswering .freeinquiry').hide();
+                    fx_img = data.first_answer.question_headimgurl;
+                }else if(status==1){
+                    $('.questionanswering .problemcon .answeruser').show();
+                    $('.questionanswering .problemcon .listbot').show();
+                    fx_img = data.first_answer.headimgurl;
+                    zannum = data.first_answer.like_count;
+                    if(zannum.length>4){
+                        zannum = Math.round((zannum /10000) * 100) / 100;
+                        zannum = zannum + "万";
+                    }else{
+                        zannum = data.first_answer.like_count;
+                    }
+                    listennum = data.first_answer.listen_count;
+                    if(listennum.length>4){
+                        listennum = Math.round((listennum /10000) * 100) / 100;
+                        listennum = listennum + "万";
+                    }else{
+                        listennum = data.first_answer.listen_count;
+                    }
+                    $('.questionanswering .problemcon .listbot .listbotright .zambia p').html(zannum);
+                    $('.questionanswering .problemcon .listbot .listbotright .listen p').html(listennum);
+                }else if(status==2){
+                    $('.questionanswering .problemcon .answeruser').hide();
+                    $('.questionanswering .freeinquiry').hide();
+                    $('.questionanswering .problemcon .bot .button_refuse').hide();
+                    $('.questionanswering .problemcon .bot').show();
+                    $('.questionanswering .problemcon .bot .left').html('已拒绝回答问题,金额将按支付路径全额退回').css('color','red');
+                    fx_img = data.first_answer.question_headimgurl;
+                }
+                if(status==0&&can_answer1==1){
+                    $('.questionanswering .problemcon .bot .button_refuse').show();
+                    $('.questionanswering .problemcon .bot').show();
+                }
+                if(can_answer1==1||can_answer2==1){
+                    $('.questionanswering .botrecording').show();
+                }
+                if(can_answer1==2&&data.pump_answer==''){
+                    $('.questionanswering .problemcon .answeruser button').show();
+                }
+                if(data.pump_answer==''){
+                    $('.questionanswering .freeinquiry').hide();
+                }else{
+                    $('.questionanswering .freeinquiry').show();
+                    $('.elasticlayer2 .elasticlayercon .bot_button .determine_button').attr('data-question_id',data.pump_answer.question_id);
+                }
+                if(status2==0){
+                    $('.questionanswering .freeinquiry .con .answeruser').hide();
+                }
+                var listen_status = data.first_answer.listen_status;
+                var listen_status2 = data.pump_answer.listen_status;
+                if(listen_status==0){
+                    $('.questionanswering .problemcon .answeruser .voicebar .rightcon p').html('限时免费听');
+                }else if(listen_status==1){
+                    $('.questionanswering .problemcon .answeruser .voicebar .rightcon p').html('点击播放');
+                }else if(listen_status==2){
+                    $('.questionanswering .problemcon .answeruser .voicebar .rightcon p').html('一元偷偷听');
+                }
+                if(listen_status2==0){
+                    $('.questionanswering .freeinquiry .con .answeruser .voicebar .rightcon p').html('限时免费听');
+                }else if(listen_status2==1){
+                    $('.questionanswering .freeinquiry .con .answeruser .voicebar .rightcon p').html('点击播放');
+                }else if(listen_status2==2){
+                    $('.questionanswering .freeinquiry .con .answeruser .voicebar .rightcon p').html('一元偷偷听');
+                }
+                $('.questionanswering .problemcon .top .headimg').css({background:'url('+data.first_answer.question_headimgurl+') center',backgroundSize:'cover'});
+                $('.questionanswering .freeinquiry .con .p6').html(data.pump_answer.c_on);
+                $('.questionanswering .problemcon .answeruser .answeruserheadpic').css({background:'url('+data.first_answer.headimgurl+') center',backgroundSize:'cover'});
+
+                $.cookie('fx_img',fx_img,{ expires: 7,path: '/' });
+                $('.questionanswering .problemcon .listbot .time p').html(data.first_answer.c_on);
+                $('.questionanswering .problemcon .top .name').html(data.first_answer.question_nickname);
+                $('.questionanswering .problemcon span').html(data.first_answer.question_content);
+                $('.questionanswering .problemcon .answeruser button').click(function(){
+                    location.href='userhomepage.html?to_uid='+data.first_answer.to_tuid+'&pump_id='+data.first_answer.question_id
+                });
+                $('.questionanswering .problemcon .top .headimg').click(function(){
+                    location.href='userhomepage.html?to_uid='+data.first_answer.from_tuid+'&question_id='+data.first_answer.question_id
+                });
+                $('.questionanswering .problemcon .answeruser .answeruserheadpic').click(function(){
+                    location.href='userhomepage.html?to_uid='+data.first_answer.to_tuid+'&question_id='+data.first_answer.question_id
+                });
+//                点赞功能
+                var is_like = data.first_answer.is_like;
+                var $zambia = $('.questionanswering .problemcon .listbot .listbotright .zambia');
+                if(is_like==1){
+                    $zambia.children('img').addClass('animatescale').attr('src','images/icon20hover.png');
+                    setTimeout(function(){
+                        $zambia.children('img').removeClass('animatescale')
+                    },300);
+                }else{
+                    $zambia.children('img').addClass('animatescale').attr('src','images/icon20.png');
+                    setTimeout(function(){
+                        $zambia.children('img').removeClass('animatescale')
+                    },300);
+                }
+                var num = data.first_answer.like_count;
+                var num_l = num.length
+                $zambia.click(function(){
+                    var answer_id = $(this).data('answer_id');
+
+                    if(is_like==0){
+                        $(this).children('img').addClass('animatescale').attr('src','images/icon20hover.png');
+                        setTimeout(function(){
+                            $zambia.children('img').removeClass('animatescale')
+                        },300);
+                        if(num_l<5){
+                            num++
+                            $(this).find('p').html(num);
+                        }
+                        is_like = 1
+
+                    }else{
+                        $(this).children('img').addClass('animatescale').attr('src','images/icon20.png');
+                        setTimeout(function(){
+                            $zambia.children('img').removeClass('animatescale')
+                        },300);
+                        if(num_l<5){
+                            num--
+                            $(this).find('p').html(num);
+                        }
+                        is_like = 0
+                    }
+
+                    Main.get(url+'ask/question/like/',{answer_id:answer_id},function(res){
+                        if(res.ret==0){
+                            //执行成功
+                            console.log(res.data);
+                        }else{
+                            alert(res.msg)
+                            //执行失败
+                        }
+                    });
+                });
+            }else{
+                alert(res.msg)
+                //执行失败
+            }
+        });
+//        录制动画
+        var index = 0;
+        var state = 1;
+        $('.questionanswering .recording button').attr('disabled',true);
+        $('.questionanswering .determine').attr('disabled',true);
+//        录制语音
+        $('.questionanswering .recording .microphone').click(function(){
+            if(state==1){
+//                开始录制语音
+                wx.startRecord({
+                    success: function (res) {
+                        // 用户允许访问麦克风后执行的回调函数
+                        $('.questionanswering .recording .microphone .animate').show().addClass('hover')
+                        timer = setInterval(function(){
+                            index++
+                            $('.questionanswering .recording .time').html(''+index+'"')
+                        },1000)
+                        $('.questionanswering .recordingword').html('正在录制')
+                        state=2;
+                    },
+                    cancel: function () {
+                        // 用户不允许访问麦克风后执行的回调函数
+                        layer('您已拒绝访问麦克风')
+                    }
+                });
+                wx.onVoiceRecordEnd({
+                    // 录音时间超过一分钟没有停止的时候会执行 complete 回调
+                    complete: function (res) {
+                        localId = res.localId;
+                        recording1()
+                        clearInterval(timer)
+                        $('.questionanswering .determine').attr('disabled',false).addClass('hover');
+                        $('.questionanswering .recording button').attr('disabled',false)
+                        $('.questionanswering .recording button').css('background','#e94c37')
+                        state=3
+                    }
+                });
+            }else if(state==2){
+//                暂停录制
+                wx.stopRecord({
+                    success: function (res) {
+                         localId = res.localId;
+                    }
+                });
+                clearInterval(timer)
+                $('.questionanswering .determine').attr('disabled',false).addClass('hover');
+                $('.questionanswering .recording button').attr('disabled',false)
+                $('.questionanswering .recording button').css('background','#e94c37')
+                recording1()
+                state=3
+            }else if(state==3){
+//                播放收听
+                recording2()
+                state=4
+                wx.playVoice({
+                    localId: localId // 需要播放的音频的本地ID，由stopRecord接口获得
+                });
+                wx.onVoicePlayEnd({
+                    success: function (res) {
+                        var localId = res.localId; // 返回音频的本地ID
+                        recording1()
+                        state=3
+                    }
+                });
+            }else if(state==4){
+//                暂停播放
+                wx.stopVoice({
+                    localId: localId // 需要停止的音频的本地ID，由stopRecord接口获得
+                });
+                recording1();
+                state=3
+            }
+        });
+//        点击重录
+        $('.questionanswering .recording button').click(function(){
+            wx.stopVoice({
+                localId: localId // 需要停止的音频的本地ID，由stopRecord接口获得
+            });
+            $('.questionanswering .determine').attr('disabled',true).removeClass('hover');
+            $('.questionanswering .recording button').attr('disabled',true).css('background','#c7c7c7');
+            $('.questionanswering .recording .microphone .img1').show()
+            $('.questionanswering .recording .microphone .img2').hide()
+            $('.questionanswering .recording .microphone').css({background:'#44b181'})
+            $('.questionanswering .recording .microphone').css({border:'1px solid #44b181'})
+            $('.questionanswering .recording .time').html('')
+            $('.questionanswering .recordingword').html('点击开始录间，最多可录制60"')
+            $('.questionanswering .recording .microphone .animate').removeClass('hover')
+            state=1
+            index=0
+        });
+//        点击确定发送
+        $('.questionanswering .determine').click(function(){
+            $('.elasticlayer2').show().addClass('animatescale');
+        });
+        $('.elasticlayer2 .elasticlayercon .bot_button .determine_button').click(function(){
+            question_id = $(this).attr('data-question_id');
+
+            $('.elasticlayer2').hide()
+            wx.uploadVoice({
+                localId: localId, // 需要上传的音频的本地ID，由stopRecord接口获得
+                isShowProgressTips: 1, // 默认为1，显示进度提示
+                success: function (res) {
+                    var serverId = res.serverId; // 返回音频的服务器端ID
+
+                    $.ajax({
+                        type: 'get',
+                        url: url+'ask/index/answer',
+                        data: {
+                            question_id:question_id,
+                            media_id:serverId
+                        },
+                        dataType: 'jsonp',
+                        success: function (res) {
+                            if (res.ret == 0) {
+                                console.log(res);
+                                alert('上传成功');
+                                location.reload();
+                            }else {
+                                console.log(res.msg)
+                                prompt(res.msg)
+                            }
+                        }
+                    });
+                }
+            });
+        });
+        $('.elasticlayer2 .elasticlayercon .bot_button .close').click(function(){
+            $('.elasticlayer2').hide();
+        });
+//       拒绝回答
+        $('.questionanswering .problemcon .bot .button_refuse').click(function(){
+            $('.elasticlayer3').show()
+            $('.elasticlayer3').addClass('animatescale')
+        });
+        $('.elasticlayer3 .elasticlayercon .bot_button .determine_button').click(function(){
+            $('.elasticlayer3').hide();
+            Load('正在拒绝中...');
+            Main.get(url+'ask/question/refuseQuestion',{question_id:question_id},function(res){
+                if(res.ret==0){
+                    //执行成功
+                    console.log(res.data);
+                        location.reload();
+                }else{
+                    //alert(res.msg)
+                    alert('当前网络不佳，请稍后再试。');
+                    //执行失败
+                }
+            });
+        });
+        $('.elasticlayer3 .elasticlayercon .bot_button .close').click(function(){
+            $('.elasticlayer3').hide()
+        });
+    });
+    function recording1(){
+        $('.questionanswering .recording .microphone .animate').removeClass('hover').hide();
+        $('.questionanswering .recording .microphone').css({background:'#ebebeb'});
+        $('.questionanswering .recording .microphone').css({border:'1px solid #c7c7c7'});
+        $('.questionanswering .recording .microphone .img1').hide();
+        $('.questionanswering .recording .microphone .img2').show();
+        $('.questionanswering .recordingword').html('播放收听');
+    }
+    function recording2(){
+        $('.questionanswering .recording .microphone .animate').show().addClass('hover');
+        $('.questionanswering .recording .microphone').css({background:'#44b181'});
+        $('.questionanswering .recording .microphone').css({border:'1px solid #44b181'});
+        $('.questionanswering .recording .microphone .img2').hide();
+        $('.questionanswering .recording .microphone .img1').show();
+        $('.questionanswering .recordingword').html('暂停播放');
+    }
+    function suibian(num){
+        if(num==1){
+            return 1;
+        }else{
+            return 2;
+        }
+    }
+    function getSoundrecording (id,obj){
+        Main.get(url+'index.php/ask/question/listen',{answer_id:id},function(res){
+            if(res.ret==0){
+                //执行成功
+                console.log(res.data);
+                var status = res.data.status;
+                var order_no = res.data.order_no;
+                $.cookie('order_no2', order_no, { expires: 7,path: '/' });
+                if(status==1){
+//                    $('audio').attr('src',res.data.answer_url);
+                    //        获取时间长度  语音加载完毕
+                    obj.parents().parents().parents().siblings().find('.rightcon').removeClass('hover');
+                    obj.parents().parents().parents().siblings().find('.rightcon').children().attr('src','images/img2.png');
+                    if(obj.hasClass('hover')){
+                        obj.removeClass('hover');
+                        obj.find('img').attr('src','images/img2.png');
+                        $('audio').get(0).pause();
+                    }else{
+                        obj.addClass('hover');
+                        obj.find('img').attr('src','images/img2.gif');
+                        $('audio').get(0).play();
+                    }
+                }else{
+                    //        支付
+                    $.ajax({
+                        type: 'GET',
+                        url:  url+'ask/question/getcharge',
+                        data: {         // 需要于客户端同步
+                            order_no:$.cookie('order_no2'),pay_method:"wx_pub",code:1
+                        },
+                        dataType: 'jsonp',
+                        jsonp: 'callback',
+                        success: function (result) {
+                            pingpp.createPayment(result.data.charge, function(result, err) {
+                                if (result=="success") {
+                                    //alert(123)
+                                } else {
+                                    alert(result.data.msg)
+                                }
+                            });
+                        }
+                    });
+                }
+            }else{
+                alert(res.msg);
+                //执行失败
+            }
+        });
+    }
+    function getSoundrecording2 (id){
+        Main.get(url+'index.php/ask/question/listen',{answer_id:id},function(res){
+            if(res.ret==0){
+                //执行成功
+                console.log(res.data);
+                var status = res.data.status;
+                var order_no = res.data.order_no;
+                $.cookie('order_no2', order_no, { expires: 7,path: '/' });
+                if(status==1){
+                    $('audio').attr('src',res.data.answer_url);
+                    //        获取时间长度  语音加载完毕
+                }
+            }else{
+                alert(res.msg);
+                //执行失败
+            }
+        });
+    }
+</script>
+<body style=" background: #ebebeb; overflow: scroll;">
+<audio id="audio"></audio>
+<div class="questionanswering">
+    <div class="problemcon">
+        <div class="top">
+            <div class="headimg"></div>
+            <p class="name"></p>
+            <p class="price"></p>
+        </div>
+        <span></span>
+        <div class="answeruser">
+            <div class="answeruserheadpic"></div>
+            <div class="voicebar">
+                <img class="lsj" src="images/icon24.png">
+                <div class="rightcon"><img src="images/img2.png"><p>限时免费试听</p></div>
+            </div>
+            <p class="timelength"></p>
+            <button>追问</button>
+        </div>
+        <div class="listbot">
+            <div class="time">
+                <img src="images/icon19.png">
+                <p>九天前</p>
+            </div>
+            <div class="listbotright">
+                <div class="listen">
+                    <img src="images/icon7_2.png">
+                    <p>5</p>
+                </div>
+                <div class="zambia">
+                    <img src="images/icon20.png">
+                    <p>5</p>
+                </div>
+            </div>
+        </div>
+        <div class="bot">
+            <p class="left"></p>
+            <div class="button_refuse">拒绝回答</div>
+        </div>
+    </div>
+    <div class="freeinquiry">
+        <div class="con">
+            <p class="p1">免费追问</p>
+            <p class="p2"></p>
+            <div class="answeruser">
+                <div class="answeruserheadpic"></div>
+                <div class="voicebar">
+                    <img class="lsj" src="images/icon24.png">
+                    <div class="rightcon"><img style=" float:left;" src="images/img2.png"><p style="color: #fff;margin-top: 6%;font-size: 4.5vw; float:left;">123</p></div>
+                </div>
+                <p class="timelength">22"</p>
+            </div>
+            <p class="p6">9分钟前</p>
+        </div>
+    </div>
+    <div class="botrecording" style="display: none;">
+        <div class="open">
+            <span>公开</span>提问公开回答，答案每被偷听1次，你就赚￥0.5
+        </div>
+        <div class="recording">
+            <div class="time">
+
+            </div>
+            <div class="microphone">
+                <img class="img1" src="images/icon25.png" />
+                <img class="img2" src="images/icon26.png" />
+                <div class="animate"></div>
+            </div>
+            <button>重录</button>
+        </div>
+        <p class="recordingword">点击开始录制，最多可录制60"</p>
+        <div class="determine">确定发送</div>
+    </div>
+</div>
+<div class="botnav">
+    <dl onclick="link('http://www.ekangjiuyi.net/fenda/index.html')" class="buttonproblemlist">
+        <dt><img src="images/icon2.png"></dt>
+        <dd>榜单</dd>
+    </dl>
+    <dl onclick="link('http://www.ekangjiuyi.net/fenda/listening_newproblems.html')" class="buttonproblemlist">
+        <dt><img src="images/icon3.png"></dt>
+        <dd>收听</dd>
+    </dl>
+    <dl onclick="link('http://www.ekangjiuyi.net/fenda/find_character.html')" class="buttonproblemlist">
+        <dt><img src="images/icon4.png"></dt>
+        <dd>发现</dd>
+    </dl>
+    <dl onclick="link('http://www.ekangjiuyi.net/fenda/personalhomepage.html')" class="buttonproblemlist">
+        <dt><img src="images/icon5.png"></dt>
+        <dd>我的</dd>
+    </dl>
+</div>
+<div class="elasticlayer2" style=" z-index: 9999999999999; display: none; position: fixed; top:0; width: 100%; height:100%; background: rgba(0,0,0,.7)">
+    <div class="elasticlayercon" style=" background: rgba(255,255,255,1); border-radius: 5px; width: 70%;position: absolute; left: 50%; top: 50%; -webkit-transform:translate(-50%, -50%);">
+        <div class="tit" style=" width: 100%; color:#35424b; text-align: center; padding: 20px 0 10px 0; font-size: 4vw">易康分答温馨提醒</div>
+        <p style=" width: 90%; margin: auto; color: #35424b; text-align: center; font-size: 3vw; padding: 0 0 18px 0; ">为防手滑误点，请确认录音满意后再发送 </p>
+        <div class="bot_button" style="border-top: 1px solid #ddd; overflow: hidden">
+            <button class="close" style=" display: block; background: none; border: none; margin: 10px 0; padding: 5px 0; font-size:3.5vw; float:left; color: #35424b; width: 50%; border-right: 1px solid #ddd; letter-spacing: 1px;">我再想想</button>
+            <button class="determine_button" style=" display: block; background: none; border-radius: 5px; border: none; margin: 15px 0; font-size:3.5vw; float:left; color: #44b181; width: 50%; letter-spacing: 1px;">确定</button>
+        </div>
+    </div>
+</div>
+<div class="elasticlayer3" style=" z-index: 9999999999999; display: none; position: fixed; top:0; width: 100%; height:100%; background: rgba(0,0,0,.7)">
+    <div class="elasticlayercon" style=" background: rgba(255,255,255,1); border-radius: 5px; width: 70%;position: absolute; left: 50%; top: 50%; -webkit-transform:translate(-50%, -50%);">
+        <div class="tit" style=" width: 100%; color:#35424b; text-align: center; padding: 20px 0 10px 0; font-size: 4vw">确定不回答这个问题</div>
+        <!--<textarea style=" width: 86%;resize: none; min-height: 73px; max-height: 73px; display: block; color: #35424b; font-size: 3vw; margin: 0 auto 18px auto; padding: 4px 2%; border: 1px solid #c7c7c7; border-radius: 5px;" placeholder="填写拒绝理由，最多30字，非必填"></textarea>-->
+        <div class="bot_button" style="border-top: 1px solid #ddd; overflow: hidden">
+            <button class="close" style=" display: block; background: none; border: none; margin: 10px 0; padding: 5px 0; font-size:3.5vw; float:left; color: #35424b; width: 50%; border-right: 1px solid #ddd; letter-spacing: 1px;">我再想想</button>
+            <button class="determine_button" style=" display: block; background: none; border-radius: 5px; border: none; margin: 15px 0; font-size:3.5vw; float:left; color: #44b181; width: 50%; letter-spacing: 1px;">确定</button>
+        </div>
+    </div>
+</div>
+</body>
+</html>

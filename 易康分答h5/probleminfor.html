@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="description" content="" />
+<meta name="author" content="ChongMing" />
+<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-touch-fullscreen" content="yes">
+<meta name="full-screen" content="yes">
+<meta name="screen-orientation" content="portrait">
+<meta name="x5-fullscreen" content="true">
+<meta name="360-fullscreen" content="true">
+<title>优问优学TV语音问答</title>
+</head>
+<link rel="stylesheet" href="css/framework7.ios.min.css">
+<link rel="stylesheet" href="css/framework7.ios.colors.min.css">
+<link rel="stylesheet" href="css/my-app.css">
+<link rel="stylesheet" href="css/reset.css">
+<link rel="stylesheet" href="css/style.css">
+<script src="js/jquery-1.7.1.min.js"></script>
+<script type="text/javascript" src="js/framework7.min.js"></script>
+<script type="text/javascript" src="js/my-app.js"></script>
+<script src="js/main.js"></script>
+<script src="js/jquery.mobile-1.4.3.js"></script>
+<script src="https://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script>
+    $(function(){
+        //        设置borwidth
+        var a_w = $('.index .header .nav a').width()
+        $('.index .header .bor').width(a_w)
+        $('.index .header .bor').css('marginLeft','5%')
+//        设置信息第二栏宽度
+        var l_w =  $('.goodquestion_page .headerinformation .content .career_listening .occupation').outerWidth();
+        var pic_w = $('.goodquestion_page .headerinformation .content .career_listening img').outerWidth();
+        var r_w = $('.goodquestion_page .headerinformation .content .career_listening .listening').outerWidth();
+        $('.goodquestion_page .headerinformation .content .career_listening').width((l_w+pic_w+r_w)+'px')
+//
+        //点击播放语音
+        $('.probleminfor .probleminfortop .answeruser .voicebar .rightcon').click(function(){
+            $(this).parents().parents().parents().siblings().find('.rightcon').removeClass('hover')
+            $(this).parents().parents().parents().siblings().find('.rightcon').children().attr('src','images/img2.png')
+            if($(this).hasClass('hover')){
+                $(this).removeClass('hover');
+                $(this).find('img').attr('src','images/img2.png');
+                $('audio').get(0).pause();
+            }else{
+                $(this).addClass('hover')
+                $(this).find('img').attr('src','images/img2.gif');
+                $('audio').get(0).play();
+            }
+        });
+//        点击播放免费追问语音
+        $('.probleminfor .freeinquiry .con .answeruser .voicebar .rightcon').live('click',function(){
+            $(this).parents().parents().parents().siblings().find('.rightcon').removeClass('hover')
+            $(this).parents().parents().parents().siblings().find('.rightcon').children().attr('src','images/img2.png')
+            if($(this).hasClass('hover')){
+                $(this).removeClass('hover')
+                $(this).children('img').attr('src','images/img2.png')
+            }else{
+                $(this).addClass('hover')
+                $(this).children('img').attr('src','images/img2.gif')
+            }
+        });
+
+//        点赞
+        var zan = true
+        $('.probleminfor .probleminfortop .listbot .listbotright .zambia').click(function(){
+            if(zan==true){
+                $(this).children('img').attr('src','images/icon20hover.png')
+                zan = false
+            }else{
+                $(this).children('img').attr('src','images/icon20.png')
+                zan = true
+            }
+        });
+//
+    });
+</script>
+<body style=" background: #eee; overflow: scroll;">
+<div class="probleminfor">
+    <audio id="audio" src="http://ekang.ren/ekang_upload/music/4b0397cc3ff54370a88d3e6f79b540b0.mp3" onended="endedcallback()"></audio>
+    <div class="probleminfortop">
+        <div class="personal">
+            <div class="personalheadpic" style=" background: url(images/tx.jpg) center; background-size: cover;"></div>
+            <p class="name">撒大大</p>
+            <p class="price">￥40</p>
+        </div>
+        <div class="userquestions">
+            <p style=" width: 100%;">如何学习语文的文言文内容，快速提高语文 成绩？</p>
+        </div>
+        <div class="answeruser">
+            <div class="answeruserheadpic" style=" background: url(images/tx.jpg) center; background-size: cover;"></div>
+            <div class="voicebar">
+                <img class="lsj" src="images/icon24.png">
+                <div class="rightcon"><img src="images/img2.png"><p>限时免费试听</p></div>
+            </div>
+            <p class="timelength">22"</p>
+            <button>追问</button>
+        </div>
+        <div class="listbot">
+            <div class="time">
+                <img src="images/icon19.png">
+                <p>九天前</p>
+            </div>
+            <div class="listbotright">
+                <div class="listen">
+                    <img src="images/icon7.png">
+                    <p>5</p>
+                </div>
+                <div class="zambia">
+                    <img src="images/icon20.png">
+                    <p>5</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="freeinquiry">
+        <div class="con">
+            <p class="p1">免费追问</p>
+            <p class="p2">免费追问免费追问免费追问免费追问免费追问免费追问免费追问免费追问免费追问免费追问?</p>
+            <div class="answeruser">
+                <div class="answeruserheadpic" style=" background: url(images/tx.jpg) center; background-size: cover;"></div>
+                <div class="voicebar">
+                    <img class="lsj" src="images/icon24.png">
+                    <div class="rightcon"><img src="images/img2.png"></div>
+                </div>
+                <p class="timelength">22"</p>
+            </div>
+            <p class="p3">9分钟前</p>
+        </div>
+    </div>
+    <div class="answeruser">
+        <div class="left">
+            <div class="name">小羊羊<span class="listennum">200人收听</span></div>
+            <p class="infor">名阿斯顿发阿斯顿发</p>
+        </div>
+        <img class="right" src="images/icon-back.png">
+    </div>
+    <div class="recommend">
+        <p class="tit">可能喜欢的问题</p>
+        <div class="con">
+            <p class="p1">如何学习语文的文言文内容，快速提高语文 成绩？</p>
+            <p class="p2">小辉&nbsp;&nbsp;|&nbsp;&nbsp;名阿斯蒂芬</p>
+            <div class="div3">
+                <p class="time">17天前</p>
+                <p class="div3_lisnum">219人听过</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="botnav">
+    <dl onclick="link('index.html')" class="buttonproblemlist">
+        <dt><img src="images/icon2.png"></dt>
+        <dd>榜单</dd>
+    </dl>
+    <dl onclick="link('listening_newproblems.html')" class="buttonproblemlist">
+        <dt><img src="images/icon3.png"></dt>
+        <dd>收听</dd>
+    </dl>
+    <dl onclick="link('find_character.html')" class="buttonproblemlist">
+        <dt><img src="images/icon4.png"></dt>
+        <dd>发现</dd>
+    </dl>
+    <dl onclick="link('personalhomepage.html')" class="buttonproblemlist">
+        <dt><img src="images/icon5.png"></dt>
+        <dd>我的</dd>
+    </dl>
+</div>
+</body>
+</html>

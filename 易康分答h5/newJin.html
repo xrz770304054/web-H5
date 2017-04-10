@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="description" content="" />
+<meta name="author" content="ChongMing" />
+<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-touch-fullscreen" content="yes">
+<meta name="full-screen" content="yes">
+<meta name="screen-orientation" content="portrait">
+<meta name="x5-fullscreen" content="true">
+<meta name="360-fullscreen" content="true">
+<title>新晋榜</title>
+</head>
+<link rel="stylesheet" href="css/framework7.ios.min.css">
+<link rel="stylesheet" href="css/framework7.ios.colors.min.css">
+<link rel="stylesheet" href="css/my-app.css">
+<link rel="stylesheet" href="css/reset.css">
+<link rel="stylesheet" href="css/style.css">
+<script src="js/jquery-1.7.1.min.js"></script>
+<script type="text/javascript" src="js/framework7.min.js"></script>
+<script type="text/javascript" src="js/my-app.js"></script>
+<script src="js/main.js"></script>
+<script src="https://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script>
+    $(function(){
+        //        设置borwidth
+        var a_w = $('.header .nav a').width();
+        var page_index = 1 ;
+        var page_size = 1 ;
+        var uid = 8;
+        $('.header .bor').width(a_w);
+        var botnav_h = $('.botnav').outerHeight();
+        $('.newJin').css('margin-bottom',botnav_h+20+'px');
+        $('.header .bor').css('marginLeft','35%');
+//        收听人物
+        $('.newJin .con .listenin').live('click',function(){
+            var is_follow2 = $(this).attr('data-is_follow');
+            var to_uid = $(this).data('to_uid');
+           if(is_follow2=='true'){
+               $(this).find('img').show();
+               $(this).find('p').width('auto').html('收听').css({'text-align':'center','padding':'10% 2% 10% 10%'});
+               $(this).attr('data-is_follow',false);
+           }else{
+               $(this).find('img').hide();
+               $(this).find('p').width('100%').html('已收听').css({'text-align':'center','padding':'10% 0%'});
+               $(this).attr('data-is_follow',true);
+           }
+            commonobject.listen(to_uid);
+        });
+//        点击进入他人主页
+        $('.newJin .con .conleft').live('click',function(){
+            var to_uid = $(this).data('to_uid');
+            location.href = 'http://www.ekangjiuyi.net/EKang2.0/hospital_nurse/userhomepage.html?to_uid='+to_uid;
+        });
+//        判断是否登录
+        commonobject.login();
+//        获取内容
+        Main.get(url+'ask/user/getNewest',{uid:8},function(res){
+            if(res.ret==0){
+                //执行成功
+                console.log(res.data)
+                var data = res.data
+                $.each(data,function(i,t){
+                    var is_follow = t.is_follow;
+                    var is_myself = t.is_myself;
+                    if(is_myself==0){
+                        if(is_follow==false){
+                            $('.newJin').append('<div class="con"><dl class="conleft" data-to_uid="'+t.id+'"><dt style=" background: url('+t.headimgurl+') center; background-size:cover;" data-to_uid="'+t.id+'"></dt><dd><p class="name">'+t.nickname+'</p><p class="position">'+t.title+'</p><p class="details">'+t.intro+'</p></dd></dl><div class="listenin" data-is_follow="'+ t.is_follow+'" data-to_uid="'+ t.id+'"><img src="images/icon6.png"><p>收听</p></div></div>');
+                        }else{
+                            $('.newJin').append('<div class="con"><dl class="conleft" data-to_uid="'+t.id+'"><dt style=" background: url('+t.headimgurl+') center; background-size:cover;" data-to_uid="'+t.id+'"></dt><dd><p class="name">'+t.nickname+'</p><p class="position">'+t.title+'</p><p class="details">'+t.intro+'</p></dd></dl><div class="listenin" data-is_follow="'+ t.is_follow+'" data-to_uid="'+ t.id+'"><img style=" display:none;" src="images/icon6.png"><p style="width:100%; text-align: center; padding: 10% 0;">已收听</p></div></div>');
+                        }
+                    }else{
+                        $('.newJin').append('<div class="con"><dl class="conleft" data-to_uid="'+t.id+'"><dt style=" background: url('+t.headimgurl+') center; background-size:cover;" data-to_uid="'+t.id+'"></dt><dd><p class="name">'+t.nickname+'</p><p class="position">'+t.title+'</p><p class="details">'+t.intro+'</p></dd></dl></div>');
+                    }
+                });
+            }else{
+                alert(res.msg)
+                //执行失败
+            }
+        });
+//        下拉f7
+//        var myApp = new Framework7();
+//        var $$ = Dom7;
+//        var loading = false;
+//        $$('.infinite-scroll').on('infinite', function () {
+//            if (loading) return;
+//            loading = true;
+//            setTimeout(function () {
+//                // 重置加载flag
+//                loading = false;
+//                index++
+//                setTimeout(function () {
+//
+//                }, 500);
+//            }, 500);
+//        });
+    });
+</script>
+<style>
+    .list-block ul{
+        position: static;
+    }
+    .list-block ul:after{
+        display: none;
+    }
+    .infinite-scroll-preloader {
+        /*margin-top:-100px;*/
+        margin: 10px 0 20% 0;
+        position: relative;
+    }
+    .infinite-scroll-preloader .preloader {
+        width:5vw;
+        height:5vw;
+        margin-left: 37%;
+    }
+    .infinite-scroll-preloader .word{
+        position: absolute;
+        top:17%;
+        left:45%;
+        font-size: 3.5vw;
+        color: #666;
+    }
+    .page{
+        background: rgb(245, 245, 249);
+        height: 109%;
+    }
+    .list-block ul{
+        background: rgb(245, 245, 249);
+    }
+    .pull-to-refresh-layer{
+    }
+    .page-content{
+        margin-top: -50px;
+        height: 100%;
+    }
+    .list-block ul:before{
+        background: none;
+    }
+    .view, .views{
+        position: fixed;
+    }
+</style>
+<body style=" background: #f5f5f9; overflow: scroll;">
+<div class="views">
+    <div class="view view-main" data-page="home">
+        <!--<div class="navbar" style=" position: relative">-->
+            <!--<div class="navbar-inner" style="background-color: #38a16d; padding: 0">-->
+                <!--<div class="header">-->
+                    <!--<div class="nav">-->
+                        <!--<a class="external" href="index.html">问题榜</a>-->
+                        <!--<a data-ajax="false" data-transition="slide" href="newJin.html" class="external" >新晋榜</a>-->
+                        <!--<a data-ajax="false" class="external" href="artistictalent.html">才华榜</a>-->
+                    <!--</div>-->
+                    <!--<div class="bor"></div>-->
+                    <!--<a data-ajax="false" class="search external"-->
+                       <!--href="search.html"><img src="images/icon1.png"></a>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+        <div class="pages navbar-through">
+            <div data-page="home" class="page">
+                <div class="page-content infinite-scroll">
+                    <div class="list-block" style=" margin: 0">
+                        <ul>
+                            <li style=" margin-top: 6px">
+                                <!--加载刷新的列表-->
+                                <div class="header">
+                                    <div class="nav">
+                                        <a class="external" href="index.html">问题榜</a>
+                                        <a href="#" class="hover">新晋榜</a>
+                                        <a class="external" href="artistictalent.html">才华榜</a>
+                                    </div>
+                                    <div class="bor"></div>
+                                    <a class="search external" href="search.html"><img src="images/icon1.png"></a>
+                                </div>
+                                <div class="newJin">
+
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <!--<div class="infinite-scroll-preloader">-->
+                        <!--<div class="preloader"></div>-->
+                        <!--<div class="word">正在加载...</div>-->
+                    <!--</div>-->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="botnav">
+    <dl onclick="link('index.html')" class="buttonproblemlist">
+        <dt><img src="images/icon2hover.png"></dt>
+        <dd class="hover">榜单</dd>
+    </dl>
+    <dl onclick="link('listening_newproblems.html')" class="buttonproblemlist">
+        <dt><img src="images/icon3.png"></dt>
+        <dd>收听</dd>
+    </dl>
+    <dl onclick="link('find_character.html')" class="buttonproblemlist">
+        <dt><img src="images/icon4.png"></dt>
+        <dd>发现</dd>
+    </dl>
+    <dl onclick="link('personalhomepage.html')" class="buttonproblemlist">
+        <dt><img src="images/icon5.png"></dt>
+        <dd>我的</dd>
+    </dl>
+</div>
+</body>
+</html>

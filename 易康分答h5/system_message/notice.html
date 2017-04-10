@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="description" content="" />
+<meta name="author" content="ChongMing" />
+<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-touch-fullscreen" content="yes">
+<meta name="full-screen" content="yes">
+<meta name="screen-orientation" content="portrait">
+<meta name="x5-fullscreen" content="true">
+<meta name="360-fullscreen" content="true">
+<title>通知</title>
+</head>
+<link rel="stylesheet" href="../css/reset.css">
+<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="../css/pullToRefresh.css" />
+<script src="../js/iscroll.js"></script>
+<script src="../js/pullToRefresh.js"></script>
+<script src="../js/jquery.min.js"></script>
+<script src="../js/jquery.mobile-1.4.3.js"></script>
+<script src="../js/main.js"></script>
+<script>
+    $(function(){
+
+        //alert($('.pullUp').html())
+    });
+</script>
+<script>
+$(function(){
+   // $('#notice').children('div').last().css('paddingBottom','0')
+    setTimeout(function(){
+        refresher.init({
+            id: "wrapper",
+            pullDownAction: Refresh,
+            pullUpAction: Load
+        });
+    },1000)
+    var generatedCount = 0;
+    function Refresh() {
+        setTimeout(function () {
+            self.location.reload()
+            wrapper.refresh();
+        }, 2000);
+    }
+    index = 1
+    function Load() {
+//        $('#notice').children('div').find('.pullUpLabel').hide()
+//        $('.pullUp').css('height','100px')
+        index++
+        setTimeout(function () {
+            Main.get(url+'mobile/message/messageList',{uid:1,page_index:index,page_size:10},function(res){
+                if(res.ret==0){
+                    //执行成功
+                    console.log(res.data)
+                    $.each(res.data,function(i,t){
+                        if(t.category==3){
+                            $('#notice').append('<div class="style1"><div class="time">4-11 12:00</div><div class="win"><div class="con"><p class="tit">'+ t.title+'</p><p class="type">活动</p><img src="'+ t.pic+'"><p class="introduce">'+ t.content+'</p><div class="read_passage"><p>阅读全文</p><img src="../images/jt_03.png"></div></div></div></div>');
+                        }else{
+                            $('#notice').append('<div class="style2"><div class="time">4-11 12:00</div><div class="win"><div class="over"><div class="img" style="background:url('+ t.from_avatar+');background-size: cover;"></div><div class="right"><p class="name">小王子</p><p class="infor">'+ t.content+'</p></div></div></div></div>')
+                        }
+                    });
+                }else{
+                    alert(res.msg)
+                    //执行失败
+                }
+                wrapper.refresh();
+            });
+        }, 1000);
+        $('#notice').children('div').last().css('paddingBottom','5%')
+    }
+});
+</script>
+<style>
+    .pullUp{
+        height:70px;
+    }
+</style>
+<body style=" background: #f5f5f9; overflow: scroll;">
+<div id="wrapper" style=" padding-bottom: 10%;">
+    <ul>
+        <li>
+            <!--加载刷新的列表-->
+            <div class="notice" id="notice">
+                <script>
+                    Main.get(url+'mobile/message/messageList',{uid:1,page_index:1,page_size:10},function(res){
+                        if(res.ret==0){
+                            //执行成功
+                            console.log(res.data)
+                            $.each(res.data,function(i,t){
+                                if(t.category==3){
+                                    $('#notice').prepend('<div class="style1"><div class="time">'+t.created_at+'</div><div class="win"><div class="con"><p class="tit">'+ t.title+'</p><p class="type">活动</p><img src="'+ t.pic+'"><p class="introduce">'+ t.content+'</p><div class="read_passage"><p>阅读全文</p><img src="../images/jt_03.png"></div></div></div></div>');
+                                }else{
+                                    $('#notice').prepend('<div class="style2"><div class="time">'+t.created_at+'</div><div class="win"><div class="over"><div class="img" style="background:url('+ t.from_avatar+');background-size: cover;"></div><div class="right"><p class="name">小王子</p><p class="infor">'+ t.content+'</p></div></div></div></div>')
+                                }
+                            });
+                        }else{
+                            alert(res.msg)
+                            //执行失败
+                        }
+                    });
+                   $('#notice').children('div').last().append('<div class="pullUpLabel" style=" text-align: center; padding-bottom: 100%; margin-top: 300%;font-size: 100%; color:#909091;font: inherit;vertical-align: baseline;">上拉加载更多...</div>')
+                </script>
+            </div>
+        </li>
+    </ul>
+
+</div>
+
+</body>
+</html>

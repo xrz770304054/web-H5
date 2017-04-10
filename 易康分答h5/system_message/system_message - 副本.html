@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="description" content="" />
+<meta name="author" content="ChongMing" />
+<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-touch-fullscreen" content="yes">
+<meta name="full-screen" content="yes">
+<meta name="screen-orientation" content="portrait">
+<meta name="x5-fullscreen" content="true">
+<meta name="360-fullscreen" content="true">
+<title>系统消息</title>
+</head>
+<link rel="stylesheet" href="../css/reset.css">
+<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="../css/framework7.ios.min.css">
+<link rel="stylesheet" href="../css/framework7.ios.colors.min.css">
+<link rel="stylesheet" href="../css/my-app.css">
+<script src="../js/jquery.min.js"></script>
+<script type="text/javascript" src="../js/framework7.min.js"></script>
+<script type="text/javascript" src="../js/my-app.js"></script>
+<script src="../js/jquery.mobile-1.4.3.js"></script>
+<script src="../js/main.js"></script>
+<script>
+    window.onload = function(){
+
+    }
+    $(function(){
+        system_message()
+    });
+    function system_message(){
+        Main.get(url+'mobile/message/list',{uid:1,page_index:1,page_size:10},function(res){
+            if(res.ret==0){
+                //执行成功
+                console.log(res.data)
+                //通知
+                var  f_created_at = res.data.first_top.created_at
+                var  f_id = res.data.first_top.id
+                var  f_title = res.data.first_top.title
+                $('#list').append('<dl><dt><div class="img" style=" background:url(../images/parker_03.png) no-repeat center; background-size:21vw 21vw;"></div><div class="infor"><p class="p_name">'+f_title+'</p><p class="p_news">五一直播奖励加倍</p></div></dt><dd><p class="time">'+f_created_at+'</p></dd></dl>')
+                //消息列表
+                var last_b_l = res.data.last_bottom.length
+                for(var i=0;i<last_b_l;i++){
+                    var avatar = res.data.last_bottom[i].avatar
+                    var title = res.data.last_bottom[i].title
+                    var id = res.data.last_bottom[i].id
+                    var created_at = res.data.last_bottom[i].created_at
+                    var user_name = res.data.last_bottom[i].user_name
+                    var unread_count = res.data.last_bottom[i].unread_count
+                    $('#list').append('<dl><dt><div class="img" style=" background:url('+avatar+') no-repeat center; background-size:21vw 21vw;"><p>'+unread_count+'</p></div><div class="infor"><p class="p_name">'+user_name+'</p><p class="p_news">'+title+'</p></div></dt><dd><p class="time">'+created_at+'</p></dd></dl>');
+                }
+                $('.system_message .list dl').eq(0).css('marginBottom','5%');
+                $('.system_message .list dl').eq(1).css('borderTop','1px solid #d9d9d9');
+                $('.system_message .list dl').eq(0).click(function(){
+                    location.href='notice.html'
+                });
+                var list_height = $('.system_message .list').height();
+                var h_h = $(window).height()
+                if(list_height<h_h){
+                    $('.pullUp').html('已加载全部');
+                }
+            }else{
+                alert(res.msg)
+                //执行失败
+            }
+        });
+    }
+</script>
+<script>
+    $(function(){
+        var myApp = new Framework7();
+        var $$ = Dom7;
+        $$('.pull-to-refresh-content').on('refresh', function (e) {
+            index=1
+            $('.infinite-scroll-preloader').html('<div class="preloader"></div>')
+            setTimeout(function () {
+                myApp.pullToRefreshDone();
+            }, 1000);
+        });
+        // 加载flag
+        flag()
+    });
+    index = 1
+    function flag(){
+        var loading = false;
+        $$('.infinite-scroll').on('infinite', function () {
+            if (loading) return;
+            loading = true;
+            setTimeout(function () {
+                // 重置加载flag
+                loading = false;
+                index++
+                setTimeout(function () {
+                }, 500);
+            }, 500);
+        });
+    }
+</script>
+<style>
+    .infinite-scroll-preloader {
+        /*margin-top:-100px;*/
+        margin-bottom: 10px;
+        text-align: center;
+    }
+    .infinite-scroll-preloader .preloader {
+        width:34px;
+        height:34px;
+    }
+    .page{
+        background: rgb(245, 245, 249);
+        height: 109%;
+    }
+    .list-block ul{
+        background: rgb(245, 245, 249);
+    }
+    .pull-to-refresh-layer{
+
+    }
+    .page-content{
+        margin-top: -50px;
+        height: 100%;
+    }
+    .list-block ul:before{
+        background: none;
+    }
+    .view, .views{
+        position: fixed;
+    }
+    p{
+        margin: 0;
+    }
+    /*.pull-to-refresh-layer .pull-to-refresh-arrow{*/
+        /*left:20%;*/
+    /*}*/
+    /*.pull-to-refresh-layer .preloader{*/
+        /*left:20%;*/
+    /*}*/
+    /*.pull-to-refresh-layer .p1{*/
+        /*left:25%;*/
+        /*top:20%;*/
+        /*position: absolute;*/
+        /*width: 60%;*/
+        /*text-align: center;*/
+        /*font-size: 3.5vw;*/
+    /*}*/
+    /*.pull-to-refresh-layer .p2{*/
+        /*left:25%;*/
+        /*top:65%;*/
+        /*position: absolute;*/
+        /*width: 60%;*/
+        /*text-align: center;*/
+        /*font-size: 3.5vw;*/
+    /*}*/
+</style>
+<body style=" background: #f5f5f9;">
+<div class="views">
+    <div class="view view-main" data-page="home">
+        <div class="pages navbar-through">
+            <div data-page="home" class="page">
+                <div class="page-content pull-to-refresh-content infinite-scroll">
+                    <div class="pull-to-refresh-layer">
+                        <div class="preloader"></div>
+                        <div class="pull-to-refresh-arrow"></div>
+                        <!--<p class="p1">下拉可以刷新</p>-->
+                        <!--<p class="p2">最后更新时间：今天16:38</p>-->
+                    </div>
+                    <div class="list-block" style=" margin: 7px 0">
+                        <ul>
+                            <li>
+                                <!--加载刷新的列表-->
+                                <div class="system_message">
+                                    <div class="list" id="list">
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="infinite-scroll-preloader">
+                        <div class="preloader"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

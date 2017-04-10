@@ -1,0 +1,3242 @@
+p{
+    margin: 0;
+}
+img{
+    display: block;
+    width: 100%;
+}
+.animatescale{
+    -webkit-animation:animatescale 0.3s ease-out 0s;
+}
+@-webkit-keyframes animatescale {
+    0%{
+        -webkit-transform: scale(0.5);
+        opacity: 0;
+
+    }
+    100%{
+        -webkit-transform: scale(1);
+        opacity: 1;
+    }
+}
+.index{
+    width:100%;
+    overflow: hidden;
+}
+.header{
+    width: 100%;
+    height: auto;
+    background: #fff;
+    border-bottom: 1px solid #e1e1e1;
+    position: relative;
+    margin-top: 6px;
+    z-index: 9999999;
+}
+.header .nav{
+    width: 90%;
+    margin: auto;
+    overflow: hidden;
+    box-sizing:border-box;
+    -moz-box-sizing:border-box;
+    -webik-box-sizing:border-box;
+    padding: 3% 0;
+}
+.header .nav a{
+    width: 33.3%;
+    height: auto;
+    overflow: hidden;
+    float: left;
+    text-align: center;
+    font-size: 4.5vw;
+    color: #333333;
+    line-height: 6vw;
+    border-right: 1px solid #dddddd;
+    box-sizing:border-box;
+    -moz-box-sizing:border-box;
+    -webik-box-sizing:border-box;
+}
+.header .nav a.hover{
+    color: #44b181;
+}
+.header .nav a:last-child{
+    border: none;
+}
+.header .bor{
+    height: 2px;
+    background: #44b181;
+    position: absolute;
+    bottom: -1px;
+}
+.header .search{
+    position: absolute;
+    right: 4%;
+    top:23%;
+    width: 6%;
+}
+.index .banner{
+    width: 100%;
+    overflow: hidden;
+}
+.index .banner .win{
+    position: relative;
+    left:0;
+}
+.index .banner .win img{
+    float: left;
+}
+.index .problemlist{
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+}
+.index .problemlist .con{
+    width: 100%;
+    overflow: hidden;
+    margin: auto;
+    background: #fff;
+    border-bottom: 1px solid #f1f1f1;
+    margin-top: 10px;
+}
+.index .problemlist .con .top{
+    overflow: hidden;
+}
+.index .problemlist .con .top .num{
+    width: 6%;
+    overflow: hidden;
+    float: left;
+    position: relative;
+    float: left;
+    margin-left: 5%;
+}
+.index .problemlist .con .top .num img{
+
+}
+.index .problemlist .con .top .num p{
+    color: #fff;
+    position: absolute;
+    top:13%;
+    text-align: center;
+    width: 100%;
+}
+.index .problemlist .con .top .problem{
+    float: left;
+    width: 84%;
+    font-size: 3.7vw;
+    margin-left: 2%;
+}
+.index .problemlist .con .top .problem .P1{
+    margin-top: 4%;
+    line-height: 5vw;
+}
+.index .problemlist .con .top .problem .P2{
+    margin-top: 2%;
+    font-size: 3vw;
+    color: #666;
+}
+.index .problemlist .con .bot{
+    width: auto;
+    overflow: hidden;
+    margin: 3% 0 5% 5%;
+}
+.index .problemlist .con .bot .headportrait{
+    height: 13vw;
+    width: 13vw;
+    float: left;
+    border-radius: 100px;
+}
+.index .problemlist .con .bot .news{
+    float: left;
+    width: 53%;
+    overflow: hidden;
+    margin-left: 3%;
+    margin-top: 2%;
+}
+.index .problemlist .con .bot .news .lsj{
+    width: 7%;
+    margin-top: 2.5%;
+    float: left;
+}
+.index .problemlist .con .bot .news .rightcon{
+    height: 10vw;
+    width: 92%;
+    float: left;
+    background: #44b181;
+    border-radius: 4vw;
+    margin-left: -4.8%;
+    margin-top: 2%;
+}
+.index .problemlist .con .bot .news .rightcon img{
+    width: 10%;
+    margin: 5.5% 2% 0 9%;
+    float: left;
+}
+.index .problemlist .con .bot .news .rightcon p{
+    color: #fff;
+    float: left;
+    margin-top: 6%;
+    font-size: 4.5vw;
+}
+.index .problemlist .con .bot .listennumber{
+    width: 27%;
+    overflow: hidden;
+    float: right;
+    font-size: 3vw;
+    margin-top: 4.5%;
+    margin-right: 3%;
+}
+.index .problemlist .con .bot .listennumber img{
+    width: 17%;
+    display: block;
+    margin: auto;
+}
+.index .problemlist .con .bot .listennumber span{
+    float: left;
+    display: block;
+    margin-top: 4%;
+    margin-left: 3px;
+    display: block;
+    width: 100%;
+    text-align: center;
+    color: #999999;
+}
+.botnav{
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    background: #fff;
+    border-top:1px solid #f1f1f1;
+    position: fixed;
+    bottom: 0px;
+    z-index: 9999999999;
+}
+.botnav dl{
+    width: 25%;
+    float: left;
+    overflow: hidden;
+}
+.botnav dl dt{
+    width: 30%;
+    margin: 7% auto;
+}
+.botnav dl dd{
+    width: 100%;
+    text-align: center;
+    padding-bottom: 5%;
+    color: #b4b5b6;
+}
+.botnav dl dd.hover{
+    color: #44b181;
+}
+/*搜索*/
+.searchpage .searchbox{
+    width: 100%;
+    height: auto;
+    background: #fff;
+    overflow: hidden;
+    padding: 3% 0;
+}
+.searchpage .searchspace{
+    width:256px;
+    height:auto;
+    overflow: hidden;
+    margin:auto;
+    display: none;
+    margin-top:73px;
+}
+.searchpage .searchspace img{
+    width:114px;
+    height:auto;
+    overflow: hidden;
+    margin: auto;
+}
+.searchpage .searchspace p{
+    font-size: 14px;
+    text-align: center;
+    color: #35424b;
+    margin: 20px 0;
+}
+.searchpage .searchspace button{
+    width: 128px;
+    height: 33px;
+    background: #44b181;
+    border: none;
+    font-size: 15px;
+    color: #fff;
+    border-radius: 5px;
+    display: block;
+    margin: auto;
+}
+.searchpage .searchbox input{
+    font-size: 15px;
+    color: #999999;
+    border: 1px solid #dddddd;
+    width: 66%;
+    float: left;
+    margin-left: 3%;
+    padding: 10px 3%;
+    border-radius: 5px;
+    box-shadow: none;
+    -webkit-appearance: none;
+}
+.searchpage .searchbox button{
+    width: 18%;
+    background: #44b181;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-family: '微软雅黑';
+    font-size: 15px;
+    float: right;
+    margin-right: 5%;
+}
+.searchpage .answermast{
+    width: 100%;
+    height:auto;
+    overflow: hidden;
+    border-bottom: 1px solid #e6e6e6;
+    background: #fff;
+}
+.searchpage .answermast .tit{
+    width: 100%;
+    text-align: left;
+    font-size: 15px;
+    color: #808080;
+    overflow: hidden;
+    padding: 10px 3%;
+    background: #eeeeee;
+}
+.searchpage .answermast .search_use_con{
+    width: 94%;
+    margin: auto;
+    overflow: hidden;
+    border-bottom: 1px solid #e6e6e6;
+    padding: 10px 0;
+}
+.searchpage .answermast .search_use_con .headpic{
+    width: 47px;
+    height:47px;
+    border-radius: 100px;
+    float: left;
+}
+.searchpage .answermast .search_use_con .useinfor{
+    float: left;
+    width: 78%;
+    height: auto;
+    overflow: hidden;
+    margin-left: 8px;
+}
+.searchpage .answermast .search_use_con .useinfor .top{
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    margin-top: 4px;
+}
+.searchpage .answermast .search_use_con .useinfor .top .name{
+    float: left;
+    border-right: 1px solid #787878;
+    padding-right: 12px;
+    font-size: 16px;
+    color: #35424b;
+    max-width: 30%;
+    white-space:nowrap;
+    text-overflow:ellipsis;
+    -o-text-overflow:ellipsis;
+    overflow: hidden;
+}
+.searchpage .answermast .search_use_con .useinfor .top .position{
+    float: left;
+    font-size: 16px;
+    padding-left: 12px;
+    color: #787878;
+    width: 60%;
+    white-space:nowrap;text-overflow:ellipsis; -o-text-overflow:ellipsis; overflow: hidden;
+}
+.searchpage .answermast .search_use_con .useinfor .bot{
+    font-size: 14px;
+    color: #969696;
+    margin-top: 10px;
+}
+.searchpage .answermast .search_use_con .useinfor .bot .answernum{
+    float: left;
+    padding-right: 25px;
+}
+.searchpage .answermast .seemore{
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+}
+.searchpage .answermast .seemore p{
+    font-size: 14px;
+    color: #44b181;
+    width: 100%;
+    text-align: center;
+    padding: 20px 0;
+    float: left;
+}
+.searchpage .answermast .seemore img{
+    width: 10px;
+    float: right;
+    margin-right: 3%;
+    margin-top: 20px;
+}
+.searchpage .problemlist{
+    width: 100%;
+    height:auto;
+    overflow: hidden;
+    border-bottom: 1px solid #e6e6e6;
+    background: #fff;
+}
+.searchpage .problemlist .tit{
+    width: 100%;
+    text-align: left;
+    font-size: 15px;
+    color: #808080;
+    overflow: hidden;
+    padding: 10px 3%;
+    background: #eeeeee;
+}
+.searchpage .problemlist .problemappend{
+    width:100%;
+    height:auto;
+    overflow: hidden;
+}
+.searchpage .problemlist .problemappend .serch_problemcon{
+    width:94%;
+    height:auto;
+    overflow: hidden;
+    margin: auto;
+    border-bottom: 1px solid #e6e6e6;
+}
+.searchpage .problemlist .problemappend .serch_problemcon .subject{
+    font-size: 16px;
+    margin: 15px 0 5px 0;
+    line-height: 20px;
+    color: #35424b;
+}
+.searchpage .problemlist .problemappend .serch_problemcon .userinfor{
+    font-size: 14px;
+    color: #999999;
+    margin-bottom: 15px;
+}
+.searchpage .problemlist .seemore{
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+}
+.searchpage .problemlist .seemore p{
+    font-size: 14px;
+    text-align: center;
+    color: #44b181;
+    padding: 20px 0;
+    float: left;
+    width: 100%;
+}
+.searchpage .problemlist .seemore img{
+    width: 10px;
+    float: right;
+    margin-right: 3%;
+    margin-top: 20px;
+}
+    /*搜索问题列表页*/
+.search_moreproblem .searchbox{
+    width: 100%;
+    height: auto;
+    background: #fff;
+    overflow: hidden;
+    padding: 3% 0;
+}
+.search_moreproblem .searchbox input{
+    font-size: 15px;
+    color: #999999;
+    border: 1px solid #dddddd;
+    width: 66%;
+    float: left;
+    margin-left: 3%;
+    padding: 10px 3%;
+    border-radius: 5px;
+    box-shadow: none;
+    -webkit-appearance: none;
+}
+.search_moreproblem .searchbox button{
+    width: 18%;
+    background: #44b181;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-family: '微软雅黑';
+    font-size: 15px;
+    float: right;
+    margin-right: 5%;
+}
+    /*新晋榜*/
+.newJin{
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+}
+.newJin .con{
+    width: 100%;
+    overflow: hidden;
+    margin: auto;
+    background: #fff;
+    margin-bottom: 7px;
+    padding: 10px 0;
+}
+.newJin .con .num{
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    margin-left: 5%;
+}
+.newJin .con .num img{
+    width: 6%;
+}
+.newJin .con .num p{
+    width: 6%;
+    color: #fff;
+    position: absolute;
+    top:13%;
+    text-align: center;
+}
+.newJin .con .conleft{
+    width: 70%;
+    height: auto;
+    overflow:hidden;
+    float: left;
+    margin-left: 3%;
+}
+.newJin .con .conleft dt{
+    width: 14vw;
+    height: 14vw;
+    background: red;
+    border-radius: 100px;
+    float: left;
+    margin-top: 4%;
+}
+.newJin .con .conleft dd{
+    float: left;
+    width: 67%;
+    margin-left: 10px;
+}
+.newJin .con .conleft dd .name{
+    font-size: 4vw;
+    color: #333;
+    line-height: 6vw;
+
+}
+.newJin .con .conleft dd .position{
+    font-size: 3.5vw;
+    color: #999999;
+    margin: 4% 0;
+    white-space:nowrap;
+    text-overflow:ellipsis;
+    -o-text-overflow:ellipsis;
+    overflow: hidden;
+}
+.newJin .con .conleft dd .details{
+    font-size: 3vw;
+    color: #999;
+    white-space:nowrap;
+    text-overflow:ellipsis;
+    -o-text-overflow:ellipsis;
+    overflow: hidden;
+    margin-top: 3vw;
+}
+.newJin .con .listenin{
+    width: 17%;
+    float: right;
+    margin-right: 3%;
+    border: 1px solid #44b181;
+    border-radius: 5px;
+    margin-top: 5%;
+}
+.newJin .con .listenin img{
+    width: 25%;
+    float: left;
+    padding: 10% 2% 0 9%;
+}
+.newJin .con .listenin p{
+    font-size: 4vw;
+    float: left;
+    padding: 11% 2% 9% 10%;
+    color: #44b181;
+}
+
+/*才华榜*/
+.newJin .con .conleft dd .answerlisten{
+    width: 100%;
+    margin-top: 3vw;
+    font-size: 3.5vw;
+    color: #999999;
+}
+.newJin .con .conleft dd .answerlisten .answernum{
+    float: left;
+    margin-right: 8px;
+}
+.newJin .con .conleft dd .answerlisten .answernum img{
+    float: left;
+    width: 4vw;
+    margin-right: 2px;
+}
+.newJin .con .conleft dd .answerlisten .answernum span{
+    float: left;
+}
+.newJin .con .conleft dd .answerlisten .listennum{
+    float: left;
+}
+.newJin .con .conleft dd .answerlisten .listennum img{
+    float: left;
+    width: 3.5vw;
+    margin-right: 2px;
+}
+.newJin .con .conleft dd .answerlisten .listennum span{
+    float: left;
+}
+/*个人主页*/
+.personalhomepage{
+    width:100%;
+    overflow: hidden;
+}
+.personalhomepage .headerinformation{
+    width: 100%;
+    height: auto;
+    position: relative;
+    background: #43b180;
+    padding-bottom: 15px;
+}
+.personalhomepage .headerinformation .tophbg{
+    width: 100%;
+}
+.personalhomepage .headerinformation .qrcode{
+    position: absolute;
+    width: 5%;
+    left:3%;
+    top:3vw;
+    z-index: 999999;
+    display: none;
+}
+.personalhomepage .headerinformation .edit{
+    position: absolute;
+    width: 5%;
+    right:3%;
+    top:3vw;
+    z-index: 999999;
+    display: none;
+}
+.personalhomepage .headerinformation .content{
+    width: 100%;
+    padding-top: 5vw;
+}
+.personalhomepage .headerinformation .content .name{
+    font-size: 4.3vw;
+    text-align: center;
+    color: #fff;
+    margin-top: 3%;
+}
+.personalhomepage .headerinformation .content .headportrait{
+    width: 20vw;
+    height:20vw;
+    margin: auto;
+    border-radius: 100px;
+}
+.personalhomepage .headerinformation .content .career_listening{
+    overflow: hidden;
+    font-size: 3.6vw;
+    color: #fff;
+    text-align: center;
+    margin: auto;
+    margin-top: 3%;
+    display: none;
+}
+.personalhomepage .headerinformation .content .career_listening a{
+    width: 8vw;
+    height: 8vw;
+    background: url("../images/icon11.png");
+    background-size: 8vw 8vw;
+}
+.personalhomepage .headerinformation .content .career_listening .occupation{
+    float: left;
+    padding-right: 13px;
+}
+.personalhomepage .headerinformation .content .career_listening img{
+    width: 4vw;
+    float: left;
+}
+.personalhomepage .headerinformation .content .career_listening .listening{
+    float: left;
+    padding-left: 2%;
+}
+.personalhomepage .headerinformation .content .autograph{
+    width: 80%;
+    text-align: left;
+    margin: auto;
+    font-size: 3.6vw;
+    margin-top: 4%;
+    line-height: 5vw;
+    color: #fff;
+}
+.personalhomepage .headerinformation button{
+    width: 100px;
+    height: 35px;
+    background: #fff;
+    color: #44b181;
+    border: none;
+    border-radius: 5px;
+    display: block;
+    font-size: 14px;
+    margin: 10px auto;
+}
+.personalhomepage .group{
+    width: 100%;
+    height:auto;
+    overflow: hidden;
+    background: #fff;
+    margin-top: 4%;
+}
+.personalhomepage .group .public_class{
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    border-bottom: 1px solid #e1e1e1;
+    color: #35424b;
+}
+.personalhomepage .group .public_class .icon_l{
+    width: 6%;
+    float: left;
+    margin-left: 3%;
+    margin-top: 3%;
+    margin-bottom: 3%;
+}
+.personalhomepage .group .public_class .tit{
+    font-size: 4vw;
+    float: left;
+    line-height: 6vw;
+    margin-top: 3.5%;
+    margin-left: 4%;
+}
+.personalhomepage .group .public_class .arrow{
+    width: 3%;
+    float: right;
+    margin-right: 3%;
+    margin-top: 4.5%;
+}
+
+/*发现--问题*/
+.find_problem{
+    width:100%;
+    heght:auto;
+    overflow: hidden;
+}
+.find_problem .selected{
+    width:100%;
+    height:auto;
+    overflow: hidden;
+    background: #fff;
+}
+.find_problem .selected .top{
+    width:100%;
+    heght:auto;
+    margin-top: 4%;
+    overflow: hidden;
+}
+.find_problem .selected .top .left{
+    width:40%;
+    heght:auto;
+    overflow: hidden;
+    float: left;
+    margin-left: 3%;
+}
+.find_problem .selected .top .left img{
+    width:8%;
+    float: left;
+    margin-top: 2%;
+}
+.find_problem .selected .top .left p{
+    float: left;
+    font-size: 4vw;
+    line-height: 6vw;
+    margin-left: 2%;
+}
+.find_problem .selected .top .right{
+    width:40%;
+    heght:auto;
+    overflow: hidden;
+    float: right;
+    margin-right: 3%;
+}
+.find_problem .selected .top .right img{
+    float: right;
+    width: 6%;
+    height: auto;
+    margin-top: 1%;
+}
+.find_problem .selected .top .right p{
+    float: right;
+    height: auto;
+    line-height: 6vw;
+    font-size: 3.7vw;
+    color: #999;
+    margin-right: 3%;
+}
+.find_problem .selected .selecte_problem{
+    width:94%;
+    height:auto;
+    overflow:hidden;
+    margin:3% auto;
+}
+.find_problem .selected .selecte_problem .leftpicture{
+    width:17vw;
+    height:17vw;
+    float: left;
+}
+.find_problem .selected .selecte_problem .center{
+    width: 66%;
+    float: left;
+    height:auto;
+    margin-left: 3%;
+    overflow: hidden;
+}
+.find_problem .selected .selecte_problem .center .tit{
+    font-size: 4.2vw;
+    color:#333;
+    margin-top: 2%;
+}
+.find_problem .selected .selecte_problem .center .problemnum{
+    width:100%;
+    height:auto;
+    overflow: hidden;
+    margin-top: 11%;
+}
+.find_problem .selected .selecte_problem .center .problemnum .iconl{
+    width: 6%;
+    float: left;
+}
+.find_problem .selected .selecte_problem .center .problemnum span{
+    font-size: 4vw;
+    color: #999;
+    margin-left: 2%;
+}
+.find_problem .selected .selecte_problem .arrowrigth{
+    float: right;
+    width: 2.6%;
+    margin-top: 9%;
+}
+.find_problem .selected .example_problem{
+    width: 94%;
+    margin: auto;
+    font-size: 4vw;
+    color: #666;
+    line-height: 10vw;
+}
+.find_problem .selected .example_answer{
+    width: 94%;
+    margin: auto;
+    font-size: 4vw;
+    color: #666;
+    margin-bottom: 3%;
+}
+.find_problem .selected .splitline{
+    width: 100%;
+}
+.find_problem .problemlist{
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    background: #fff;
+}
+.find_problem .problemlist .listcon{
+    width: 100%;
+    border-bottom: 1px solid #eaeaea;
+    position: relative;
+}
+.find_problem .problemlist .listcon .conwin{
+    width:94%;
+    height:auto;
+    overflow:hidden;
+    margin:3% auto;
+}
+.find_problem .problemlist .listcon .conwin .leftpicture{
+    width:20vw;
+    height:16.4vw;
+    float: left;
+    border-radius: 5px;
+}
+.find_problem .problemlist .listcon .conwin .center{
+    width: 73%;
+    float: right;
+    height:auto;
+    margin-left: 3%;
+    overflow: hidden;
+}
+.find_problem .problemlist .listcon .conwin .center .tit{
+    font-size: 4.2vw;
+    color:#333;
+    margin-top: 3%;
+    /*border-bottom: 1px solid #e1e1e1;*/
+    padding-bottom: 3.3%;
+}
+.find_problem .problemlist .listcon .conwin .center .infor{
+    font-size: 3.8vw;
+    color:#999999;
+    margin-top: 3.3%;
+    width: 95%;
+    white-space:nowrap;
+    text-overflow:ellipsis;
+    -o-text-overflow:ellipsis;
+    overflow: hidden;
+}
+.find_problem .problemlist .listcon .conwin .center .problemnum{
+    height:auto;
+    overflow: hidden;
+    position: absolute;
+    right: 3%;
+    bottom:7%;
+}
+.find_problem .problemlist .listcon .conwin .center .problemnum .iconl{
+    width: 4vw;
+    float: left;
+}
+.find_problem .problemlist .listcon .conwin .center .problemnum span{
+    font-size: 3.7vw;
+    color: #999;
+    margin-left: 3px;
+    float: left;
+}
+.find_problem .problemlist .listcon .conwin .arrowrigth{
+    float: right;
+    width: 2.6%;
+    margin-top: 9%;
+}
+
+.find_problem .recommend .tit{
+    width: 100%;
+    text-align: left;
+    font-size: 15px;
+    color: #808080;
+    overflow: hidden;
+    padding: 10px 3%;
+    background: #eeeeee;
+}
+.find_problem .recommend .problemappend{
+    width:100%;
+    height:auto;
+    overflow: hidden;
+    background: #fff;
+}
+.find_problem .recommend .problemappend .serch_problemcon{
+    width:94%;
+    height:auto;
+    overflow: hidden;
+    margin: auto;
+    border-bottom: 1px solid #e6e6e6;
+}
+.find_problem .recommend .problemappend .serch_problemcon .subject{
+    font-size: 16px;
+    margin: 15px 0 5px 0;
+    line-height: 20px;
+    color: #35424b;
+}
+.find_problem .recommend .problemappend .serch_problemcon .userinfor{
+    font-size: 14px;
+    color: #999999;
+    margin-bottom: 15px;
+}
+
+
+
+/*我的信息--二维码*/
+.qrcodepage{
+    width: 100%;
+    height:auto;
+    overflow: hidden;
+}
+.qrcodepage .content{
+    width: 90%;
+    height: auto;
+    overflow: hidden;
+    margin: auto;
+    background: #fff;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    border: 1px solid #dddddd;
+    border-radius: 8px;
+}
+.qrcodepage .content .userqrcode{
+    width: 100%;
+    height:100%;
+    display: block;
+    margin: 8% auto;
+}
+.qrcodepage .content .user{
+    width: 100%;
+    border-top: 1px solid #ddd;
+}
+.qrcodepage .content .user .headerpic{
+    width: 15vw;
+    height: 15vw;
+    border-radius: 100px;
+    margin: 3% 2% 3% 4%;
+    float: left;
+}
+.qrcodepage .content .user .userinfor{
+    width: 60%;
+    height:auto;
+    overflow: hidden;
+    float: left;
+}
+.qrcodepage .content .user .userinfor .p_name{
+    font-size: 4vw;
+    color: #333;
+    margin-top: 10%;
+}
+.qrcodepage .content .user .userinfor .p_wx{
+    font-size: 3.5vw;
+    color: #999;
+    margin-top: 6%;
+}
+
+/*信息编辑*/
+.information{
+    width:100%;
+    height:auto;
+    overflow: hidden;
+}
+.information .topheader{
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    background: #44b181;
+}
+.information .topheader .headportrait{
+    width:17vw;
+    height: 17vw;
+    border-radius: 100px;
+    margin: 3% auto;
+}
+
+.information .topheader .headname{
+    text-align: center;
+    font-size: 4vw;
+    color: #333;
+    margin-bottom: 3%;
+    color: #fff;
+}
+.information .mytitx{
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    background: #fff;
+    border-bottom: 1px solid #e1e1e1;
+    border-top: 1px solid #e1e1e1;
+}
+.information .mytitx .title{
+    width: 94%;
+    height: auto;
+    overflow: hidden;
+    margin: auto;
+    padding: 3% 0;
+    border-bottom: 1px solid #f1f1f1;
+}
+.information .mytitx .title img{
+    width: 5%;
+    float: left;
+}
+.information .mytitx .title p{
+    float: left;
+    font-size: 3.7vw;
+    color: #333333;
+    margin-left: 3%;
+    margin-top: 0.5%;
+}
+.information .mytitx textarea{
+    max-width: 94%;
+    min-width: 94%;
+    max-height: 18vw;
+    min-height: 18vw;
+    display: block;
+    resize : none;
+    margin: auto;
+    border: none;
+    background: none;
+    padding-top: 4px;
+    margin-bottom: 5px;
+    color: #999;
+}
+.information .mytitx span{
+    font-size: 3vw;
+    float: right;
+    margin-right: 3%;
+    margin-bottom: 4px;
+    color: #999999;
+}
+.information .myintroduce{
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    background: #fff;
+    border-bottom: 1px solid #e1e1e1;
+    border-top: 1px solid #e1e1e1;
+    margin-top: 3%;
+}
+.information .myintroduce .title{
+    width: 94%;
+    height: auto;
+    overflow: hidden;
+    margin: auto;
+    padding: 3% 0;
+    border-bottom: 1px solid #f1f1f1;
+}
+.information .myintroduce span{
+    font-size: 3vw;
+    float: right;
+    margin-right: 3%;
+    margin-bottom: 4px;
+    color: #999999;
+}
+.information .myintroduce .title img{
+    width: 5%;
+    float: left;
+}
+.information .myintroduce .title p{
+    float: left;
+    font-size: 3.7vw;
+    color: #333333;
+    margin-left: 3%;
+    margin-top: 0.7%;
+}
+.information .myintroduce textarea{
+    max-width: 94%;
+    min-width: 94%;
+    max-height: 18vw;
+    min-height: 18vw;
+    display: block;
+    resize : none;
+    margin: auto;
+    border: none;
+    background: none;
+    padding-top: 4px;
+    margin-bottom: 15px;
+    color: #999;
+}
+.information .public{
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    background: #fff;
+    border-bottom: 1px solid #e1e1e1;
+    border-top: 1px solid #e1e1e1;
+    margin-top: 3%;
+    padding: 3% 0;
+}
+.information .public span{
+    float: left;
+    font-size: 3.7vw;
+    line-height: 6.6vw;
+}
+.information .public .span_l{
+    margin-left: 3%;
+}
+.information .public .span_r{
+    margin-right: 3%;
+    float: right;
+}
+.information .public input{
+    float: right;
+    height: 6vw;
+    border: none;
+    text-align: right;
+    width: 20%;
+    padding-right: 4px;
+    border: 1px solid #44b181;
+    margin-right: 8px;
+    border-radius: 5px;
+    color: red;
+}
+.information .ask{
+    margin-top: 0;
+    border-top: none;
+}
+.information .ask .radio{
+    float: right;
+    margin-right: 3%;
+    width: 15%;
+    position: relative;
+}
+.information .ask .radio .button_an{
+    top:0;
+    left:-1%;
+    width: 62%;
+    position: absolute;
+}
+.information .saveinformation{
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    font-size: 4vw;
+    color: #fff;
+    text-align: center;
+    padding: 4% 0;
+    background: #44b181;
+}
+/*发现--人物*/
+.find_character{
+    width:100%;
+    height:auto;
+    overflow: hidden;
+}
+.find_character .charactercon{
+    width:100%;
+    height: auto;
+    overflow: scroll;
+}
+.find_character .characterlist{
+    -webkit-overflow-scrolling: touch;
+    height:auto;
+    overflow: hidden;
+    background: #fff;
+}
+.find_character .characterlist .characterwin{
+    width: 20vw;
+    height:auto;
+    overflow: hidden;
+    float: left;
+}
+.find_character .characterlist .characterwin .headpic{
+    width: 15vw;
+    height: 15vw;
+    border-radius: 100px;
+    position: relative;
+    margin: auto;
+    margin-top:20% ;
+    margin-bottom: 10%;
+}
+.find_character .characterlist .characterwin .name{
+    font-size: 4vw;
+    color: #fff;
+    width: 100%;
+    text-align: center;
+    color: #333;
+    margin-bottom: 10px;
+    line-height: 5vw;
+    white-space:nowrap;
+    text-overflow:ellipsis;
+    -o-text-overflow:ellipsis;
+    overflow: hidden;
+}
+.find_character .characterlist .characterwin .headpic .mask{
+    width: 100%;
+    height: 100%;
+    border-radius: 100px;
+    background: rgba(0,0,0,.4);
+}
+.find_character .characterlist .characterwin .listen_button{
+    width: 17vw;
+    height: auto;
+    overflow: hidden;
+    border: 1px solid #44b181;
+    border-radius: 5px;
+    margin: auto;
+    margin-bottom: 20%;
+}
+.find_character .characterlist .characterwin .listen_button img{
+    width: 25%;
+    float: left;
+    margin: 8% 5% 8% 15%;
+}
+.find_character .characterlist .characterwin .listen_button p{
+    width: 55%;
+    font-size: 4vw;
+    color: #44b181;
+    float: left;
+    padding: 10% 0;
+}
+.find_character .charactertype{
+    width:100%;
+    height:auto;
+    overflow: hidden;
+}
+.find_character .charactertype .publictype{
+    background: #fff;
+    margin-top: 10px;
+    overflow: hidden;
+}
+.find_character .charactertype .publictype .top{
+    width:94%;
+    height:auto;
+    margin:2% auto;
+    overflow: hidden;
+}
+.find_character .charactertype .publictype .top .p1{
+    float: left;
+    color: #999;
+    font-size: 4vw;
+    line-height: 5vw;
+}
+.find_character .charactertype .publictype .top .p2{
+    color: #c7c7c7;
+    float: right;
+    font-size: 3.5vw;
+    line-height: 5vw;
+}
+.find_character .charactertype .publictype .type1con{
+    width:94%;
+    height: auto;
+    overflow: hidden;
+    margin: auto;
+    border-top:1px solid #e1e1e1;
+    padding: 10px 0;
+}
+.find_character .charactertype .publictype .type1con .headpic{
+    width:13vw;
+    height:13vw;
+    border-radius: 100px;
+    float: left;
+    margin-top: 1%;
+}
+.find_character .charactertype .publictype .type1con .useinfor{
+    width: 65%;
+    float: left;
+    margin-left: 2%;
+}
+.find_character .charactertype .publictype .type1con .useinfor .name{
+    font-size: 4.3vw;
+    color: #333;
+}
+.find_character .charactertype .publictype .type1con .useinfor .intro{
+    font-size: 3.5vw;
+    color: #c7c7c7;
+    margin: 3% 0;
+}
+.find_character .charactertype .publictype .type1con .useinfor .listenanswer{
+    font-size: 3.5vw;
+    color: #b5b5b5;
+}
+.find_character .charactertype .publictype .type1con .listenin{
+    width: 17%;
+    float: right;
+    border: 1px solid #44b181;
+    border-radius: 5px;
+    margin-top: 4.5%;
+}
+.find_character .charactertype .publictype .type1con .listenin img{
+    width: 25%;
+    float: left;
+    padding: 10% 2% 0 9%;
+}
+.find_character .charactertype .publictype .type1con .listenin p{
+    font-size: 4vw;
+    float: left;
+    padding: 11% 2% 9% 10%;
+    color: #44b181;
+}
+/*发现--问题列表*/
+.find_problemlist{
+    width:100%;
+    height:auto;
+    overflow: hidden;
+    margin-top: 6px;
+}
+.find_problemlist .toptit{
+    width:100%;
+    border-bottom: 1px solid #e1e1e1;
+    background: #fff;
+    overflow: hidden;
+    position: relative;
+}
+.find_problemlist .toptit .left{
+    width: 20vw;
+    height: 16.4vw;
+    float: left;
+    border-radius: 5px;
+    margin: 3%;
+}
+.find_problemlist .toptit .right{
+    float: left;
+    width: 70%;
+    float: right;
+    margin-right: 3%;
+    margin-top: 8.5%;
+}
+.find_problemlist .toptit .problemnum{
+    height: auto;
+    overflow: hidden;
+    position: absolute;
+    right: 3%;
+    bottom: 7%;
+}
+.find_problemlist .toptit .problemnum img{
+    width: 4vw;
+    float: left;
+}
+.find_problemlist .toptit .problemnum span{
+    font-size: 3.7vw;
+    color: #999;
+    margin-left: 3px;
+    float: left;
+}
+.find_problemlist .find_problemlistcon{
+    width:100%;
+    height:auto;
+    overflow: hidden;
+    background: #fff;
+    margin-top: 10px;
+}
+.find_problemlist .find_problemlistcon .problemcon{
+    width:100%;
+    height:auto;
+    overflow: hidden;
+    margin: auto;
+    border-bottom: 1px solid #e6e6e6;
+}
+.find_problemlist .find_problemlistcon .problemcon .subject{
+    font-size: 16px;
+    margin: 10px auto 5px auto;
+    line-height: 20px;
+    color: #35424b;
+    width: 94%;
+}
+.find_problemlist .find_problemlistcon .problemcon .userinfor{
+    font-size: 14px;
+    color: #999999;
+    width: 94%;
+    margin: auto;
+    margin-bottom: 15px;
+}
+/*我的优问*/
+.goodquestion_page{
+    width:100%;
+    overflow: hidden;
+    margin-top: 6px;
+}
+.goodquestion_page .headerinformation{
+    width: 100%;
+    height: auto;
+    background: #44b181;
+    overflow: hidden;
+    padding-bottom: 3%;
+}
+.goodquestion_page .headerinformation .content{
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    margin-top: 5%;
+}
+.goodquestion_page .headerinformation .content .name{
+    font-size: 4.3vw;
+    text-align: center;
+    color: #fff;
+    margin-top: 3%;
+}
+.goodquestion_page .headerinformation .content .headportrait{
+    width: 20vw;
+    height:20vw;
+    margin: auto;
+    border-radius: 100px;
+}
+.goodquestion_page .headerinformation .content .career_listening{
+    overflow: hidden;
+    font-size: 3.6vw;
+    color: #fff;
+    text-align: center;
+    margin: auto;
+    margin-top: 3%;
+}
+.goodquestion_page .headerinformation .content .career_listening a{
+    width: 8vw;
+    height: 8vw;
+    background: url("../images/icon11.png");
+    background-size: 8vw 8vw;
+}
+.goodquestion_page .headerinformation .content .career_listening .occupation{
+    float: left;
+    padding-right: 5%;
+}
+.goodquestion_page .headerinformation .content .career_listening img{
+    width: 3.5vw;
+    float: left;
+    margin-right: 2px;
+}
+.goodquestion_page .headerinformation .content .career_listening .listening{
+    float: left;
+    padding-left: 2%;
+}
+.goodquestion_page .headerinformation .content .autograph{
+    width: 100%;
+    text-align: center;
+    font-size: 3.6vw;
+    margin-top: 2%;
+    color: #fff;
+}
+.goodquestion_page .headerinformation .content p{
+    text-align: center;
+    width: 100%;
+    font-size: 3.6vw;
+    color: #fff;
+    margin-top: 10px;
+}
+.goodquestion_page .headerinformation .content p b{
+    color: #ff0202;
+    font-size: 4.3vw;
+}
+.goodquestion_page .listtoptit{
+    width: 100%;
+    height:auto;
+    overflow: hidden;
+}
+.goodquestion_page .listtoptit .p_left{
+    float: left;
+    font-size: 3.5vw;
+    color: #666666;
+    margin-left: 3%;
+    margin: 3% 0 3% 3%;
+    width: 60%;
+}
+.goodquestion_page .listtoptit .right{
+    float: right;
+    width: 18%;
+    margin-right: 3%;
+    color: #666666;
+    line-height: 10vw;
+}
+.goodquestion_page .listtoptit .right span.hover{
+    color: #44b181;
+}
+.goodquestion_page .listtoptit .right .newest{
+    float: left;
+    font-size: 3.5vw;
+}
+.goodquestion_page .listtoptit .right div{
+    float: left;
+    font-size: 3vw;
+    margin: 0 5%;
+}
+.goodquestion_page .listtoptit .right .default{
+    float: left;
+    font-size: 3.5vw;
+}
+.goodquestion_page .goodquestionlist{
+    width:100%;
+    height:auto;
+    overflow: hidden;
+}
+.goodquestion_page .goodquestionlist .goodquestionlistcon{
+    width: 100%;
+    height:auto;
+    overflow: hidden;
+    background: #fff;
+    padding-bottom: 15px;
+    margin-bottom: 10px;
+}
+.goodquestion_page .goodquestionlist .goodquestionlistcon .userquestions{
+    width: 94%;
+    height: auto;
+    overflow: hidden;
+    margin: auto;
+    margin-top: 3%;
+}
+.goodquestion_page .goodquestionlist .goodquestionlistcon .userquestions .headpic{
+    width: 12vw;
+    height:12vw;
+    float: left;
+    border-radius: 100px;
+}
+.goodquestion_page .goodquestionlist .goodquestionlistcon .userquestions .p1{
+    width: 85%;
+    float: left;
+    margin-left: 2%;
+    margin-top: 1.5%;
+    font-size: 4vw;
+    line-height: 5vw;
+}
+.goodquestion_page .goodquestionlist .goodquestionlistcon .P2{
+    margin-top: 2%;
+    font-size: 3vw;
+    color: #666;
+    margin-left: 16.5%;
+    width: 80%;
+}
+.goodquestion_page .goodquestionlist .goodquestionlistcon .answeruser{
+    width: 94%;
+    height: auto;
+    overflow: hidden;
+    margin: auto;
+    margin-top: 5%;
+}
+.goodquestion_page .goodquestionlist .goodquestionlistcon .answeruser .answeruserheadpic{
+    width: 12vw;
+    height:12vw;
+    float: left;
+    border-radius: 100px;
+}
+.goodquestion_page .goodquestionlist .goodquestionlistcon .answeruser .voicebar{
+    width: 55%;
+    height: auto;
+    overflow: hidden;
+    margin-left: 3%;
+    float: left;
+    margin-top: 2%;
+}
+.goodquestion_page .goodquestionlist .goodquestionlistcon .answeruser .voicebar .lsj{
+    width: 7%;
+    height: auto;
+    overflow: hidden;
+    float: left;
+    margin-top: 0.5%;
+}
+.goodquestion_page .goodquestionlist .goodquestionlistcon .answeruser .voicebar .rightcon{
+    width: 96%;
+    height: 10vw;
+    overflow: hidden;
+    background: #44b181;
+    float: left;
+    margin-left: -2.5vw;
+    border-radius: 4vw;
+}
+.goodquestion_page .goodquestionlist .goodquestionlistcon .answeruser .voicebar .rightcon img{
+    width: 10%;
+    margin: 5% 7% 0 9%;
+}
+.goodquestion_page .goodquestionlist .goodquestionlistcon .answeruser .timelength{
+    font-size: 4vw;
+    color: #999;
+    margin-top: 5.5%;
+    float: left;
+    margin-left: 1%;
+}
+.goodquestion_page .goodquestionlist .goodquestionlistcon .answeruser button{
+    padding: 2% 3%;
+    background: none;
+    border: 1px solid #00b8ff;
+    color: #00b8ff;
+    font-size: 3.5vw;
+    font-family: '微软雅黑';
+    border-radius: 5px;
+    float: right;
+    margin-top: 1.5%;
+}
+.goodquestion_page .goodquestionlist .goodquestionlistcon .listbot{
+    width: 94%;
+    height: auto;
+    overflow: hidden;
+    margin: auto;
+    margin-top: 5%;
+}
+.goodquestion_page .goodquestionlist .goodquestionlistcon .listbot .time{
+    width: 40%;
+    float: left;
+    height: auto;
+    overflow: hidden;
+}
+.goodquestion_page .goodquestionlist .goodquestionlistcon .listbot .time img{
+    width: 4vw;
+    float: left;
+}
+.goodquestion_page .goodquestionlist .goodquestionlistcon .listbot .time p{
+    font-size: 3.3vw;
+    color:#999 ;
+    float: left;
+    line-height: 4vw;
+    margin-left: 4px;
+}
+.goodquestion_page .goodquestionlist .goodquestionlistcon .listbot .listbotright{
+    width: auto;
+    float: right;
+    overflow: hidden;
+}
+.goodquestion_page .goodquestionlist .goodquestionlistcon .listbot .listbotright .listen{
+    float: left;
+    width: auto;
+    overflow: hidden;
+}
+.goodquestion_page .goodquestionlist .goodquestionlistcon .listbot .listbotright .listen img{
+    width: 4vw;
+    float: left;
+}
+.goodquestion_page .goodquestionlist .goodquestionlistcon .listbot .listbotright .listen p{
+    font-size: 4vw;
+    color:#999 ;
+    float: left;
+    line-height: 4vw;
+    margin-left: 6px;
+
+}
+.goodquestion_page .goodquestionlist .goodquestionlistcon .listbot .listbotright .zambia{
+    float: left;
+    width: auto;
+    overflow: hidden;
+    padding-left: 10px;
+}
+.goodquestion_page .goodquestionlist .goodquestionlistcon .listbot .listbotright .zambia img{
+    width: 4vw;
+    float: left;
+}
+.goodquestion_page .goodquestionlist .goodquestionlistcon .listbot .listbotright .zambia p{
+    font-size: 4vw;
+    color:#999 ;
+    float: left;
+    line-height: 4.5vw;
+    margin-left: 4px;
+    padding-left: 3px;
+}
+/*我的回答*/
+.myquestion_page{
+    margin-top: 6px;
+    width: 100%;
+    height:auto;
+    overflow: hidden;
+}
+.myquestion_page .headertabtop{
+    width:100%;
+    height:auto;
+    font-size: 16px;
+    color: #333;
+    box-sizing:border-box;
+    -moz-box-sizing:border-box;
+    -webik-box-sizing:border-box;
+    overflow: hidden;
+    padding: 4% 0;
+    border-bottom: 1px solid #ddd;
+    position: relative;
+}
+.myquestion_page .headertabtop .left{
+    width: 50%;
+    float: left;
+    text-align: center;
+    border-right: 1px solid #dddddd;
+    box-sizing:border-box;
+    -moz-box-sizing:border-box;
+    -webik-box-sizing:border-box;
+    padding: 1% 0;
+    overflow: hidden;
+}
+.myquestion_page .headertabtop .right{
+    width: 50%;
+    float: left;
+    text-align: center;
+    padding: 1% 0;
+    overflow: hidden;
+}
+.myquestion_page .headertabtop div.hover{
+    color: #44b181;
+}
+.myquestion_page .bor{
+    width: 47%;
+    height:2px;
+    background: #44b181;
+    margin-top: -2px;
+}
+.myquestion_page .Answerquestionslist{
+    width: 100%;
+    height:auto;
+    overflow: hidden;
+}
+.myquestion_page .Answerquestionslist .Answerquestions_con{
+    width: 100%;
+    height:auto;
+    overflow: hidden;
+    background: #fff;
+    margin-bottom: 10px;
+}
+.myquestion_page .Answerquestionslist .Answerquestions_con .userinfor{
+    width: 94%;
+    height: auto;
+    overflow: hidden;
+    margin: auto;
+    font-size: 15px;
+}
+.myquestion_page .Answerquestionslist .Answerquestions_con .userinfor .headpic{
+    width: 50px;
+    height: 50px;
+    border-radius: 100px;
+    margin: 10px 0;
+    float: left;
+}
+.myquestion_page .Answerquestionslist .Answerquestions_con .userinfor .username{
+    float: left;
+    margin-left: 10px;
+    margin-top: 27px;
+}
+.myquestion_page .Answerquestionslist .Answerquestions_con .userinfor .state{
+    float: right;
+    margin-top: 27px;
+    color: #999;
+}
+.myquestion_page .Answerquestionslist .Answerquestions_con .userinfor .state.hover{
+    color: #44b181;
+}
+.myquestion_page .Answerquestionslist .Answerquestions_con .Answerquestions{
+    font-size: 15px;
+    color: #333;
+    width: 94%;
+    margin: auto;
+    line-height: 20px;
+}
+.myquestion_page .Answerquestionslist .Answerquestions_con .originalproblem{
+    font-size: 13px;
+    color: #333;
+    width: 94%;
+    margin: 8px auto;
+    color: #999;
+    line-height: 20px;
+}
+.myquestion_page .Answerquestionslist .Answerquestions_con .time{
+    width: 94%;
+    font-size: 15px;
+    overflow: hidden;
+    margin: 10px auto;
+}
+.myquestion_page .Answerquestionslist .Answerquestions_con .time img{
+    width: 15px;
+    height: 15px;
+    float: right;
+    margin-right: 5px;
+}
+.myquestion_page .Answerquestionslist .Answerquestions_con .time span{
+    font-size: 15px;
+    color: #999;
+    float: right;
+}
+
+/*问题详情*/
+.probleminfor{
+    width:100%;
+    overflow: hidden;
+}
+.probleminfor{
+    width:100%;
+    height:auto;
+    overflow: hidden;
+}
+.probleminfor .probleminfortop{
+    width: 100%;
+    height:auto;
+    overflow: hidden;
+    background: #fff;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #e3e3e3;
+}
+.probleminfor .probleminfortop .personal{
+    width: 94%;
+    height: auto;
+    overflow: hidden;
+    margin: auto;
+    margin-top: 3%;
+}
+.probleminfor .probleminfortop .personal .personalheadpic{
+    width: 8vw;
+    height:8vw;
+    float: left;
+    border-radius: 100px;
+}
+.probleminfor .probleminfortop .personal .name{
+    font-size: 4vw;
+    float: left;
+    line-height: 8vw;
+    margin-left: 10px;
+    color: #999999;
+}
+.probleminfor .probleminfortop .personal .price{
+    float: right;
+    font-size:4vw;
+    line-height: 8vw;
+    color: #e94c37;
+}
+.probleminfor .probleminfortop .userquestions{
+    width: 94%;
+    height: auto;
+    overflow: hidden;
+    margin: auto;
+    margin-top: 3%;
+}
+.probleminfor .probleminfortop .userquestions .headpic{
+    width: 12vw;
+    height:12vw;
+    float: left;
+}
+.probleminfor .probleminfortop .userquestions p{
+    width: 85%;
+    float: left;
+    margin-left: 2%;
+    margin-top: 1.5%;
+    font-size: 4vw;
+    line-height: 5vw;
+}
+.probleminfor .probleminfortop .answeruser{
+    width: 94%;
+    height: auto;
+    overflow: hidden;
+    margin: auto;
+    margin-top: 3%;
+}
+.probleminfor .probleminfortop .answeruser .answeruserheadpic{
+    width: 12vw;
+    height:12vw;
+    float: left;
+    border-radius: 100px;
+}
+.probleminfor .probleminfortop .answeruser .voicebar{
+    width: 55%;
+    height: auto;
+    overflow: hidden;
+    margin-left: 3%;
+    float: left;
+    margin-top: 1.5%;
+}
+.probleminfor .probleminfortop .answeruser .voicebar .lsj{
+    width: 7%;
+    height: auto;
+    overflow: hidden;
+    float: left;
+    margin-top: 0.5%;
+}
+.probleminfor .probleminfortop .answeruser .voicebar .rightcon{
+    width: 92%;
+    height: 11vw;
+    overflow: hidden;
+    background: #44b181;
+    float: left;
+    margin-left: -2.3vw;
+    border-radius: 4vw;
+}
+.probleminfor .probleminfortop .answeruser .voicebar .rightcon img{
+    width: 10%;
+    margin: 6% 0 0 9%;
+    float: left;
+}
+.probleminfor .probleminfortop .answeruser .voicebar .rightcon p{
+    float: left;
+    font-size: 4.5vw;
+    color: #fff;
+    margin: 7% 0 0 4%;
+}
+.probleminfor .probleminfortop .answeruser .timelength{
+    font-size: 4vw;
+    color: #999;
+    margin-top: 5.5%;
+    float: left;
+    margin-left: 1%;
+}
+.probleminfor .probleminfortop .answeruser button{
+    background: none;
+    border: 2px solid #44b181;
+    color: #44b181;
+    font-size: 3.3vw;
+    font-family: '微软雅黑';
+    display: block;
+    width: 11vw;
+    height:11vw;
+    border-radius: 100px;
+    float: right;
+    margin-top: 1.3%;
+}
+.probleminfor .probleminfortop .listbot{
+    width: 94%;
+    height: auto;
+    overflow: hidden;
+    margin: auto;
+    margin-top: 5%;
+}
+.probleminfor .probleminfortop .listbot .time{
+    width: 40%;
+    float: left;
+    height: auto;
+    overflow: hidden;
+}
+.probleminfor .probleminfortop .listbot .time img{
+    width: 4vw;
+    float: left;
+}
+.probleminfor .probleminfortop .listbot .time p{
+    font-size: 3.3vw;
+    color:#999 ;
+    float: left;
+    line-height: 4.7vw;
+    margin-left: 4px;
+}
+.probleminfor .probleminfortop .listbot .listbotright{
+    width: auto;
+    float: right;
+    overflow: hidden;
+}
+.probleminfor .probleminfortop .listbot .listbotright .listen{
+    float: left;
+    width: auto;
+    overflow: hidden;
+}
+.probleminfor .probleminfortop .listbot .listbotright .listen img{
+    width: 4vw;
+    float: left;
+}
+.probleminfor .probleminfortop .listbot .listbotright .listen p{
+    font-size: 4vw;
+    color:#999 ;
+    float: left;
+    line-height: 4vw;
+    margin-left: 6px;
+
+}
+.probleminfor .probleminfortop .listbot .listbotright .zambia{
+    float: left;
+    width: auto;
+    overflow: hidden;
+    padding-left: 10px;
+}
+.probleminfor .probleminfortop .listbot .listbotright .zambia img{
+    width: 4vw;
+    float: left;
+}
+.probleminfor .probleminfortop .listbot .listbotright .zambia p{
+    font-size: 4vw;
+    color:#999 ;
+    float: left;
+    line-height: 4.5vw;
+    margin-left: 4px;
+    padding-left: 3px;
+}
+
+.probleminfor .freeinquiry{
+    width:100%;
+    height:auto;
+    overflow: hidden;
+    background: #fff;
+}
+.probleminfor .freeinquiry .con{
+    width:100%;
+    height:auto;
+    overflow: hidden;
+    margin: auto;
+    border-bottom: 1px solid #e1e1e1;
+}
+.probleminfor .freeinquiry .con .p1{
+    margin: 10px auto;
+    color: #999999;
+    width: 95%;
+}
+.probleminfor .freeinquiry .con .p2{
+    color:#333;
+    font-size: 16px;
+    margin: auto;
+    line-height: 20px;
+    margin-bottom: 10px;
+    width: 95%;
+}
+.probleminfor .freeinquiry .con .answeruser{
+    width: 95%;
+    height: auto;
+    overflow: hidden;
+    margin: auto;
+    margin-top: 3%;
+}
+.probleminfor .freeinquiry .con .answeruser .answeruserheadpic{
+    width: 12vw;
+    height:12vw;
+    float: left;
+    border-radius: 100px;
+}
+.probleminfor .freeinquiry .con .answeruser .voicebar{
+    width: 55%;
+    height: auto;
+    overflow: hidden;
+    margin-left: 3%;
+    float: left;
+    margin-top: 2%;
+}
+.probleminfor .freeinquiry .con .answeruser .voicebar .lsj{
+    width: 7%;
+    height: auto;
+    overflow: hidden;
+    float: left;
+    margin-top: 0.5%;
+}
+.probleminfor .freeinquiry .con .answeruser .voicebar .rightcon{
+    width: 96%;
+    height: 10vw;
+    overflow: hidden;
+    background: #44b181;
+    float: left;
+    margin-left: -2.5vw;
+    border-radius: 4vw;
+}
+.probleminfor .freeinquiry .con .answeruser .voicebar .rightcon img{
+    width: 10%;
+    margin: 5% 7% 0 9%;
+}
+.probleminfor .freeinquiry .con .answeruser .timelength{
+    font-size: 4vw;
+    color: #999;
+    margin-top: 5.5%;
+    float: left;
+    margin-left: 1%;
+}
+.probleminfor .freeinquiry .con .p3{
+    margin: 10px auto;
+    color: #999999;
+    width: 95%;
+}
+
+
+
+
+.probleminfor .answeruser{
+    width:100%;
+    height:auto;
+    overflow: hidden;
+    background: #fff;
+}
+.probleminfor .answeruser .left{
+    float: left;
+    height: auto;
+    overflow: hidden;
+    margin-left: 3%;
+    padding: 4% 0;
+}
+.probleminfor .answeruser .left .name{
+    font-size: 4vw;
+    color: #333;
+}
+.probleminfor .answeruser .left .name .listennum{
+    font-size: 3.5vw;
+    color: #999;
+    margin-left: 10px;
+}
+.probleminfor .answeruser .left .infor{
+    font-size: 3.5vw;
+    color: #999;
+    margin-top: 7px;
+}
+.probleminfor .answeruser .right{
+    float: right;
+    margin-right: 3%;
+    width: 2.5vw;
+    margin-top: 6.5%;
+}
+.probleminfor .recommend{
+    width:100%;
+    height:auto;
+    overflow: hidden;
+}
+.probleminfor .recommend .tit{
+    font-size: 4vw;
+    color: #999;
+    margin-left: 3%;
+    padding: 3% 0;
+}
+.probleminfor .recommend .con{
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    background: #fff;
+}
+.probleminfor .recommend .con .p1{
+    font-size: 4vw;
+    width: 94%;
+    margin: auto;
+    line-height: 5vw;
+    padding: 3% 0;
+}
+.probleminfor .recommend .con .p2{
+    font-size: 3.5vw;
+    width: 94%;
+    margin: auto;
+    color: #999;
+}
+.probleminfor .recommend .con .div3{
+    font-size: 3.5vw;
+    width: 94%;
+    margin: auto;
+    padding: 3% 0;
+    color: #999;
+    overflow: hidden;
+}
+.probleminfor .recommend .con .div3 .time{
+    float: left;
+}
+.probleminfor .recommend .con .div3 .div3_lisnum{
+    float: left;
+    margin-left: 20px;
+}
+/*他人主页*/
+.userhomepage{
+    width:100%;
+    overflow: hidden;
+}
+.userhomepage .headerinformation{
+    width: 100%;
+    height: auto;
+    position: relative;
+    background: #44b181;
+    padding-bottom: 15px;
+}
+.userhomepage .headerinformation .tophbg{
+    width: 100%;
+}
+.userhomepage .headerinformation .qrcode{
+    position: absolute;
+    width: 5%;
+    left:3%;
+    top:3vw;
+    z-index: 999999;
+}
+.userhomepage .headerinformation .edit{
+    position: absolute;
+    width: 5%;
+    right:3%;
+    top:3vw;
+    z-index: 999999;
+}
+.userhomepage .headerinformation .content{
+    width: 100%;
+    padding-top: 5vw;
+}
+.userhomepage .headerinformation .content .name{
+    font-size: 4.3vw;
+    text-align: center;
+    color: #fff;
+    margin-top: 3%;
+}
+.userhomepage .headerinformation .content .headportrait{
+    width: 20vw;
+    height:20vw;
+    margin: auto;
+    border-radius: 100px;
+}
+.userhomepage .headerinformation .content .career_listening{
+    overflow: hidden;
+    font-size: 3.6vw;
+    color: #fff;
+    text-align: center;
+    margin: auto;
+    margin-top: 3%;
+}
+.userhomepage .headerinformation .content .career_listening a{
+    width: 8vw;
+    height: 8vw;
+    background: url("../images/icon11.png");
+    background-size: 8vw 8vw;
+}
+.userhomepage .headerinformation .content .career_listening .occupation{
+    float: left;
+    padding-right: 5%;
+}
+.userhomepage .headerinformation .content .career_listening img{
+    width: 4vw;
+    float: left;
+}
+.userhomepage .headerinformation .content .career_listening .listening{
+    float: left;
+    padding-left: 2%;
+}
+.userhomepage .headerinformation .content .autograph{
+    width: 80%;
+    text-align: left;
+    margin: auto;
+    font-size: 3.6vw;
+    margin-top: 4%;
+    line-height: 5vw;
+    color: #fff;
+}
+.userhomepage .headerinformation .content .p1,.p3{
+    width: 80%;
+    font-size: 3.6vw;
+    color: #fff;
+    margin: auto;
+    margin-top: 10px;
+    display: none;
+}
+.userhomepage .headerinformation .content p b {
+    color: #ff0202;
+    font-size: 4.3vw;
+}
+.userhomepage .headerinformation .content .listenButton{
+    width: 20%;
+    overflow: hidden;
+    margin-right: 3%;
+    background: #fff;
+    border-radius: 5px;
+    margin-top: 1%;
+    margin: auto;
+    margin-top: 10px;
+    display: none;
+}
+.userhomepage .headerinformation .content .listenButton img{
+    width: 20%;
+    float: left;
+    padding: 10% 2% 10% 15%;
+}
+.userhomepage .headerinformation .content .listenButton p{
+    font-size: 4vw;
+    float: left;
+    padding: 11% 2% 11% 10%;
+    color: #44b181;
+}
+.userhomepage .askquestions{
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    background: #fff;
+    display: none;
+}
+.userhomepage .askquestions .tit{
+    width: 94%;
+    margin: auto;
+    margin-top: 10px;
+    padding:5px;
+    color: #333;
+    font-size: 3.5vw;
+    overflow: hidden;
+}
+.userhomepage .askquestions .tit .p1{
+    float: left;
+    color: #999999;
+}
+.userhomepage .askquestions .tit .p2{
+    float: right;
+    color: #f85f48;
+    font-size: 4vw;
+    margin-right: 1%;
+}
+.userhomepage .askquestions .text{
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    position: relative;
+    width: 90%;
+    min-height: 20vw;
+    max-height: 20vw;
+    resize: none;
+    margin:10px auto;
+    margin-top: 5px;
+    display: block;
+    border-radius: 5px;
+    padding:5px 2%;
+    border: 1px solid #ccc;
+}
+.userhomepage .askquestions .text .textnum{
+    position: absolute;
+    right: 2%;
+    z-index: 2;
+    bottom: 5%;
+    color: #ccc;
+    font-size: 14px;
+}
+.userhomepage .askquestions textarea{
+    width: 100%;
+    min-height: 17vw;
+    max-height: 17vw;
+    resize: none;
+    display: block;
+    border-radius: 5px;
+    border: none;
+    position: relative;
+    z-index: 1;
+    font-size: 3.5vw;
+}
+.userhomepage .askquestions .open{
+    width: 94%;
+    margin: auto;
+    color: #666;
+    font-size: 3.5vw;
+    overflow: hidden;
+}
+.userhomepage .askquestions .open .radio{
+    width: 4vw;
+    height: 4vw;
+    float: left;
+    margin-left: 3px;
+    margin-right: 3px;
+}
+.userhomepage .askquestions .open span{
+    line-height: 4vw;
+    color: #999999;
+}
+.userhomepage .askquestions button{
+    font-size: 4vw;
+    padding: 1.5% 0;
+    border: none;
+    width: 20%;
+    border-radius: 5px;
+    background: #44b181;
+    color: #fff;
+    display: block;
+    font-family: '微软雅黑';
+    margin: 15px auto;
+}
+
+.userhomepage .listtoptit{
+    width: 100%;
+    height:auto;
+    overflow: hidden;
+}
+.userhomepage .listtoptit .p_left{
+    float: left;
+    font-size: 3.5vw;
+    color: #666666;
+    margin-left: 3%;
+    margin: 3% 0 3% 3%;
+    width: 60%;
+}
+.userhomepage .listtoptit .right{
+    float: right;
+    width: 18%;
+    margin-right: 3%;
+    color: #666666;
+    line-height: 10vw;
+}
+.userhomepage .listtoptit .right span.hover{
+    color: #44b181;
+}
+.userhomepage .listtoptit .right .newest{
+    float: left;
+    font-size: 3.5vw;
+}
+.userhomepage .listtoptit .right div{
+    float: left;
+    font-size: 3vw;
+    margin: 0 5%;
+}
+.userhomepage .listtoptit .right .default{
+    float: left;
+    font-size: 3.5vw;
+}
+
+.userhomepage .goodquestionlist{
+    width:100%;
+    height:auto;
+    overflow: hidden;
+}
+.userhomepage .goodquestionlist .goodquestionlistcon{
+    width: 100%;
+    height:auto;
+    overflow: hidden;
+    background: #fff;
+    padding-bottom: 15px;
+    margin-bottom: 10px;
+}
+.userhomepage .goodquestionlist .goodquestionlistcon .userquestions{
+    width: 94%;
+    height: auto;
+    overflow: hidden;
+    margin: auto;
+    margin-top: 3%;
+}
+.userhomepage .goodquestionlist .goodquestionlistcon .userquestions .headpic{
+    width: 12vw;
+    height:12vw;
+    float: left;
+    border-radius: 100px;
+}
+.userhomepage .goodquestionlist .goodquestionlistcon .userquestions p{
+    width: 85%;
+    float: left;
+    margin-left: 2%;
+    margin-top: 1.5%;
+    font-size: 4vw;
+    line-height: 5vw;
+}
+.userhomepage .goodquestionlist .goodquestionlistcon .answeruser{
+    width: 94%;
+    height: auto;
+    overflow: hidden;
+    margin: auto;
+    margin-top: 4%;
+}
+.userhomepage .goodquestionlist .goodquestionlistcon .answeruser .answeruserheadpic{
+    width: 12vw;
+    height:12vw;
+    float: left;
+    border-radius: 100px;
+}
+.userhomepage .goodquestionlist .goodquestionlistcon .answeruser .voicebar{
+    width: 55%;
+    height: auto;
+    overflow: hidden;
+    margin-left: 3%;
+    float: left;
+    margin-top: 1.4%;
+}
+.userhomepage .goodquestionlist .goodquestionlistcon .answeruser .voicebar .lsj{
+    width: 6%;
+    height: auto;
+    overflow: hidden;
+    float: left;
+    margin-top: 1.5%;
+}
+.userhomepage .goodquestionlist .goodquestionlistcon .answeruser .voicebar .rightcon{
+    width: 93%;
+    height: 11vw;
+    overflow: hidden;
+    background: #44b181;
+    float: left;
+    margin-left: -1.7vw;
+    border-radius: 4vw;
+}
+.userhomepage .goodquestionlist .goodquestionlistcon .answeruser .voicebar .rightcon img{
+    width: 9%;
+    margin: 7% 7% 0 9%;
+    float: left;
+}
+.userhomepage .goodquestionlist .goodquestionlistcon .answeruser .voicebar .rightcon p {
+    color: #fff;
+    float: left;
+    margin-top: 7.5%;
+    font-size: 4.5vw;
+}
+.userhomepage .goodquestionlist .goodquestionlistcon .answeruser .timelength{
+    font-size: 4vw;
+    color: #999;
+    line-height: 12vw;
+    float: left;
+    margin-left: 1%;
+}
+.userhomepage .goodquestionlist .goodquestionlistcon .answeruser button{
+    padding: 2% 3%;
+    background: none;
+    border: 1px solid #00c37c;
+    color: #00c37c;
+    font-size: 3.5vw;
+    font-family: '微软雅黑';
+    border-radius: 5px;
+    float: right;
+    margin-top: 1.5%;
+}
+.userhomepage .goodquestionlist .goodquestionlistcon .listbot{
+    width: 94%;
+    height: auto;
+    overflow: hidden;
+    margin: auto;
+    margin-top: 5%;
+}
+.userhomepage .goodquestionlist .goodquestionlistcon .listbot .time{
+    width: 40%;
+    float: left;
+    height: auto;
+    overflow: hidden;
+}
+.userhomepage .goodquestionlist .goodquestionlistcon .listbot .time img{
+    width: 4vw;
+    float: left;
+}
+.userhomepage .goodquestionlist .goodquestionlistcon .listbot .time p{
+    font-size: 3.3vw;
+    color:#999 ;
+    float: left;
+    line-height: 4vw;
+    margin-left: 4px;
+}
+.userhomepage .goodquestionlist .goodquestionlistcon .listbot .listbotright{
+    width: auto;
+    float: right;
+    overflow: hidden;
+}
+.userhomepage .goodquestionlist .goodquestionlistcon .listbot .listbotright .listen{
+    float: left;
+    width: auto;
+    overflow: hidden;
+}
+.userhomepage .goodquestionlist .goodquestionlistcon .listbot .listbotright .listen img{
+    width: 4vw;
+    float: left;
+}
+.userhomepage .goodquestionlist .goodquestionlistcon .listbot .listbotright .listen p{
+    font-size: 4vw;
+    color:#999 ;
+    float: left;
+    line-height: 4vw;
+    margin-left: 6px;
+
+}
+.userhomepage .goodquestionlist .goodquestionlistcon .listbot .listbotright .zambia{
+    float: left;
+    width: auto;
+    overflow: hidden;
+    padding-left: 10px;
+}
+.userhomepage .goodquestionlist .goodquestionlistcon .listbot .listbotright .zambia img{
+    width: 4vw;
+    float: left;
+}
+.userhomepage .goodquestionlist .goodquestionlistcon .listbot .listbotright .zambia p{
+    font-size: 4vw;
+    color:#999 ;
+    float: left;
+    line-height: 4.5vw;
+    margin-left: 4px;
+    padding-left: 3px;
+}
+/*关于*/
+.about_page{
+    width:100%;
+    height: 100%;
+    overflow: hidden;
+}
+.about_page .logo{
+    width: 57px;
+    height: 57px;
+    display: block;
+    margin: auto;
+    margin-top: 50px;
+}
+.about_page .aboutus{
+    font-size: 14px;
+    color: #35424b;
+    margin:auto;
+    margin-top: 73px;
+    width: 94%;
+    border-bottom: 1px solid #c7c7c7;
+    padding-bottom: 10px;
+}
+.about_page .statement{
+    font-size: 14px;
+    color: #35424b;
+    margin:auto;
+    margin-top: 15px;
+    width: 94%;
+    border-bottom: 1px solid #c7c7c7;
+    padding-bottom: 10px;
+}
+.about_page p{
+    text-align: center;
+    font-size: 14px;
+    position: fixed;
+    bottom:10px;
+    width: 100%;
+    color: #c7c7c7;
+}
+/*关于我们*/
+.consultationdetails{
+    width:100%;
+    height:100%;
+    overflow: hidden;
+}
+.consultationdetails dl{
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    padding: 10px 0;
+    border-bottom: 1px solid #f4f4f4;;
+}
+.consultationdetails dl dt{
+    width: 100%;
+    height: auto;
+    margin: auto;
+    overflow: hidden;
+    padding-bottom: 3px;
+}
+.consultationdetails dl dt .index{
+    width: 22px;
+    height: 22px;
+    color: #fff;
+    border-radius: 100px 100px 100px 5px;
+    text-align: center;
+    line-height: 22px;
+    font-size: 14px;
+    background: #4DD7C0;
+    margin-left: 10px;
+    float: left;
+}
+.consultationdetails dl dt .tit{
+    font-size: 14px;
+    float: left;
+    margin-left: 4px;
+    margin-top:5px;
+    color: #4dd7c0;
+}
+.consultationdetails dl dd{
+    height: auto;
+    margin: auto;
+    font-size: 13px;
+    overflow: hidden;
+    letter-spacing: 1px;
+    padding: 0 10px 0 36px;
+    line-height: 20px;
+}
+.consultationdetails dl dd b{
+    color: #4dd7c0;
+}
+/*回答问题*/
+.questionanswering{
+    width: 100%;
+    height:auto;
+    overflow: hidden;
+}
+.questionanswering .problemcon{
+    width:100%;
+    height: auto;
+    background: #fff;
+    overflow: hidden;
+    border-bottom: 1px solid #e1e1e1;
+    padding-bottom: 10px;
+}
+.questionanswering .problemcon .top{
+    width: 95%;
+    height: auto;
+    overflow: hidden;
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+.questionanswering .problemcon .top .headimg{
+    width: 50px;
+    height: 50px;
+    float: left;
+    border-radius: 100px;
+}
+.questionanswering .problemcon .top .name{
+    font-size: 15px;
+    float: left;
+    color: #35424b;
+    line-height: 50px;
+    margin-left: 10px;
+}
+.questionanswering .problemcon .top .price{
+    font-size: 13px;
+    float: right;
+    color: #e94c37;
+    line-height: 50px;
+}
+.questionanswering .problemcon span{
+    width: 95%;
+    height: auto;
+    overflow: hidden;
+    margin: auto;
+    display: block;
+    font-size: 16px;
+    color: #333333;
+    line-height: 20px;
+    margin-bottom: 5px;
+}
+.questionanswering .problemcon .answeruser{
+    width: 94%;
+    height: auto;
+    overflow: hidden;
+    margin: auto;
+    margin-top: 3%;
+    display: none;
+}
+.questionanswering .problemcon .answeruser .answeruserheadpic{
+    width: 12vw;
+    height:12vw;
+    float: left;
+    border-radius: 100px;
+}
+.questionanswering .problemcon .answeruser .voicebar{
+    width: 55%;
+    height: auto;
+    overflow: hidden;
+    margin-left: 3%;
+    float: left;
+    margin-top: 2%;
+}
+.questionanswering .problemcon .answeruser .voicebar .lsj{
+    width: 7%;
+    height: auto;
+    overflow: hidden;
+    float: left;
+    margin-top: 0.5%;
+}
+.questionanswering .problemcon .answeruser .voicebar .rightcon{
+    width: 96%;
+    height: 10vw;
+    overflow: hidden;
+    background: #44b181;
+    float: left;
+    margin-left: -2.5vw;
+    border-radius: 4vw;
+}
+.questionanswering .problemcon .answeruser .voicebar .rightcon img{
+    width: 10%;
+    margin: 5% 7% 0 9%;
+    float: left;
+}
+.questionanswering .problemcon .answeruser .voicebar .rightcon p {
+    color: #fff;
+    float: left;
+    margin-top: 6%;
+    font-size: 4.5vw;
+}
+.questionanswering .problemcon .answeruser .timelength{
+    font-size: 4vw;
+    color: #999;
+    margin-top: 5.5%;
+    float: left;
+    margin-left: 1%;
+}
+.questionanswering .problemcon .answeruser button{
+    background: none;
+    border: 2px solid #44b181;
+    color: #44b181;
+    font-size: 3.3vw;
+    font-family: '微软雅黑';
+    display: block;
+    width: 11vw;
+    height:11vw;
+    border-radius: 100px;
+    float: right;
+    margin-top: 1.3%;
+    display: none;
+}
+
+
+.questionanswering .problemcon .listbot{
+    width: 94%;
+    height: auto;
+    overflow: hidden;
+    margin: auto;
+    margin-top: 5%;
+    display: none;
+}
+.questionanswering .problemcon .listbot .time{
+    width: 40%;
+    float: left;
+    height: auto;
+    overflow: hidden;
+}
+.questionanswering .problemcon .listbot .time img{
+    width: 4vw;
+    float: left;
+}
+.questionanswering .problemcon .listbot .time p{
+    font-size: 3.3vw;
+    color:#999 ;
+    float: left;
+    line-height: 4.5vw;
+    margin-left: 4px;
+}
+.questionanswering .problemcon .listbot .listbotright{
+    width: auto;
+    float: right;
+    overflow: hidden;
+}
+.questionanswering .problemcon .listbot .listbotright .listen{
+    float: left;
+    width: auto;
+    overflow: hidden;
+}
+.questionanswering .problemcon .listbot .listbotright .listen img{
+    width: 4.5vw;
+    float: left;
+}
+.questionanswering .problemcon .listbot .listbotright .listen p{
+    font-size: 4vw;
+    color:#999 ;
+    float: left;
+    line-height: 4vw;
+    margin-left: 6px;
+
+}
+.questionanswering .problemcon .listbot .listbotright .zambia{
+    float: left;
+    width: auto;
+    overflow: hidden;
+    padding-left: 10px;
+}
+.questionanswering .problemcon .listbot .listbotright .zambia img{
+    width: 4vw;
+    float: left;
+}
+.questionanswering .problemcon .listbot .listbotright .zambia p{
+    font-size: 4vw;
+    color:#999 ;
+    float: left;
+    line-height: 4.5vw;
+    margin-left: 4px;
+    padding-left: 3px;
+}
+
+
+.questionanswering .problemcon .bot{
+    width: 95%;
+    height: auto;
+    overflow: hidden;
+    margin: auto;
+    margin-top: 3px;
+    margin-bottom: 15px;
+    display: none;
+}
+.questionanswering .problemcon .bot .left{
+    font-size: 12px;
+    height: 32px;
+    line-height: 32px;
+    color: #333;
+    float: left;
+}
+.questionanswering .problemcon .bot .button_refuse{
+    width: 75px;
+    height: 30px;
+    font-size: 14px;
+    text-align: center;
+    line-height: 30px;
+    color: #999999;
+    border-radius: 5px;
+    border: 1px solid #999999;
+    float: right;
+    display: none;
+}
+.questionanswering .freeinquiry{
+    width:100%;
+    height:auto;
+    overflow: hidden;
+    background: #fff;
+    display: none;
+}
+.questionanswering .freeinquiry .con{
+    width:100%;
+    height:auto;
+    overflow: hidden;
+    margin: auto;
+    border-bottom: 1px solid #e1e1e1;
+    padding-bottom: 5px;
+}
+.questionanswering .freeinquiry .con .p1{
+    margin: 10px auto;
+    color: #999999;
+    width: 95%;
+}
+.questionanswering .freeinquiry .con .p2{
+    color:#333;
+    font-size: 16px;
+    margin: auto;
+    line-height: 20px;
+    margin-bottom: 10px;
+    width: 95%;
+}
+.questionanswering .freeinquiry .con .answeruser{
+    width: 95%;
+    height: auto;
+    overflow: hidden;
+    margin: auto;
+    margin-top: 3%;
+}
+.questionanswering .freeinquiry .con .answeruser .answeruserheadpic{
+    width: 12vw;
+    height:12vw;
+    float: left;
+    border-radius: 100px;
+}
+.questionanswering .freeinquiry .con .answeruser .voicebar{
+    width: 55%;
+    height: auto;
+    overflow: hidden;
+    margin-left: 3%;
+    float: left;
+    margin-top: 2%;
+}
+.questionanswering .freeinquiry .con .answeruser .voicebar .lsj{
+    width: 7%;
+    height: auto;
+    overflow: hidden;
+    float: left;
+    margin-top: 0.5%;
+}
+.questionanswering .freeinquiry .con .answeruser .voicebar .rightcon{
+    width: 96%;
+    height: 10vw;
+    overflow: hidden;
+    background: #44b181;
+    float: left;
+    margin-left: -2.5vw;
+    border-radius: 4vw;
+}
+.questionanswering .freeinquiry .con .answeruser .voicebar .rightcon img{
+    width: 10%;
+    margin: 5% 7% 0 9%;
+}
+.questionanswering .freeinquiry .con .answeruser .timelength{
+    font-size: 4vw;
+    color: #999;
+    margin-top: 5.5%;
+    float: left;
+    margin-left: 1%;
+}
+.questionanswering .freeinquiry .con .p6{
+    margin: 10px auto;
+    color: #999999;
+    width: 95%;
+}
+.questionanswering .open{
+    width: 100%;
+    text-align: center;
+    margin-top: 15px;
+    font-size: 12px;
+    color: #999;
+}
+.questionanswering .open span{
+    font-size: 14px;
+    color: #44b181;
+    margin-right: 5px;
+}
+.questionanswering .recording{
+    width: 200px;
+    margin: auto;
+    height: auto;
+    overflow: hidden;
+    margin-top: 55px;
+    padding: 20px 0;
+}
+.questionanswering .recording .time{
+    height: 75px;
+    width: 25px;
+    text-align: center;
+    float: left;
+    font-size: 14px;
+    color: #e94c37;
+    line-height: 75px;
+}
+.questionanswering .recording .microphone{
+    width: 75px;
+    height: 75px;
+    background: #44b181;
+    float: left;
+    border-radius: 100px;
+    margin-left: 35px;
+    position: relative;
+    border: 1px solid #44b181;
+}
+.questionanswering .recording .microphone .img1{
+    height:50px;
+    width: auto;
+    margin:12px auto;
+}
+.questionanswering .recording .microphone .img2{
+    height:20px;
+    width: auto;
+    top:27px;
+    left:30px;
+    position: absolute;
+    display: none;
+}
+.questionanswering .recording .microphone .animate{
+    width: 73px;
+    height: 73px;
+    background: none;
+    border: 2px solid #44b181;
+    position: absolute;
+    top:-1px;
+    left:-1px;
+    border-radius: 100px;
+    right: 0;
+    display: none;
+}
+.questionanswering .recording .microphone .animate.hover{
+    -webkit-animation:borscale 1s ease-out 0s infinite normal;
+}
+@-webkit-keyframes borscale {
+    0%{
+        -webkit-transform: scale(1);
+        opacity: 1;
+    }
+    100%{
+        -webkit-transform: scale(1.2);
+        opacity: 0;
+    }
+}
+.questionanswering .recording button{
+    width: 40px;
+    height:40px;
+    background: #c7c7c7;
+    color: #fff;
+    text-align: center;
+    line-height: 40px;
+    border: none;
+    font-family: '微软雅黑';
+    border-radius: 100px;
+    font-size: 12px;
+    float: right;
+    margin-top: 18px;
+}
+.questionanswering .recordingword{
+    width: 100%;
+    text-align: center;
+    font-size: 14px;
+    color: #35424b;
+}
+.questionanswering .determine{
+    width:110px;
+    height:50px;
+    background: #c7c7c7;
+    font-size: 15px;
+    color: #fff;
+    margin: 20px auto;
+    text-align: center;
+    line-height: 50px;
+    border-radius: 5px;
+}
+.questionanswering .determine.hover{
+    background: #44b181;
+}
+.goodquestion_page .goodquestionlist .goodquestionlistcon .answeruser{
+    width: 94%;
+    height: auto;
+    overflow: hidden;
+    margin: auto;
+    margin-top: 5%;
+}
+.goodquestion_page .goodquestionlist .goodquestionlistcon .answeruser .answeruserheadpic{
+    width: 12vw;
+    height:12vw;
+    float: left;
+    border-radius: 100px;
+}
+.goodquestion_page .goodquestionlist .goodquestionlistcon .answeruser .voicebar{
+    width: 55%;
+    height: auto;
+    overflow: hidden;
+    margin-left: 3%;
+    float: left;
+    margin-top: 2%;
+}
+.goodquestion_page .goodquestionlist .goodquestionlistcon .answeruser .voicebar .lsj{
+    width: 7%;
+    height: auto;
+    overflow: hidden;
+    float: left;
+    margin-top: 0.5%;
+}
+.goodquestion_page .goodquestionlist .goodquestionlistcon .answeruser .voicebar .rightcon{
+    width: 96%;
+    height: 10vw;
+    overflow: hidden;
+    background: #44b181;
+    float: left;
+    margin-left: -2.5vw;
+    border-radius: 4vw;
+}
+.goodquestion_page .goodquestionlist .goodquestionlistcon .answeruser .voicebar .rightcon img{
+    width: 10%;
+    margin: 5% 7% 0 9%;
+    float: left;
+}
+.goodquestion_page .goodquestionlist .goodquestionlistcon .answeruser .voicebar .rightcon p {
+    color: #fff;
+    float: left;
+    margin-top: 6%;
+    font-size: 4.5vw;
+}
+.goodquestion_page .goodquestionlist .goodquestionlistcon .answeruser .timelength{
+    font-size: 4vw;
+    color: #999;
+    margin-top: 5.5%;
+    float: left;
+    margin-left: 1%;
+}
+/*我听过的问题*/
+.mylisten_page{
+    width:100%;
+    height:auto;
+    overflow: hidden;
+}
+.mylisten_page .tit{
+    font-size: 4vw;
+    line-height: 5vw;
+    padding: 10px 0;
+    margin-left: 3%;
+    color: #808080;
+}
+.mylisten_page .con{
+    width:100%;
+    height:auto;
+    overflow: hidden;
+}
+.mylisten_page .con .conlist{
+    width:100%;
+    height:auto;
+    overflow: hidden;
+    background: #fff;
+    margin-bottom: 10px;
+}
+.mylisten_page .con .conlist .problem{
+    width: 93%;
+    height: auto;
+    overflow: hidden;
+    font-size: 15px;
+    color: #333;
+    margin: auto;
+    line-height: 20px;
+    padding: 10px;
+}
+.mylisten_page .con .conlist .user{
+    width:94%;
+    overflow: hidden;
+    height: auto;
+    margin:auto;
+    margin-bottom: 10px;
+}
+.mylisten_page .con .conlist .user .headerpic{
+    width:47px;
+    height:47px;
+    border-radius: 100px;
+    float: left;
+}
+.mylisten_page .con .conlist .user .infor{
+    float: left;
+    width: 80%;
+    margin-left: 7px;
+}
+.mylisten_page .con .conlist .user .infor .name{
+    font-size: 15px;
+    color: #999;
+    margin-top: 6px;
+    width: 100%;
+}
+.mylisten_page .con .conlist .user .infor .timeornum{
+    width:100%;
+    margin-top: 10px;
+}
+.mylisten_page .con .conlist .user .infor .timeornum .time{
+    font-size: 14px;
+    color: #999;
+    float: left;
+}
+.mylisten_page .con .conlist .user .infor .timeornum .num{
+    font-size: 14px;
+    color: #999;
+    float: right;
+}
+/*空白页面*/
+.emptypage{
+    position: fixed;
+    top:0;
+    width:100%;
+    height:100%;
+    overflow: hidden;
+    z-index: 999999;
+    background: #F5F5F9;
+}
+.emptypage .con{
+    width: 256px;
+    height: auto;
+    overflow: hidden;
+    margin: auto;
+    /* display: none; */
+    margin-top: 73px;
+}
+.emptypage .con img{
+    width: 114px;
+    height: auto;
+    overflow: hidden;
+    margin: auto;
+}
+.emptypage .con p {
+    font-size: 14px;
+    text-align: center;
+    color: #35424b;
+    margin: 20px 0;
+}
+.emptypage .con button {
+    width: 128px;
+    height: 33px;
+    background: #44b181;
+    border: none;
+    font-size: 15px;
+    color: #fff;
+    border-radius: 5px;
+    display: block;
+    margin: auto;
+}
+
+
+
+
+

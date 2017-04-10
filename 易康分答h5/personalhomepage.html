@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="description" content="" />
+<meta name="author" content="ChongMing" />
+<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-touch-fullscreen" content="yes">
+<meta name="full-screen" content="yes">
+<meta name="screen-orientation" content="portrait">
+<meta name="x5-fullscreen" content="true">
+<meta name="360-fullscreen" content="true">
+<title>我的主页</title>
+</head>
+<link rel="stylesheet" href="css/framework7.ios.min.css">
+<link rel="stylesheet" href="css/framework7.ios.colors.min.css">
+<link rel="stylesheet" href="css/my-app.css">
+<link rel="stylesheet" href="css/reset.css">
+<link rel="stylesheet" href="css/style.css">
+<script src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/framework7.min.js"></script>
+<script type="text/javascript" src="js/my-app.js"></script>
+<script src="js/main.js"></script>
+<script src="js/jquery.mobile-1.4.3.js"></script>
+<script src="https://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script>
+    $(function(){
+        //        设置borwidth
+        var a_w = $('.index .header .nav a').width();
+        $('.index .header .bor').width(a_w);
+        $('.index .header .bor').css('marginLeft','5%');
+        //        判断是否登录
+        commonobject.login();
+//        获取信息
+        Main.get(url+'index.php/ask/user/index',{},function(res){
+            if(res.ret==0){
+                //执行成功
+                console.log(res)
+                var data = res.data;
+                $('.personalhomepage .headerinformation .content .headportrait').css({background:'url('+data.headimgurl+') center',backgroundSize:'cover'});
+                $('.personalhomepage .headerinformation button').attr('data-uid',data.id);
+//                var uid = $('.personalhomepage .headerinformation button').data('uid');
+//                点击进入编辑
+                $('.personalhomepage .headerinformation .edit').click(function(){
+                    location.href='Informationediting.html';
+                });
+//                点击进入开通分答
+                $('.personalhomepage .headerinformation button').click(function(){
+                   location.href='Informationediting.html';
+                });
+//                点击进入我回答了问题的列表页
+                $('.personalhomepage .group .answer').click(function(){
+                    location.href='myquestion_page.html';
+                });
+//点击进入我的主页
+                $('.personalhomepage .group .goodquestion').touchstart(function(){
+                    location.href='http://www.ekangjiuyi.net/EKang2.0/hospital_nurse/userhomepage.html';
+                });
+                $('.personalhomepage .headerinformation .content .name').html(data.nickname);
+                if(data.is_info_complete==1){
+                    $('.personalhomepage .headerinformation .qrcode').show();
+                    $('.personalhomepage .headerinformation .edit').show();
+                    $('.personalhomepage .headerinformation button').hide();
+                    $('.personalhomepage .group .answer').attr('disabled',false);
+                    $('.personalhomepage .group .goodquestion').attr('disabled',false);
+                    //        判断是否开通
+                    $('.personalhomepage .headerinformation .content .career_listening').show();
+                    $('.personalhomepage .headerinformation .content .autograph').html(data.intro);
+                    $('.personalhomepage .headerinformation .content .career_listening .occupation').html(data.title);
+                    $('.personalhomepage .headerinformation .content .career_listening .listening').html(data.listen_count+'人收听');
+                    //        设置信息第二栏宽度
+                    var l_w =  $('.personalhomepage .headerinformation .content .career_listening .occupation').outerWidth();
+                    var pic_w = $('.personalhomepage .headerinformation .content .career_listening img').outerWidth();
+                    var r_w = $('.personalhomepage .headerinformation .content .career_listening .listening').outerWidth();
+                    $('.personalhomepage .headerinformation .content .career_listening').width((l_w+pic_w+r_w)+'px');
+                }
+            }else{
+                alert(res.msg);
+                //执行失败
+            }
+        });
+    });
+</script>
+<body style=" background: #eee; overflow: scroll;">
+<div class="personalhomepage">
+    <div class="headerinformation">
+        <img onclick="link('qrcode.html')" class="qrcode" src="images/icon10.png">
+        <img class="edit" src="images/icon9.png">
+        <div class="content">
+            <div class="headportrait"></div>
+            <div class="name">Michelle</div>
+            <div class="career_listening">
+                <span class="occupation">英语教师</span>
+                <img src="images/icon11.png">
+                <span class="listening">1201人收听</span>
+            </div>
+            <div class="autograph">开通易答主页，邀请好友向你提问，回答后被他人偷偷听，可持续获得奖励</div>
+        </div>
+        <button>开通我的易答</button>
+    </div>
+    <div class="group">
+        <div disabled="disabled" class="goodquestion public_class">
+            <img class="icon_l" src="images/renwu@3x.png">
+            <p class="tit">我的易答主页</p>
+            <img class="arrow" src="images/icon-back.png">
+        </div>
+        <div onclick="link('myanswer_page.html')" class="put_questions public_class">
+            <img class="icon_l" src="images/icon-list@3x.png">
+            <p class="tit">我问</p>
+            <img class="arrow" src="images/icon-back.png">
+        </div>
+    </div>
+    <div class="group">
+        <div disabled="disabled" class="answer public_class">
+            <img class="icon_l" src="images/huida@3x.png">
+            <p class="tit">我答</p>
+            <img class="arrow" src="images/icon-back.png">
+        </div>
+        <div onclick="link('mylisten_page.html')" class="listen public_class">
+            <img class="icon_l" src="images/mylisten.png">
+            <p class="tit">我听</p>
+            <img class="arrow" src="images/icon-back.png">
+        </div>
+    </div>
+    <div class="group">
+        <div onclick="link('index.html')" class="hot_topic public_class">
+            <img class="icon_l" src="images/remen@3x.png">
+            <p class="tit">热门问题</p>
+            <img class="arrow" src="images/icon-back.png">
+        </div>
+        <div onclick="link('about.html')" class="about public_class">
+            <img class="icon_l" src="images/guanyu@3x.png">
+            <p class="tit">关于易答</p>
+            <img class="arrow" src="images/icon-back.png">
+        </div>
+    </div>
+</div>
+<div class="botnav">
+    <dl onclick="link('index.html')" class="buttonproblemlist">
+        <dt><img src="images/icon2.png"></dt>
+        <dd>榜单</dd>
+    </dl>
+    <dl onclick="link('listening_newproblems.html')" class="buttonproblemlist">
+        <dt><img src="images/icon3.png"></dt>
+        <dd>收听</dd>
+    </dl>
+    <dl onclick="link('find_character.html')" class="buttonproblemlist">
+        <dt><img src="images/icon4.png"></dt>
+        <dd>发现</dd>
+    </dl>
+    <dl class="buttonproblemlist">
+        <dt><img src="images/icon5hover.png"></dt>
+        <dd class="hover">我的</dd>
+    </dl>
+</div>
+<!--<div class="qrcodepage" style=" height: 100%; position: fixed; top:0; z-index:9999999999999999; background: rgb(245, 245, 245); width: 100%;right:-100%;">-->
+    <!--<div class="content">-->
+        <!--<img class="userqrcode" src="images/ewm.png">-->
+        <!--<div class="user">-->
+            <!--<div class="headerpic"-->
+                 <!--style=" background: url(images/tx.jpg) no-repeat center; background-size: cover"></div>-->
+            <!--<div class="userinfor">-->
+                <!--<p class="p_name">Michelle</p>-->
+                <!--<p class="p_wx">微信扫码，来向我提问吧~</p>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
+<!--</div>-->
+</body>
+</html>
