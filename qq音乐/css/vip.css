@@ -1,0 +1,735 @@
+/*topbanner B*/
+/*body {*/
+    /*height: 2000px;*/
+/*}*/
+.topbanner {
+    /*height: 80px;*/
+    background-color: #333333;
+}
+.topbanner .w {
+    background-color: #333333;
+}
+.topbanner .hslogo {
+    text-indent: -20000px;
+    position: relative;
+    height: 80px;
+}
+.topbanner .hslogo i {
+    position: absolute;
+    width: 152px;
+    height: 40px;
+    left: 0;
+    top: 20px;
+    background: url(../images/vip_logo.png) 0 0 no-repeat;
+}
+#bannerul {
+    margin-left: 182px;
+}
+#bannerul li{
+    float: left;
+}
+#bannerul li a {
+    display: block;
+    height: 77px;
+    /*line-height: 80px;*/
+    font: normal 400 14px/80px  Arial, sans-serif;
+    padding-left: 12px;
+    padding-right: 12px;
+    color: #BEBDA1;
+}
+#bannerul li a.current,
+#bannerul li a:hover {
+    border-bottom: 3px solid #A1DF5A;
+    color: #ADEC57;
+    background-color: #090909;
+}
+.login {
+    width: 199px;
+    height: 80px;
+    line-height: 80px;
+    color: #BEBDA1;
+    border-left: 1px solid #494949;
+}
+.login a.col-green{
+    color: #ADEC57;
+}
+.login a.col-green:hover {
+    text-decoration: underline;
+    color: #656565;
+}
+/*topbanner E*/
+/*slider B*/
+#slider {
+    height: 300px;
+    background-color: #03312F;
+}
+#slider .w {
+    position: relative;
+    width: 980px;
+    height: 300px;
+    overflow: hidden;
+}
+#slider ul {
+    width: 5880px;
+    position: relative;
+}
+#slider img {
+    width: 100%;
+    height: 300px;
+}
+#slider li {
+    float: left;
+}
+.num {
+    width: 126px;
+    height: 29px;
+    padding-left: 17px;
+    padding-right: 17px;
+    background: url(../images/sprite_banner.png) 0 -14px no-repeat;
+    opacity: 0.2;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    margin-left: -79px;
+}
+.num a {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    margin: 9px 5px;
+    background-color: #ccc;
+    border-radius: 6px 6px 6px 6px;
+}
+.hscurrent {
+    background-color: red !important;
+}
+/*slider E*/
+/*点图 B*/
+#dotcon {
+    position: absolute;
+    width: 715px;
+    height: 2065px;
+    top: 460px;
+    left: 35%;
+    z-index: 3;
+    background: url(../images/dian_bg_8.png) top center no-repeat;
+}
+/*点图 E*/
+/*顶部导航栏 B*/
+.hmtopnav {
+    width: 100%;
+    height: 78px;
+    /*min-width: 1100px;*/
+    border-bottom: 1px solid #E0E0E0;
+}
+.hmtopnav ul {
+    margin-left: 111px;
+}
+.hmtopnav li {
+    float: left;
+}
+.hmtopnav .vip {
+    border-left: 1px solid #E0E0E0;
+}
+.hmtopnav li a {
+    width: 325px;
+    height: 56px;
+    display: inline-block;
+    border-right: 1px solid #E0E0E0;
+    text-align: center;
+    padding-top: 22px;
+}
+.hmtopnav .vip i {
+    display: inline-block;
+    width: 150px;
+    height: 44px;
+    background: url(../images/sprite_index.png) scroll 0 0 no-repeat;
+}
+.hmtopnav i {
+    display: inline-block;
+    width: 150px;
+    height: 44px;
+}
+.hmtopnav .vip i{
+    background: url(../images/sprite_index.png) scroll 0 0 no-repeat;
+}
+.hmtopnav .ffea i{
+    background: url(../images/sprite_index.png) scroll -150px 0 no-repeat;
+}
+.hmtopnav .guide i{
+    background: url(../images/sprite_index.png) scroll 0 -44px no-repeat;
+}
+/*顶部导航栏 E*/
+/*<!--绿钻介绍 B-->*/
+.hmgreenvip {
+    width: 100%;
+    min-width: 1200px;
+    /*height: 879px;*/
+    background: url(../images/vip_main_bg.jpg) 0 0 repeat;
+    /*z-index: 2;*/
+}
+.hmgreenvip .inner{
+    /*background-color: ;*/
+    height: 879px;
+    position: relative;
+    /*z-index: 1;*/
+    /*background: #E9E9E9 url(image/vip_main_bg.jpg) 0 0 repeat;*/
+}
+.hmgreenvip .demon {
+    width: 450px;
+    position: absolute;
+    top: 104px;
+    left: 350px;
+    text-align: center;
+}
+.hmgreenvip .demon span{
+    display: inline-block;
+    width: 118px;
+    height: 58px;
+    background: url(../images/sprite_title.png) scroll 0 -611px no-repeat;
+}
+.hmgreenvip .demon p {
+    font-size: 13px;
+    line-height: 20px;
+}
+.hmgreenvip .greendemon {
+    width: 703px;
+    height: 352px;
+    background: url(../images/dian_bg_8.png) 0 0 no-repeat;
+    position: absolute;
+    top: 328px;
+    left: 245px;
+}
+.hmgreenvip .ico0 {
+    /*position: absolute;*/
+    /*left: 570px;*/
+    /*top: 380px;*/
+    width: 116px;
+    height: 116px;
+    /*opacity: 0;*/
+    background: url(../images/icon_sprite_2.png) -210px -210px no-repeat;
+}
+.hmgreenvip .ico1 {
+    /*position: absolute;*/
+    /*left: 570px;*/
+    /*top: 380px;*/
+    width: 69px;
+    height: 69px;
+    /*opacity: 0;*/
+    background: url(../images/icon_sprite_1.png) -735px -105px no-repeat;
+}
+.hmgreenvip .ico2 {
+    /*position: absolute;*/
+    /*left: 570px;*/
+    /*top: 380px;*/
+    width: 95px;
+    height: 95px;
+    /*opacity: 0;*/
+    background: url(../images/icon_sprite_2.png) 0px -420px no-repeat;
+}
+.hmgreenvip .ico3 {
+    /*position: absolute;*/
+    /*left: 570px;*/
+    /*top: 380px;*/
+    width: 118px;
+    height: 118px;
+    /*opacity: 0;*/
+    background: url(../images/icon_sprite_2.png) -420px -210px no-repeat;
+}
+.hmgreenvip .ico4 {
+    /*position: absolute;*/
+    /*left: 570px;*/
+    /*top: 380px;*/
+    width: 45px;
+    height: 45px;
+    /*opacity: 0;*/
+    background: url(../images/icon_sprite_2.png) -105px -420px no-repeat;
+}
+.hmgreenvip .ico5 {
+    /*position: absolute;*/
+    /*left: 570px;*/
+    /*top: 380px;*/
+    width: 60px;
+    height: 60px;
+    /*opacity: 0;*/
+    background: url(../images/icon_sprite_2.png) -210px -420px no-repeat;
+}
+.hmgreenvip .ico6 {
+    /*position: absolute;*/
+    /*left: 570px;*/
+    /*top: 380px;*/
+    width: 42px;
+    height: 42px;
+    /*opacity: 0;*/
+    background: url(../images/icon_sprite_2.png) -315px -420px no-repeat;
+}
+.hmgreenvip .ico7 {
+    /*position: absolute;*/
+    /*left: 570px;*/
+    /*top: 380px;*/
+    width: 111px;
+    height: 111px;
+    /*opacity: 0;*/
+    background: url(../images/icon_sprite_2.png) -630px -210px no-repeat;
+}
+.hmgreenvip .ico8 {
+    /*position: absolute;*/
+    /*left: 570px;*/
+    /*top: 380px;*/
+    width: 137px;
+    height: 137px;
+    /*opacity: 0;*/
+    background: url(../images/icon_sprite_2.png) 0px -210px no-repeat;
+}
+/*<!--绿钻介绍 E-->*/
+/*音乐特权 B*/
+.hmmusic {
+    height: 706px;
+    /*background-color: gray;*/
+    width: 100%;
+    min-width: 1200px;
+    background:url(../images/music_main_bg.png) 0 0 repeat;
+    overflow: hidden;
+    position: relative;
+}
+.hmmusic .innerleft span{
+    display: block;
+    width: 260px;
+    height: 65px;
+    background: url(../images/sprite_title.png) 0 0 no-repeat;
+    margin-top: 160px;
+}
+.hmmusic .innerleft i {
+    display: block;
+    width: 266px;
+    height: 35px;
+    background: url(../images/sprite_title.png) 0 -65px no-repeat;
+}
+.hmmusic .innerleft p {
+    width: 244px;
+    margin-top: 30px;
+    line-height: 25px;
+    font-size: 14px;
+    color: #958A9A;
+    margin-bottom: 30px;
+}
+.hmmusic .innerleft a{
+    text-decoration: underline;
+    font-size: 14px;
+    color: #5E626E;
+}
+.hmmusic .disk {
+    position: absolute;
+    top: 168px;
+    right: 176px;
+    width: 341px;
+    height: 341px;
+    background: url(../images/music_cd.png) 0 0 no-repeat;
+}
+.hmmusic #cd{
+    position: absolute;
+    /*top: -84px;*/
+    /*right: 212px;*/
+    width: 115px;
+    height: 175px;
+    background: url(../images/music_cd_c.png) 0 0 no-repeat;
+}
+.hmmusic .icon0 {
+    width: 136px;
+    height: 126px;
+    position: absolute;
+    /*top: 52px;*/
+    /*right: 514px;*/
+    background: url(../images/icon_sprite_2.png) -411px -415px no-repeat;
+}
+.hmmusic .icon1 {
+    width: 136px;
+    height: 126px;
+    position: absolute;
+    /*top: 188px;*/
+    /*right: 610px;*/
+    background: url(../images/icon_sprite_2.png) -621px -415px no-repeat;
+}
+
+.hmmusic .icon2 {
+    width: 135px;
+    height: 128px;
+    position: absolute;
+    /*top: 355px;*/
+    /*right: 614px;*/
+    background: url(../images/icon_sprite_2.png) -201px -625px no-repeat;
+}
+.hmmusic .icon3 {
+    width: 135px;
+    height: 128px;
+    position: absolute;
+    /*top: 494px;*/
+    /*right: 522px;*/
+    background: url(../images/icon_sprite_2.png) 0px -625px no-repeat;
+}
+/*音乐特权 E*/
+/*concert B*/
+.concert {
+    background: #E9E9E9 url(../images/concert_main_bg.jpg) top center no-repeat;
+}
+.concert .w {
+    position: relative;
+    height: 687px;
+    /*overflow: hidden;*/
+    background: #E9E9E9 url(../images/concert_main_bg.jpg) top center no-repeat;
+}
+
+.concert .sprite i {
+    position: absolute;
+    width: 127px;
+    height: 127px;
+    left: 25px;
+    top: 280px;
+    background: url(../images/icon_sprite_2.png) -630px 0 no-repeat;
+}
+.concert .sprite s {
+    position: absolute;
+    width: 110px;
+    height: 111px;
+    left: 445px;
+    top: 305px;
+    background: url(../images/icon_sprite_2.png) -420px 0 no-repeat;
+}
+.concert .sprite em {
+    position: absolute;
+    width: 203px;
+    height: 203px;
+    left: -23px;
+    top: 618px;
+    background: url(../images/icon_sprite_1.png) 0 0 no-repeat;
+}
+.viprights {
+    width: 297px;
+    /*background-color: red;*/
+    position: absolute;
+    top: 42px;
+    right: -6px;
+}
+.viprights i {
+    display: block;
+    width: 297px;
+    height: 100px;
+    margin-bottom: 30px;
+    background: url(../images/sprite_title.png) 0 -103px no-repeat;
+}
+.gamerights p,
+.viprights p {
+    line-height: 25px;
+    font-size: 14px;
+    color: #958A9A;
+    margin-bottom: 30px;
+}
+.gamerights a,
+.viprights a {
+    text-decoration: underline;
+    font-size: 14px;
+    color: #5E626E;
+}
+/*concert E*/
+/*game B*/
+.games {
+    position: relative;
+    background: url(../images/game_main_bg.png) top left repeat-x;
+}
+.games .w {
+    height: 707px;
+    position: relative;
+    background: url(../images/game_main_bg.png) top center no-repeat;
+}
+.gamerights {
+    position: absolute;
+    width: 246px;
+    top: 217px;
+    left: 0;
+}
+.gamerights i {
+    display: block;
+    width: 246px;
+    height: 100px;
+    margin-bottom: 30px;
+    background: url(../images/sprite_title.png) 0 -205px no-repeat;
+}
+.gamessprite i {
+    position: absolute;
+    top: 11px;
+    left: 689px;
+    width: 157px;
+    height: 157px;
+    background: url(../images/icon_sprite_1.png) 0 -210px no-repeat;
+}
+.gamessprite s {
+    position: absolute;
+    left: 480px;
+    top: 91px;
+    width: 132px;
+    height: 132px;
+    background: url(../images/icon_sprite_1.png) -210px -210px no-repeat;
+}
+.gamessprite em {
+    position: absolute;
+    left: 926px;
+    top: 101px;
+    width: 132px;
+    height: 132px;
+    background: url(../images/icon_sprite_1.png) -420px -210px no-repeat;
+}
+/*game E*/
+/*身份特权 B*/
+.identity {
+    height: 705px;
+    width: 100%;
+    min-width: 1200px;
+    position: relative;
+    overflow: hidden;
+    background: url(../images/identity_main_bg.jpg) 0 0 no-repeat;
+}
+
+.identity .innerleft span {
+    display: block;
+    width: 250px;
+    height: 65px;
+    background: url(../images/sprite_title.png) 0 -408px no-repeat;
+    margin-top: 225px;
+}
+.identity .innerleft i {
+    display: block;
+    width: 266px;
+    height: 40px;
+    background: url(../images/sprite_title.png) 0 -471px no-repeat;
+}
+.identity .innerleft p {
+    width: 244px;
+    margin-top: 30px;
+    line-height: 25px;
+    font-size: 14px;
+    color: #958A9A;
+}
+.identity .icon0 {
+    width: 150px;
+    height: 148px;
+    position: absolute;
+    /*top: 198px;*/
+    /*right: 624px;*/
+    background: url(../images/icon_sprite_1.png) -408px 0px no-repeat;
+}
+.identity .icon1 {
+    width: 106px;
+    height: 102px;
+    position: absolute;
+    /*top: 168px;*/
+    /*right: 210px;*/
+    background: url(../images/icon_sprite_1.png) -623px 0px no-repeat;
+}
+
+.identity .icon2 {
+    width: 106px;
+    height: 102px;
+    position: absolute;
+    /*top: 410px;*/
+    /*right: 286px;*/
+    background: url(../images/icon_sprite_1.png) -732px 0px no-repeat;
+}
+.identity .icon3 {
+    width: 182px;
+    height: 178px;
+    position: absolute;
+    /*top: 536px;*/
+    /*right: 524px;*/
+    background: url(../images/icon_sprite_1.png) -206px 0px no-repeat;
+}
+/*身份特权 E*/
+/*开通绿钻 B*/
+.open {
+    width: 100%;
+    min-width: 1200px;
+    height: 679px;
+    background: url(../images/open_main_bg.png) 0 0 no-repeat;
+    position: relative;
+    overflow: hidden;
+}
+.open .opentitle {
+    display: block;
+    width: 410px;
+    height: 65px;
+    background: url(../images/sprite_title.png) 0 -511px no-repeat;
+    margin: 90px auto;
+}
+.open .step {
+    font-size: 16px;
+    width: 880px;
+    height: 70px;
+    position: absolute;
+    left: 290px;
+    top: 355px;
+    color: #87949C;
+}
+.open .s1 {
+    float: left;
+}
+.open .s2 {
+    margin-left: 342px;
+}
+.open .s2 a {
+    font-size: 14px;
+    color: #87949C;
+}
+.open .s2 a:hover {
+    text-decoration: underline;
+}
+.open .s3 {
+    float: right;
+    margin-right: 34px;
+    margin-top: -55px;
+}
+.open .getLv {
+    position: absolute;
+    text-indent: -20000px;
+    width: 259px;
+    height: 60px;
+    /*background-color: red;*/
+    left: 581px;
+    top: 518px;
+}
+/*开通绿钻 E*/
+/*底部导航栏 B*/
+.hmtmnav {
+    width: 100%;
+    min-width: 1200px;
+    height: 80px;
+    border-bottom: 1px solid #DBDBDB;
+    border-top: 1px solid #DBDBDB;
+    background-color: #F5F5F5;
+}
+.hmtmnav .content {
+    height: 42px;
+    margin-left: 105px;
+    margin-top: 19px;
+}
+.hmtmnav .content li {
+    float: left;
+    height: 42px;
+}
+.hmtmnav .content .icon1 {
+    width: 368px;
+    border-right: 1px solid #DBDBDB;
+    position: relative;
+}
+.hmtmnav .content .icon2 {
+    width: 373px;
+    border-right: 1px solid #DBDBDB;
+    position: relative;
+}
+.hmtmnav .content .icon3 {
+    position: relative;
+    width: 260px;
+}
+.hmtmnav .content li i {
+    position: absolute;
+    top: 2px;
+    left: 36px;
+    width: 20px;
+    height: 32px;
+    background: url(../images/sprite_icon.png) 0 0 no-repeat;
+}
+.hmtmnav .content .icon1 a,.hmtmnav .content .icon2 a {
+    position: absolute;
+    left: 66px;
+    font-size: 13px;
+}
+.hmtmnav .content .icon1 a:hover {
+    color: #64B630;
+    text-decoration: underline;
+}
+.hmtmnav .content .icon2 a:hover {
+    color: #64B630;
+    text-decoration: underline;
+}
+.hmtmnav .content .icon1 p,.hmtmnav .content .icon2 p {
+    position: absolute;
+    left: 66px;
+    color: #8B8B8B;
+}
+.hmtmnav .content .icon1 span a,.hmtmnav .content .icon2 span a {
+    position: absolute;
+    left: 240px;
+    top: 6px;
+    width: 95px;
+    height: 30px;
+    background:  url(../images/sprite_btn.png) 0 -35px no-repeat;
+}
+.hmtmnav .content .icon3 p{
+    position: absolute;
+    left: 50px;
+    top: 13px;
+    font-size: 10px;
+    color: #8B8B8B;
+}
+.hmtmnav .content .icon3 a{
+    position: absolute;
+    left: 130px;
+    top: 6px;
+    width: 124px;
+    height: 36px;
+    background: url(../images/logo_footer.png) 0 0 no-repeat;
+}
+/*底部导航栏 E*/
+/*版尾 B*/
+.bottom {
+    width: 100%;
+    min-width: 1200px;
+    height: 137px;
+    text-align: center;
+    overflow: hidden;
+}
+.inner ul {
+    width: 520px;
+    margin:  0 auto;
+    margin-top: 36px;
+}
+.bottom li {
+    float: left;
+    margin-left: 11px;
+}
+.bottom p {
+    margin-top: 11px;
+    margin-bottom: 11px;
+}
+.bottom a:hover {
+    color: #8FC320;
+}
+.hsscroll {
+    position: fixed;
+    width: 29px;
+    height: 97px;
+    right: 40px;
+    top: 50%;
+    /*background-color: red;*/
+}
+#hsup {
+    position:absolute;
+    width: 29px;
+    height: 17px;
+    background: url(../images/global_scroll_tips.png) 0 0 no-repeat;
+}
+#hstips {
+    position: absolute;
+    width: 29px;
+    height: 29px;
+    left: 0;
+    top: 37px;
+    background: url(../images/global_scroll_tips.png) 0 -37px no-repeat;
+}
+#hsdown {
+    position: absolute;
+    width: 29px;
+    height: 17px;
+    left: 0;
+    top: 80px;
+    background: url(../images/global_scroll_tips.png) 0 -80px no-repeat;
+}
+/*版尾 E*/

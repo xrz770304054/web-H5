@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .star {
+            height: 100px;
+            width: 3px;
+            /*margin: 100px auto;*/
+            border-radius: 30px 0;
+            transform: rotate(45deg);
+            background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#fff), to(#2895EC));
+            box-shadow: 31px 83px 187px #2895EC;
+            position: absolute;
+            top: 0;
+            right: 10px;
+            opacity: 1;
+        }
+
+        .star2 {
+            right: 600px;
+
+        }
+
+        .start3 {
+            right: 1200px;
+        }
+    </style>
+</head>
+<body>
+<div class="star" id="star1"></div>
+<div class="star star2" id="star2"></div>
+<div class="star start3" id="star3"></div>
+<script>
+    var star1 = document.getElementById("star1");
+    var star2 = document.getElementById("star2");
+    var star3 = document.getElementById("star3");
+
+       function goStar(){
+           setEveryAnimate(star1, {"right": 300, "top": 300, "opacity": 0,"height":0});
+           setEveryAnimate(star2, {"right": 1200, "top":600, "opacity": 0,"height":0});
+           setEveryAnimate(star3, {"right":1800,  "top":600,"opacity": 0,"height":0});
+       }
+    goStar();
+
+    function getStyle(obj, attr) {
+        if (window.getComputedStyle) {
+            return window.getComputedStyle(obj, null)[attr];
+        } else {
+            return obj.currentStyle[attr];
+        }
+    }
+
+    function setEveryAnimate(obj, json, fn) {//json 属性名：属性值
+        clearInterval(obj.timer);
+        obj.timer = setInterval(function () {
+            var flag = true;
+            for (var k in json) {
+                if (k === "opacity") {//opacity透明度 要特殊处理
+                    //opacity没有单位 参与运算自动转换成数值 所以不用parsetInt
+                    //取值范围 0-1 0.1 0.33 33 为了让以前的计算公式生效 要扩大100倍
+                    var leader = getStyle(obj, k) * 100;
+                    var target = json[k] * 100;
+                    var step = (target - leader) / 50;
+                    step = step > 0 ? Math.ceil(step) : Math.floor(step);
+                    leader = (leader + step);
+                    obj.style[k] = leader / 100;//opacity没有单位
+                } else if (k === "zIndex") {
+                    obj.style.zIndex = json[k];//层级不需要渐变 直接设置即可
+                } else {
+                    var leader = parseInt(getStyle(obj, k)) || 0;
+                    var target = json[k];
+                    var step = (target - leader) / 50;
+                    step = step > 0 ? Math.ceil(step) : Math.floor(step);
+                    leader = leader + step;
+                    obj.style[k] = leader + "px";
+                }
+                if (leader != target) {
+                    flag = false;
+                }
+            }
+            if (flag) {
+               clearInterval(obj.timer);
+                if (fn) {
+                    fn();
+                }
+            }
+        },15);
+    }
+</script>
+</body>
+</html>

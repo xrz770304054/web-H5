@@ -1,0 +1,143 @@
+@charset "UTF-8";
+/*设置默认编码集*/
+
+/*滚动条 start*/
+/*滚动条两端的按钮*/
+::-webkit-scrollbar-button {
+    width: 0.3em;
+    height: 0.3em;
+    background-color: green;
+    border-radius: 7px;
+}
+
+/*滚动条整体部分，可以设置宽度*/
+::-webkit-scrollbar {
+    width: 0.5em;
+    background-color: #22b3e8;
+}
+
+/*滚动的滑块*/
+::-webkit-scrollbar-thumb {
+    width: 0.2em;
+    height: 0.1em;
+    background-color: #31C27C;
+    border-radius: 10px;
+}
+
+/*边角*/
+::-webkit-scrollbar-corner {
+    border-radius: 2px;
+}
+
+/*外侧轨道*/
+::-webkit-scrollbar-track {
+    border-radius: 2px;
+    width: 0.2em;
+    background-color: #ccc;
+}
+/*横向滚动条*/
+::-webkit-scrollbar:horizontal {
+    height: 0;
+}
+/*css 初始化 */
+html, body, ul, li, dl, dd, dt, p, h1, h2, h3, form, img {
+    margin: 0;
+    padding: 0;
+}
+
+img, input, button {
+    border: none;
+    padding: 0;
+    margin: 0;
+    outline-style: none;
+}
+
+ul, ol {
+    list-style: none;
+}
+
+input {
+    padding-top: 0;
+    padding-bottom: 0;
+    font-family: "微软雅黑";
+}
+
+select, input, textarea {
+    font-size: 12px;
+    margin: 0;
+}
+
+/*防止拖动 影响布局*/
+textarea {
+    resize: none;
+}
+
+/*去掉行内替换元素空白缝隙*/
+img {
+    border: 0;
+    vertical-align: middle;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+body {
+    font: 12px/150% "微软雅黑";
+    color: #333;
+}
+
+/*清除浮动*/
+.clearfix:before, .clearfix:after {
+    content: "";
+    display: table;
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+.clearfix {
+    *zoom: 1; /*IE/7/6*/
+}
+
+a {
+    color: #333;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #31C27C;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    text-decoration: none;
+    font-weight: normal;
+    font-size: 100%;
+}
+
+/*废物利用*/
+s, i, em {
+    font-style: normal;
+    text-decoration: none;
+}
+
+/*主题色*/
+.col {
+    color: #31C27C !important;
+}
+
+/*公共类*/
+.w {
+    /*版心 提取 */
+    width: 1210px;
+    margin: 0 auto;
+}
+
+.fl {
+    float: left;
+}
+
+.fr {
+    float: right;
+}

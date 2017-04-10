@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .star{
+            position: absolute;
+            width: 109px;
+            height: 152px;
+            -webkit-animation: star 4.5s both infinite linear;
+            animation: star 4.5s both infinite linear;
+            text-indent: -99em;
+            overflow: hidden;
+            background:url(images/start.png) 0 0 no-repeat;
+
+        }
+        .star1{
+            top:150px;
+            left:20px;
+            animation-delay:0.5s;
+            -webkit-animation-delay:0.5s;
+        }
+        .star2{
+            top: 90px;
+            right:160px;
+            animation-delay:1s;
+            -webkit-animation-delay:1s;
+        }
+        .star3{
+            top:220px;
+            left:550px;
+            animation-delay:1.5s;
+            -webkit-animation-delay:1.5s;
+        }
+        .star4{
+            top:300px;
+            left:320px;
+            animation-delay:2s;
+            -webkit-animation-delay:2s;
+        }
+        .star5{
+            top:140px;
+            right:50px;
+            animation-delay:2.5s;
+            -webkit-animation-delay:2.5s;
+        }
+        @-webkit-keyframes star{
+            0%{opacity:0;-webkit-transform:translate(216px,-304px)}
+            15%{opacity:1;-webkit-transform:translate(108px,-152px)}
+            100%,25%{opacity:0;-webkit-transform:translate(0,0)}
+        }
+        @keyframes star{
+            0%{opacity:0;transform:translate(216px,-304px)}
+            15%{opacity:1;transform:translate(108px,-152px)}
+            100%,25%{opacity:0;transform:translate(0,0)}
+        }
+
+    </style>
+</head>
+<body>
+<div class="star star1"></div>
+<div class="star star2"></div>
+<div class="star star3"></div>
+<div class="star star4"></div>
+<div class="star star5"></div>
+
+</body>
+</html>

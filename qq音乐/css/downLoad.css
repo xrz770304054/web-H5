@@ -1,0 +1,1144 @@
+.y_head {
+    width: 100%;
+}
+
+.y_menu {
+    background: rgba(0, 0, 0, .3);
+}
+
+.y_menu .y_menuContent {
+    width: 996px;
+    height: 46px;
+    margin: 17px auto;
+}
+
+.y_menu .y_menuContent h2 {
+    float: left;
+    margin-right: 80px;
+}
+
+.y_menuContent h2 a {
+    width: 159px;
+    height: 46px;
+    display: block;
+    background: url("../images/downloadLogo.png");
+    text-indent: -9999em;
+}
+
+.y_menuContent a {
+    color: #fff;
+    font-size: 20px;
+    line-height: 40px;
+    font-family: Tahoma, \5FAE\8F6F\06C5\0ED1, "hiragino sans gb", Helvetica, Arial;
+}
+
+.y_menuContent .y_current {
+    color: #31C27C;
+}
+
+.y_menuContent .y_itemLeft {
+    margin-right: 80px;
+    float: left;
+}
+
+.y_menuContent .y_itemRight {
+    margin-left: 28px;
+    float: right;
+}
+
+.y_content {
+    height: 410px;
+    width: 100%;
+}
+
+.y_content .y_clock {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -300px;
+    margin-left: -530px;
+    /*border: 1px solid red;*/
+    width: 476px;
+    height: 478px;
+}
+
+.clock {
+
+    width: 476px;
+    height: 478px;
+    background: url("../images/watch_bg.png");
+    position: absolute;
+    top: 45px;
+    left: 0;
+}
+
+.watch__hand {
+    display: block;
+    background: url("../images/img_index.png") no-repeat -448px -824px;
+    position: absolute;
+    top: 260px;
+    left: 220px;
+    width: 131px;
+    height: 105px;
+
+    -webkit-animation: watchHand 2s both;
+    animation: watchHand 2s both;
+    -webkit-transform-origin: 24px 24px;
+    transform-origin: 24px 24px
+}
+
+.watch__numb1 {
+    position: absolute;
+    top: 360px;
+    left: 204px;
+    width: 40px;
+    height: 50px;
+    background: url("../images/watch_num.png") no-repeat 0 0;
+
+    -webkit-animation: watchNumb1 1.5s steps(6) both;
+    animation: watchNumb1 1.5s steps(6) both;
+    background-position: 0 -300px \0;
+
+}
+
+.watch__numb2 {
+    position: absolute;
+    top: 360px;
+    left: 248px;
+    width: 40px;
+    height: 50px;
+    background: url("../images/watch_num.png") no-repeat 0 0;
+
+    -webkit-animation: watchNumb2 .5s steps(10) 3;
+    animation: watchNumb2 .5s steps(10) 3;
+    background-position: 0 -500px \0;
+
+}
+
+@-webkit-keyframes watchHand {
+    0% {
+        -webkit-transform: rotate(-252deg)
+    }
+    70% {
+        -webkit-transform: rotate(3deg)
+    }
+    80% {
+        -webkit-transform: rotate(-2deg)
+    }
+    90% {
+        -webkit-transform: rotate(1deg)
+    }
+    100% {
+        -webkit-transform: rotate(0deg)
+    }
+}
+
+@keyframes watchHand {
+    0% {
+        transform: rotate(-252deg)
+    }
+    70% {
+        transform: rotate(3deg)
+    }
+    80% {
+        transform: rotate(-2deg)
+    }
+    90% {
+        transform: rotate(1deg)
+    }
+    100% {
+        transform: rotate(0deg)
+    }
+}
+
+@-webkit-keyframes watchNumb1 {
+    0% {
+        background-position: 0 0
+    }
+    100% {
+        background-position: 0 -300px
+    }
+}
+
+@keyframes watchNumb1 {
+    0% {
+        background-position: 0 0
+    }
+    100% {
+        background-position: 0 -300px
+    }
+}
+
+@-webkit-keyframes watchNumb2 {
+    0% {
+        background-position: 0 0
+    }
+    100% {
+        background-position: 0 -500px
+    }
+}
+
+@keyframes watchNumb2 {
+    0% {
+        background-position: 0 0
+    }
+    100% {
+        background-position: 0 -500px
+    }
+}
+
+/* 星星 */
+.star{
+    position: absolute;
+    width: 109px;
+    height: 152px;
+    -webkit-animation: star 4.5s both infinite linear;
+    animation: star 4.5s both infinite linear;
+    text-indent: -99em;
+    overflow: hidden;
+    background:url(../images/start.png) 0 0 no-repeat;
+
+}
+.star1{
+    top:150px;
+    left:240px;
+    animation-delay:0.5s;
+    -webkit-animation-delay:0.5s;
+}
+.star2{
+    top: 240px;
+    left:650px;
+    animation-delay:1s;
+    -webkit-animation-delay:1s;
+}
+.star3{
+    top:270px;
+    left:425px;
+    animation-delay:1.5s;
+    -webkit-animation-delay:1.5s;
+}
+.star4{
+    top:80px;
+    left:1000px;
+    animation-delay:2s;
+    -webkit-animation-delay:2s;
+}
+.star5{
+    top:50px;
+    left:1150px;
+    animation-delay:2.5s;
+    -webkit-animation-delay:1.5s;
+}
+@-webkit-keyframes star{
+    0%{opacity:0;-webkit-transform:translate(216px,-304px)}
+    15%{opacity:1;-webkit-transform:translate(108px,-152px)}
+    100%,25%{opacity:0;-webkit-transform:translate(0,0)}
+}
+@keyframes star{
+    0%{opacity:0;transform:translate(216px,-304px)}
+    15%{opacity:1;transform:translate(108px,-152px)}
+    100%,25%{opacity:0;transform:translate(0,0)}
+}
+
+
+.y_content {
+    position: relative;
+}
+
+.y_content .y_prime {
+    width: 578px;
+    height: 320px;
+    float: right;
+    margin-right: 90px;
+    position: relative;
+}
+
+.y_content .y_prime .y_txt {
+    margin-top: 40px;
+    position: relative;
+}
+
+.y_content .y_prime .y_txt li {
+    position: absolute;
+    opacity: 0;
+}
+
+.y_prime .y_txt li.y_pc {
+    width: 578px;
+    height: 214px;
+    background: url("../images/img_index.png") no-repeat 0 0;
+    z-index: 3;
+    opacity: 1;
+}
+
+.y_prime .y_txt .y_mac {
+    width: 623px;
+    height: 145px;
+    background: url("../images/img_index.png") no-repeat -580px 0;
+
+}
+
+.y_prime .y_txt .y_iphone {
+    width: 370px;
+    height: 159px;
+    background: url("../images/img_index.png") no-repeat 0 -664px;
+
+}
+
+.y_prime .y_txt .y_adriod {
+    width: 520px;
+    height: 149px;
+    background: url("../images/img_index.png") no-repeat -556px -361px;
+
+}
+
+.y_prime .y_downloadNow {
+    width: 297px;
+    height: 69px;
+    display: block;
+    /*float: left;*/
+    background-color: #22D555;
+    font-size: 40px;
+    text-align: center;
+    line-height: 69px;
+    border-radius: 40px;
+    margin-top: 4px;
+    position: absolute;
+    /*top:50%;*/
+    bottom: 0;
+    left: 0;
+}
+
+.y_prime .y_downloadNow a {
+    color: #fff;
+
+}
+
+.y_nav {
+    border: 1px solid #161616;
+    height: 189px;
+    background: rgba(0, 0, 0, .3);
+    position: relative;
+}
+
+.y_nav li {
+    /*width: 111px;*/
+    /*border: 1px solid red;*/
+    float: left;
+    margin-left: 185px;
+
+}
+
+.y_nav li a {
+    width: 113px;
+    height: 170px;
+    display: block;
+    text-align: center;
+}
+
+.y_nav .y_currenta {
+    border-top: 2px solid #fff;
+}
+
+ .iconArrow {
+    position: absolute;
+    bottom: 32px;
+    left: 50%;
+    margin-left: -18px;
+    width: 36px;
+    height: 20px;
+    background: url("../images/img_index.png") no-repeat -1036px -147px;
+    animation: iconArrow 1.5s infinite both 2s;
+    z-index: 9;
+}
+
+.active .icon_arrow {
+    -webkit-animation: iconArrow 1.5s infinite both 2s;
+    animation: iconArrow 1.5s infinite both 2s
+}
+
+@-webkit-keyframes iconArrow {
+    0% {
+        opacity: 0;
+        -webkit-transform: translate3d(0, -8px, 0)
+    }
+    60% {
+        opacity: 1;
+        -webkit-transform: translate3d(0, 0, 0)
+    }
+    100% {
+        opacity: 0;
+        -webkit-transform: translate3d(0, 8px, 0)
+    }
+}
+
+@keyframes iconArrow {
+    0% {
+        opacity: 0;
+        transform: translate3d(0, -8px, 0)
+    }
+    60% {
+        opacity: 1;
+        transform: translate3d(0, 0, 0)
+    }
+    100% {
+        opacity: 0;
+        transform: translate3d(0, 8px, 0)
+    }
+}
+
+
+/* 歌手部分 S  */
+.q_singer
+{
+    position: relative;
+
+    overflow: hidden;
+
+    width: 100%;
+    height: 900px;
+
+    background: rgba(0,0,0,1);
+}
+.q_singer-inner
+{
+    /* margin: 0 auto; */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    /* background-color: pink; */
+
+    width: 1920px; /* 7x5*/
+    height: 1069px;
+    margin: -534px -960px;
+}
+
+/* 歌手图片开始 */
+.part_singer__item
+{
+    position: relative;
+    float: left;
+    width: 211px;
+    height: 211px;
+}
+.part_singer__pic
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 211px;
+}
+.part_singer__pic1,
+.part_singer__pic10,
+.part_singer__pic11,
+.part_singer__pic14,
+.part_singer__pic15,
+.part_singer__pic16,
+.part_singer__pic18,
+.part_singer__pic2,
+.part_singer__pic22,
+.part_singer__pic3,
+.part_singer__pic4,
+.part_singer__pic5,
+.part_singer__pic6,
+.part_singer__pic7,
+.part_singer__pic8,
+.part_singer__pic9
+{
+    background: url(../images/sprite1.jpg) no-repeat;
+}
+.part_singer__pic1
+{
+    background-position: 0 0;
+}
+.part_singer__pic2
+{
+    background-position: 0 -212px;
+}
+.part_singer__pic3
+{
+    background-position: 0 -424px;
+}
+.part_singer__pic4
+{
+    background-position: 0 -636px;
+}
+.part_singer__pic5
+{
+    background-position: 0 -848px;
+}
+.part_singer__pic6
+{
+    background-position: 0 -1060px;
+}
+.part_singer__pic7
+{
+    background-position: 0 -1272px;
+}
+.part_singer__pic8
+{
+    background-position: 0 -1482px;
+}
+.part_singer__pic9
+{
+    background-position: 0 -1696px;
+}
+.part_singer__pic10
+{
+    background-position: 0 -1908px;
+}
+.part_singer__pic11
+{
+    background-position: 0 -2120px;
+}
+.part_singer__pic14
+{
+    background-position: 0 -2332px;
+}
+.part_singer__pic15
+{
+    background-position: 0 -2544px;
+}
+.part_singer__pic16
+{
+    background-position: 0 -2756px;
+}
+.part_singer__pic18
+{
+    background-position: 0 -2968px;
+}
+.part_singer__pic22
+{
+    background-position: 0 -3180px;
+}
+.part_singer__pic23,
+.part_singer__pic24,
+.part_singer__pic26,
+.part_singer__pic27,
+.part_singer__pic28,
+.part_singer__pic29,
+.part_singer__pic31,
+.part_singer__pic33,
+.part_singer__pic34,
+.part_singer__pic36,
+.part_singer__pic37,
+.part_singer__pic38,
+.part_singer__pic39,
+.part_singer__pic40,
+.part_singer__pic41,
+.part_singer__pic42,
+.part_singer__pic43,
+.part_singer__pic44,
+.part_singer__pic45
+{
+    background: url(../images/sprite2.jpg) no-repeat;
+}
+.part_singer__pic23
+{
+    background-position: 0 0;
+}
+.part_singer__pic24
+{
+    background-position: 0 -212px;
+}
+.part_singer__pic26
+{
+    background-position: 0 -424px;
+}
+.part_singer__pic27
+{
+    background-position: 0 -636px;
+}
+.part_singer__pic28
+{
+    background-position: 0 -848px;
+}
+.part_singer__pic29
+{
+    background-position: 0 -1060px;
+}
+.part_singer__pic31
+{
+    background-position: 0 -1272px;
+}
+.part_singer__pic33
+{
+    background-position: 0 -1482px;
+}
+.part_singer__pic34
+{
+    background-position: 0 -1696px;
+}
+.part_singer__pic36
+{
+    background-position: 0 -1908px;
+}
+.part_singer__pic37
+{
+    background-position: 0 -2120px;
+}
+.part_singer__pic38
+{
+    background-position: 0 -2332px;
+}
+.part_singer__pic39
+{
+    background-position: 0 -2544px;
+}
+.part_singer__pic40
+{
+    background-position: 0 -2756px;
+}
+.part_singer__pic41
+{
+    background-position: 0 -2968px;
+}
+.part_singer__pic42
+{
+    background-position: 0 -3180px;
+}
+.part_singer__pic43
+{
+    background-position: 0 -3392px;
+}
+.part_singer__pic44
+{
+    background-position: 0 -3604px;
+}
+.part_singer__pic45
+{
+    background-position: 0 -3816px;
+}
+.part_singer__pic
+{
+    -webkit-animation: fadeIn 1.2s both;
+            animation: fadeIn 1.2s both;
+}
+@-webkit-keyframes fadeIn
+{
+    0%
+    {
+        -webkit-transform: scale(1.2);
+
+        opacity: 0;
+    }100%
+    {
+        -webkit-transform: scale(1);
+
+        opacity: 1;
+    }
+}
+.part_singer__pic1,
+.part_singer__pic11,
+.part_singer__pic6
+{
+    -webkit-animation-delay: 7s;
+            animation-delay: 7s;
+}
+.part_singer__pic16,
+.part_singer__pic21,
+.part_singer__pic26,
+.part_singer__pic31,
+.part_singer__pic41
+{
+    -webkit-animation-delay: 5.5s;
+            animation-delay: 5.5s;
+}
+.part_singer__pic12,
+.part_singer__pic2,
+.part_singer__pic23,
+.part_singer__pic7
+{
+    -webkit-animation-delay: 5.5s;
+            animation-delay: 5.5s;
+}
+.part_singer__pic17,
+.part_singer__pic22,
+.part_singer__pic27
+{
+    -webkit-animation-delay: 7s;
+            animation-delay: 7s;
+}
+.part_singer__pic3,
+.part_singer__pic38,
+.part_singer__pic40,
+.part_singer__pic8
+{
+    -webkit-animation-delay: 6s;
+            animation-delay: 6s;
+}
+.part_singer__pic18,
+.part_singer__pic28,
+.part_singer__pic33,
+.part_singer__pic42
+{
+    -webkit-animation-delay: 6.5s;
+            animation-delay: 6.5s;
+}
+.part_singer__pic14,
+.part_singer__pic4,
+.part_singer__pic9
+{
+    -webkit-animation-delay: 8s;
+            animation-delay: 8s;
+}
+.part_singer__pic19,
+.part_singer__pic24,
+.part_singer__pic29,
+.part_singer__pic34,
+.part_singer__pic43
+{
+    -webkit-animation-delay: 6.2s;
+            animation-delay: 6.2s;
+}
+.part_singer__pic36,
+.part_singer__pic44,
+.part_singer__pic5
+{
+    -webkit-animation-delay: 7.5s;
+            animation-delay: 7.5s;
+}
+.part_singer__pic10,
+.part_singer__pic15,
+.part_singer__pic32,
+.part_singer__pic37,
+.part_singer__pic13,
+.part_singer__pic25
+{
+    -webkit-animation-delay: 5.3s;
+            animation-delay: 5.3s;
+}
+.part_singer__pic20,
+.part_singer__pic30,
+.part_singer__pic35,
+.part_singer__pic39,
+.part_singer__pic45
+{
+    -webkit-animation-delay: 5.8s;
+            animation-delay: 5.8s;
+}
+
+/* 歌手图片结束 */
+.q_singer_title
+{
+    position: absolute;
+    z-index: 2;
+    top: 445px;
+    left: 680px;
+
+    width: 563px;
+    height: 75px;
+
+    background: url(../images/img_index.png) -445px -512px;
+    /* background-color: blue; */
+}
+.q_singer_bottom
+{
+    position: absolute;
+    z-index: 2;
+    top: 560px;
+    left: 783px;
+
+    width: 348px;
+    height: 69px;
+
+    background: url(../images/img_index.png) -842px -664px;
+    /* background-color: red; */
+}
+.icon_arrow
+{
+    position: absolute;
+    z-index: 3;
+    bottom: 32px;
+    left: 47%;
+
+    width: 36px;
+    height: 20px;
+
+    -webkit-animation: iconArrow 1.5s infinite both 2s;
+            animation: iconArrow 1.5s infinite both 2s;
+
+    background: url(../images/img_index.png) -1036px -147px;
+}
+@-webkit-keyframes iconArrow
+{
+    0%
+    {
+        -webkit-transform: translate3d(0,-8px,0);
+
+        opacity: 0;
+    }60%
+    {
+        -webkit-transform: translate3d(0,0,0);
+
+        opacity: 1;
+    }100%
+    {
+        -webkit-transform: translate3d(0,8px,0);
+
+        opacity: 0;
+    }
+}
+/* 歌手部分     E  */
+
+/* bg_lyric     S */
+.q_lyric
+{
+    /*背景图像完全覆盖背景区域。 */
+    position: relative;
+
+    overflow: hidden;
+
+    width: 100%;
+    height: 900px;
+
+    background: url(../images/bg_lyric.jpg) 50%  no-repeat;
+    background-size: cover;
+}
+.q_banxin
+{
+    /* background-color: red; */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    width: 1920px;
+    height: 900px;
+    margin: -451px -960px;
+}
+.q_lyric .inner_t
+{
+    position: absolute;
+    top: 320px;
+    left: 460px;
+
+    width: 554px;
+    height: 149px;
+
+    background: url(../images/img_index.png) 0 -360px;
+    /* background-color: red; */
+}
+.q_lyric .inner_b
+{
+    position: absolute;
+    top: 510px;
+    left: 460px;
+
+    width: 468px;
+    height: 69px;
+
+    background: url(../images/img_index.png) -372px -664px;
+    /* background-color: yellow; */
+}
+.inner_box
+{
+    position: absolute;
+    top: 20px;
+    right: 315px;
+
+    width: 580px;
+    height: 892px;
+    /* background-color: #9326ff; */
+
+    -webkit-transform-origin: 0 50%;
+            transform-origin: 0 50%;
+    -webkit-animation: lyricPhone 2s both;
+            animation: lyricPhone 2s both;
+
+    background: url(../images/lyric_phonebox.png);
+}
+.inner_box2
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 580px;
+    height: 892px;
+
+    background: url(../images/lyric_phonebox.png);
+}
+.lyric_phone_outer
+{
+    position: absolute;
+    top: 138px;
+    left: 101px;
+    /* background-color: purple; */
+
+    width: 350px;
+    height: 604px;
+
+    transform: rotate(7.5deg);
+
+    background: url(../images/lyric_phone1.jpg);
+}
+.lyric_phone
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 350px;
+    height: 604px;
+
+    -webkit-animation: lyricPhone2 1.5s linear both 2.2s;
+    /* background-color: pink; */
+
+    background-image: url(../images/lyric_phone2.jpg) ;
+}
+@-webkit-keyframes lyricPhone2
+{
+    0%
+    {
+        opacity: 0;
+    }100%
+    {
+        opacity: 1;
+    }
+}
+/* bg_lyric     E */
+/* 智能推荐     S */
+.q_active
+{
+    position: relative;
+
+    overflow: hidden;
+
+    width: 100%;
+    height: 900px;
+
+    background: url(../images/bg_like.jpg) 50% no-repeat;
+    background-size: cover;
+}
+.q_active_phone
+{
+    /* background-color: pink; */
+    position: absolute;
+    top: 101px;
+    left: 400px;
+
+    width: 520px;
+    height: 807px;
+
+    -webkit-animation: likePhone 2s both .5s;
+            animation: likePhone 2s both .5s;
+}
+
+.phone_box
+{
+    position: absolute;
+
+    overflow: hidden;
+
+    width: 450px;
+    height: 778px;
+
+    background: url(../images/like_phonebox.png);
+}
+.phone_box_inner
+{
+    position: absolute;
+    top: 176px;
+    left: 61px;
+
+    overflow: hidden;
+
+    width: 347px;
+    height: 500px;
+    /* background-color: blue; */
+
+    -webkit-transform: rotate(-5.5deg);
+            transform: rotate(-5.5deg);
+    -webkit-animation: likePhone2 1.5s linear forwards 2.5s;
+            animation: likePhone2 1.5s linear forwards 2.5s;
+
+    background: url(../images/like_phone.jpg) no-repeat;
+}
+@-webkit-keyframes likePhone2
+{
+    0%
+    {
+        background-position: 0 0;
+    }100%
+    {
+        background-position: 0 -210px;
+    }
+}
+.q_active_t
+{
+    position: absolute;
+    top: 323px;
+    left: 910px;
+
+    width: 615px;
+    height: 143px;
+
+    background: url(../images/img_index.png) 0 -215px;
+    /* background-color: pink; */
+}
+.q_active_b
+{
+    position: absolute;
+    top: 508px;
+    left: 910px;
+
+    width: 550px;
+    height: 69px;
+
+    background: url(../images/img_index.png) -445px -587px;
+    /* background-color: blue; */
+}
+/* 智能推荐     E */
+
+/* 多终端云同步 S */
+.q_synchro
+{
+    position: relative;
+
+    width: 100%;
+    height: 900px;
+
+    background: url(../images/bg_synchro.jpg) 50% no-repeat;
+    background-size: cover;
+}
+.synchro_inner_tit
+{
+    position: absolute;
+    top: 216px;
+    left: 383px;
+
+    width: 544px;
+    height: 136px;
+
+    background: url(../images/img_index.png) -617px -216px;
+    /* background-color: red; */
+}
+.synchro_inner_bttom
+{
+    position: absolute;
+    top: 377px;
+    left: 383px;
+
+    width: 453px;
+    height: 63px;
+
+    background: url(../images/img_index.png) -580px -147px;
+    /* background-color: blue; */
+}
+.synchro_phone
+{
+    position: absolute;
+    top: 450px;
+    left: 560px;
+
+    width: 255px;
+    height: 329px;
+    /* background-color: red; */
+
+    -webkit-animation: likePhone 3s both .5s;
+            animation: likePhone 3s both .5s;
+
+    background: url(../images/synchro_phone.png);
+}
+
+@-webkit-keyframes likePhone
+{
+    0%
+    {
+        -webkit-transform: translateX(-80px);
+
+        opacity: 0;
+    }80%
+    {
+        opacity: 1;
+    }100%
+    {
+        -webkit-transform: translateX(0);
+
+        opacity: 1;
+    }
+}
+.synchro_mac
+{
+    position: absolute;
+    top: 58px;
+    right: 340px;
+
+    width: 620px;
+    height: 784px;
+    /* background-color: pink; */
+
+    -webkit-animation: lyricPhone 2s both 0s;
+            animation: lyricPhone 2s both 0s;
+
+    background: url(../images/synchro_mac1.png) 0 0 no-repeat;
+}
+@-webkit-keyframes lyricPhone
+{
+    0%
+    {
+        -webkit-transform: translateX(90px);
+
+        opacity: 0;
+    }80%
+    {
+        opacity: 1;
+    }100%
+    {
+        -webkit-transform: translateX(0);
+
+        opacity: 1;
+    }
+}
+.synchro_mac2
+{
+    position: absolute;
+    bottom: 0;
+
+    width: 620px;
+    height: 376px;
+
+    background: url(../images/synchro_mac2.png) no-repeat;
+    /* background-color: red; */
+}
+.synchro_footer
+{
+    font-family: Tahoma,Arial;
+    font-size: 12px;
+
+    position: absolute;
+    bottom: 0;
+
+    width: 100%;
+    height: 72px;
+
+    color: white;
+    /* background-color: pink; */
+    background: rgba(0,0,0,.3);
+}
+.synchro_footer .copyright
+{
+    margin-top: 14px;
+}
+.synchro_footer p
+{
+    line-height: 22px;
+
+    height: 22px;
+    /* background-color: blue; */
+    margin: 0;
+
+    text-align: center;
+}
+.synchro_footer p a
+{
+    text-decoration: none;
+
+    color: white;
+}
+.synchro_footer p a:hover
+{
+    text-decoration: underline;
+}
+/* 多终端云同步 E */
