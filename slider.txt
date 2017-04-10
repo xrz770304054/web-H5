@@ -1,0 +1,35 @@
+﻿调用slider函数传递一个对象
+	box属性： 要做轮播的容器（必须有宽高）。
+	src属性： 轮播的图片的src地址数组。
+	href属性：点击图片跳转的链接的路径的数组（如果要传递，必须与src数组长度一致）。
+	autoPlay属性：控制轮播图自动轮播 有字符串值 'on' 'off' 'fast' 'mid' 'slow'分别对应 打开 关闭 快 中 慢  也可以传递以毫秒为单位的数值
+
+slider提供了两个方法: 
+	slider.setDotCss 传递一个对象
+		ul属性：传递要修改ul的样式的css
+		li属性：传递要修改li的样式的css（都以对象模式传递）
+
+	slider.setArrowCss 传递一个对象
+		right属性：传递要修改右翻页按钮的样式的css
+		left属性：传递要修改左翻页按钮的样式的css（都以对象模式传递）
+
+例如：slider.setDotCss( {
+	ul:{
+		left:'50%',
+		transform:'translateX( -50% )'
+	},
+	li:{
+		borderRadius: '50%'
+	}
+} )
+
+slider.setArrowCss( {
+	right:{
+		opacity:'.3',
+		fontSize: '20px'
+	},
+	left:{
+		opacity:'.3',
+		fontSize: '20px'
+	}
+} )
