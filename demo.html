@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <style type="text/css">
+    *{
+        padding:0;
+        margin:0;
+    }
+        div{
+            width: 730px;
+            height: 454px;
+        }
+        li{
+            list-style:none;
+        }
+        a{
+            text-decoration:none;
+        }
+    </style>
+    <script src="slider.min.js"></script>
+</head>
+<body>
+    <div id="info"></div>
+    <script>
+    var aaa={
+        box:document.getElementById('info'),
+        srcList:['img/slider2.jpg','img/slider3.jpg','img/slider4.jpg'],
+        autoPlay:1000
+    }
+    slider(aaa);
+    //这个插件传入三个参数，第一个参数box是放入的容器，第二个参数是传入的图片，第三个参数是轮播事件 如果是off就是停止轮播
+    //还有两个方法，第一个方法，自定义更改圆点的样式，setDotCss因为是方法，slider.setDotCss({}) 传入的li和ul 分别是li和ul的样式
+    slider.setDotCss({
+        li:{borderRadius:'0px',
+        color:'blue'
+    },
+        ul:{
+            left:'50%',
+            transform:'translateX(-50%)'
+        }
+    })
+    //第二个方法，是更改左右箭头的样式，里面传入的left和right的样式，就可以了
+    // slider.setArrowCss({
+    //     left:{
+    //         width:'200px'
+    //     },
+    //     right{
+    //         width:'200px'
+    //     }
+    // })
+    </script>
+</body>
+</html>
